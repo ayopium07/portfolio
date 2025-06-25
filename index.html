@@ -1,0 +1,1806 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Joshua Ayotope Temisan - Mobile App Developer</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
+    <style>
+      :root {
+        --primary-color: #4361ee;
+        --primary-light: #4895ef;
+        --secondary-color: #3a0ca3;
+        --dark-bg: #0b132b;
+        --card-bg: #1c2541;
+        --text-primary: #f8f9fa;
+        --text-secondary:   #ced4da;
+        --text-muted: #adb5bd;
+        --spacing-sm: 0.5rem;
+        --spacing-md: 1rem;
+        --spacing-lg: 2rem;
+        --border-radius: 12px;
+        --transition-speed: 0.3s;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--dark-bg);
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      /* Header & Navigation */
+      header {
+        background-color: rgba(28, 37, 65, 0.95);
+        backdrop-filter: blur(10px);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--spacing-md) var(--spacing-lg);
+        width: 100%;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-md);
+      }
+
+      .logo-img {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid var(--primary-light);
+      }
+
+      .logo-text h1 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+
+      .logo-text p {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: var(--spacing-lg);
+      }
+
+      .nav-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1rem;
+        position: relative;
+        transition: color var(--transition-speed);
+      }
+
+      .nav-links a:hover {
+        color: var(--primary-light);
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background-color: var(--primary-light);
+        transition: width var(--transition-speed);
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* Mobile Menu Toggle */
+      .mobile-menu-toggle {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        padding: 5px;
+        z-index: 1000;
+      }
+
+      .mobile-menu-toggle span {
+        width: 25px;
+        height: 3px;
+        background-color: var(--text-primary);
+        margin: 3px 0;
+        transition: 0.3s;
+        border-radius: 2px;
+      }
+
+      .mobile-menu-toggle.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+      }
+
+      .mobile-menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .mobile-menu-toggle.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+      }
+
+      /* Animation classes */
+      .section {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .section.animate-in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      body.loaded .section {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Main Content */
+      .main-wrapper {
+        display: flex;
+        width: 100%;
+        margin: var(--spacing-lg) 0;
+        padding: 0 var(--spacing-lg);
+        gap: var(--spacing-lg);
+        flex: 1;
+      }
+
+      /* Sidebar */
+      .sidebar {
+        width: 320px;
+        background-color: var(--card-bg);
+        border-radius: var(--border-radius);
+        padding: var(--spacing-lg);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        height: fit-content;
+        position: sticky;
+        top: calc(73px + var(--spacing-lg));
+      }
+
+      .profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: var(--spacing-lg);
+      }
+
+      .profile-pic {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid var(--primary-color);
+        padding: 4px;
+        margin-bottom: var(--spacing-md);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      .profile h2 {
+        font-size: 1.5rem;
+        margin-bottom: var(--spacing-sm);
+        color: var(--text-primary);
+      }
+
+      .profile p {
+        color: var(--primary-light);
+        font-weight: 500;
+        margin-bottom: var(--spacing-md);
+      }
+
+      .contact-info {
+        width: 100%;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: var(--spacing-md);
+        padding-bottom: var(--spacing-md);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .contact-item:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+
+      .contact-icon {
+        background-color: rgba(67, 97, 238, 0.2);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: var(--spacing-md);
+        color: var(--primary-light);
+      }
+
+      .contact-text {
+        flex: 1;
+        text-align: left;
+      }
+
+      .contact-text strong {
+        display: block;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin-bottom: 2px;
+      }
+
+      .contact-text span {
+        font-size: 0.95rem;
+        color: var(--text-secondary);
+      }
+
+      /* Main Content Area */
+      .main-content {
+        flex: 1;
+      }
+
+      .section {
+        background-color: var(--card-bg);
+        border-radius: var(--border-radius);
+        padding: var(--spacing-lg);
+        margin-bottom: var(--spacing-lg);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      }
+
+      .section-title {
+        position: relative;
+        margin-bottom: var(--spacing-lg);
+        padding-bottom: var(--spacing-md);
+        font-size: 1.5rem;
+        color: var(--text-primary);
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--primary-light)
+        );
+        border-radius: 3px;
+      }
+
+      .about-content {
+        color: var(--text-secondary);
+        font-size: 1.05rem;
+        line-height: 1.7;
+      }
+
+      .about-content p {
+        margin-bottom: var(--spacing-md);
+      }
+
+      .about-content p:last-child {
+        margin-bottom: 0;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: var(--spacing-lg);
+      }
+
+      .service-card {
+        background-color: rgba(28, 37, 65, 0.5);
+        border-radius: var(--border-radius);
+        padding: var(--spacing-lg);
+        transition: transform var(--transition-speed),
+          box-shadow var(--transition-speed);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      }
+
+      .service-icon {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        width: 60px;
+        height: 60px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: var(--spacing-md);
+      }
+
+      .service-icon i {
+        font-size: 1.5rem;
+        color: white;
+      }
+
+      .service-title {
+        font-size: 1.2rem;
+        margin-bottom: var(--spacing-sm);
+        color: var(--text-primary);
+      }
+
+      .service-description {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      /* Resume Styles */
+      .resume-content {
+        color: var(--text-secondary);
+      }
+
+      .resume-content h3 {
+        color: var(--primary-light);
+        margin: var(--spacing-lg) 0 var(--spacing-md) 0;
+        font-size: 1.3rem;
+      }
+
+      .resume-content h3:first-child {
+        margin-top: 0;
+      }
+
+      .resume-content h4 {
+        color: var(--text-primary);
+        margin-bottom: var(--spacing-sm);
+        font-size: 1.1rem;
+      }
+
+      .resume-content p {
+        margin-bottom: var(--spacing-md);
+      }
+
+      .resume-content ul {
+        margin-left: var(--spacing-lg);
+        margin-bottom: var(--spacing-md);
+      }
+
+      .resume-content li {
+        margin-bottom: var(--spacing-sm);
+      }
+
+      .job {
+        margin-bottom: var(--spacing-lg);
+      }
+
+      /* Portfolio Styles */
+      .portfolio-intro {
+        color: var(--text-secondary);
+        margin-bottom: var(--spacing-lg);
+        font-size: 1.05rem;
+        line-height: 1.7;
+      }
+
+      .portfolio-filter {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+        margin-bottom: var(--spacing-lg);
+      }
+
+      .filter-btn {
+        background-color: rgba(28, 37, 65, 0.5);
+        color: var(--text-secondary);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 8px 16px;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all var(--transition-speed);
+        font-size: 0.9rem;
+      }
+
+      .filter-btn:hover,
+      .filter-btn.active {
+        background-color: var(--primary-color);
+        color: white;
+      }
+
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: var(--spacing-lg);
+      }
+
+      .portfolio-item {
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        transition: transform var(--transition-speed);
+        height: 250px;
+      }
+
+      .portfolio-item:hover {
+        transform: translateY(-5px);
+      }
+
+      .portfolio-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform var(--transition-speed);
+      }
+
+      .portfolio-item:hover .portfolio-img {
+        transform: scale(1.05);
+      }
+
+      .portfolio-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: var(--spacing-lg);
+        opacity: 0;
+        transition: opacity var(--transition-speed);
+      }
+
+      .portfolio-item:hover .portfolio-overlay {
+        opacity: 1;
+      }
+
+      .portfolio-title {
+        color: white;
+        font-size: 1.2rem;
+        margin-bottom: var(--spacing-sm);
+      }
+
+      .portfolio-category {
+        color: var(--primary-light);
+        font-size: 0.9rem;
+        margin-bottom: var(--spacing-md);
+      }
+
+      .portfolio-link {
+        display: inline-block;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: background-color var(--transition-speed);
+      }
+
+      .portfolio-link:hover {
+        background-color: var(--secondary-color);
+      }
+
+      /* Social Media Section */
+      .socials {
+        background-color: var(--card-bg);
+        border-radius: var(--border-radius);
+        padding: var(--spacing-lg);
+        margin-bottom: var(--spacing-lg);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        text-align: center;
+      }
+
+      .socials h2 {
+        position: relative;
+        margin-bottom: var(--spacing-lg);
+        padding-bottom: var(--spacing-md);
+        font-size: 1.5rem;
+        color: var(--text-primary);
+        display: inline-block;
+      }
+
+      .socials h2::after {
+        content: "";
+        position: absolute;
+        left: 25%;
+        bottom: 0;
+        width: 50%;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--primary-light)
+        );
+        border-radius: 3px;
+      }
+
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: var(--spacing-lg);
+      }
+
+      .social-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background-color: rgba(28, 37, 65, 0.5);
+        border-radius: 50%;
+        color: var(--text-primary);
+        font-size: 1.3rem;
+        transition: all var(--transition-speed);
+        text-decoration: none;
+      }
+
+      .social-icon:hover {
+        background-color: var(--primary-color);
+        color: white;
+        transform: translateY(-5px);
+      }
+
+      /* Enhanced Responsive Design */
+      
+      /* Large Desktop (1400px and up) */
+      @media (min-width: 1400px) {
+        .main-wrapper {
+          max-width: 1600px;
+        }
+        
+        .services-grid {
+          grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        }
+        
+        .portfolio-grid {
+          grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        }
+      }
+
+      /* Desktop (1200px to 1399px) */
+      @media (max-width: 1399px) and (min-width: 1200px) {
+        .main-wrapper {
+          padding: 0 var(--spacing-md);
+        }
+        
+        .sidebar {
+          width: 300px;
+        }
+      }
+
+      /* Tablet Landscape (992px to 1199px) */
+      @media (max-width: 1199px) and (min-width: 992px) {
+        .main-wrapper {
+          flex-direction: column;
+          gap: var(--spacing-md);
+        }
+
+        .sidebar {
+          width: 100%;
+          position: static;
+          order: 2;
+        }
+
+        .main-content {
+          order: 1;
+        }
+
+        .services-grid {
+          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        }
+
+        .portfolio-grid {
+          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        }
+      }
+
+      /* Tablet Portrait (768px to 991px) */
+      @media (max-width: 991px) and (min-width: 768px) {
+        .main-wrapper {
+          flex-direction: column;
+          padding: 0 var(--spacing-md);
+          gap: var(--spacing-md);
+        }
+
+        .sidebar {
+          width: 100%;
+          position: static;
+          order: 2;
+        }
+
+        .main-content {
+          order: 1;
+        }
+
+        .navbar {
+          padding: var(--spacing-md);
+        }
+
+        .logo-text h1 {
+          font-size: 1.1rem;
+        }
+
+        .logo-text p {
+          font-size: 0.8rem;
+        }
+
+        .nav-links {
+          gap: var(--spacing-md);
+        }
+
+        .nav-links a {
+          font-size: 0.95rem;
+        }
+
+        .services-grid {
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+
+        .portfolio-grid {
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+
+        .profile-pic {
+          width: 130px;
+          height: 130px;
+        }
+      }
+
+      /* Mobile Large (576px to 767px) */
+      @media (max-width: 767px) and (min-width: 576px) {
+        .mobile-menu-toggle {
+          display: flex;
+        }
+
+        .nav-links {
+          position: fixed;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background-color: rgba(28, 37, 65, 0.98);
+          backdrop-filter: blur(10px);
+          flex-direction: column;
+          padding: var(--spacing-lg);
+          gap: var(--spacing-md);
+          transform: translateY(-100%);
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-links.active {
+          transform: translateY(0);
+          opacity: 1;
+          visibility: visible;
+        }
+
+        .nav-links a {
+          padding: var(--spacing-sm) 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          width: 100%;
+          text-align: center;
+        }
+
+        .nav-links a:last-child {
+          border-bottom: none;
+        }
+
+        .main-wrapper {
+          flex-direction: column;
+          padding: 0 var(--spacing-md);
+          gap: var(--spacing-md);
+          margin: var(--spacing-md) auto;
+        }
+
+        .sidebar {
+          width: 100%;
+          position: static;
+          order: 2;
+        }
+
+        .main-content {
+          order: 1;
+        }
+
+        .navbar {
+          flex-direction: row;
+          justify-content: space-between;
+          padding: var(--spacing-md);
+          gap: var(--spacing-md);
+        }
+
+        .logo {
+          margin-bottom: 0;
+        }
+
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .portfolio-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .portfolio-filter {
+          justify-content: center;
+          gap: var(--spacing-sm);
+        }
+
+        .filter-btn {
+          font-size: 0.85rem;
+          padding: 6px 12px;
+        }
+
+        .profile-pic {
+          width: 120px;
+          height: 120px;
+        }
+
+        .section {
+          padding: var(--spacing-md);
+        }
+
+        .section-title {
+          font-size: 1.3rem;
+        }
+
+        .social-icons {
+          gap: var(--spacing-md);
+        }
+
+        .social-icon {
+          width: 45px;
+          height: 45px;
+          font-size: 1.2rem;
+        }
+      }
+
+      /* Mobile Medium (375px to 575px) */
+      @media (max-width: 575px) and (min-width: 375px) {
+        .mobile-menu-toggle {
+          display: flex;
+        }
+
+        .nav-links {
+          position: fixed;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background-color: rgba(28, 37, 65, 0.98);
+          backdrop-filter: blur(10px);
+          flex-direction: column;
+          padding: var(--spacing-lg);
+          gap: var(--spacing-md);
+          transform: translateY(-100%);
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-links.active {
+          transform: translateY(0);
+          opacity: 1;
+          visibility: visible;
+        }
+
+        .nav-links a {
+          padding: var(--spacing-sm) 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          width: 100%;
+          text-align: center;
+        }
+
+        .nav-links a:last-child {
+          border-bottom: none;
+        }
+
+        .main-wrapper {
+          flex-direction: column;
+          padding: 0 var(--spacing-sm);
+          gap: var(--spacing-md);
+          margin: var(--spacing-sm) auto;
+        }
+
+        .sidebar {
+          width: 100%;
+          position: static;
+          order: 2;
+        }
+
+        .main-content {
+          order: 1;
+        }
+
+        .navbar {
+          flex-direction: row;
+          justify-content: space-between;
+          padding: var(--spacing-sm);
+          gap: var(--spacing-sm);
+        }
+
+        .logo {
+          margin-bottom: 0;
+        }
+
+        .logo-img {
+          width: 40px;
+          height: 40px;
+        }
+
+        .logo-text h1 {
+          font-size: 1rem;
+        }
+
+        .logo-text p {
+          font-size: 0.75rem;
+        }
+
+        .services-grid {
+          grid-template-columns: 1fr;
+          gap: var(--spacing-md);
+        }
+
+        .portfolio-grid {
+          grid-template-columns: 1fr;
+          gap: var(--spacing-md);
+        }
+
+        .portfolio-item {
+          height: 200px;
+        }
+
+        .portfolio-filter {
+          justify-content: center;
+          gap: var(--spacing-sm);
+        }
+
+        .filter-btn {
+          font-size: 0.8rem;
+          padding: 5px 10px;
+        }
+
+        .profile-pic {
+          width: 100px;
+          height: 100px;
+        }
+
+        .section {
+          padding: var(--spacing-md);
+        }
+
+        .section-title {
+          font-size: 1.2rem;
+        }
+
+        .about-content {
+          font-size: 1rem;
+        }
+
+        .service-card {
+          padding: var(--spacing-md);
+        }
+
+        .service-icon {
+          width: 50px;
+          height: 50px;
+        }
+
+        .service-icon i {
+          font-size: 1.3rem;
+        }
+
+        .social-icons {
+          gap: var(--spacing-sm);
+        }
+
+        .social-icon {
+          width: 40px;
+          height: 40px;
+          font-size: 1.1rem;
+        }
+
+        .contact-icon {
+          width: 35px;
+          height: 35px;
+        }
+
+        .contact-text strong {
+          font-size: 0.8rem;
+        }
+
+        .contact-text span {
+          font-size: 0.9rem;
+        }
+      }
+
+      /* Mobile Small (320px to 374px) */
+      @media (max-width: 374px) {
+        .mobile-menu-toggle {
+          display: flex;
+        }
+
+        .nav-links {
+          position: fixed;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background-color: rgba(28, 37, 65, 0.98);
+          backdrop-filter: blur(10px);
+          flex-direction: column;
+          padding: var(--spacing-lg);
+          gap: var(--spacing-md);
+          transform: translateY(-100%);
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-links.active {
+          transform: translateY(0);
+          opacity: 1;
+          visibility: visible;
+        }
+
+        .nav-links a {
+          padding: var(--spacing-sm) 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          width: 100%;
+          text-align: center;
+        }
+
+        .nav-links a:last-child {
+          border-bottom: none;
+        }
+
+        .main-wrapper {
+          flex-direction: column;
+          padding: 0 var(--spacing-sm);
+          gap: var(--spacing-sm);
+          margin: var(--spacing-sm) auto;
+        }
+
+        .sidebar {
+          width: 100%;
+          position: static;
+          order: 2;
+          padding: var(--spacing-sm);
+        }
+
+        .main-content {
+          order: 1;
+        }
+
+        .navbar {
+          flex-direction: row;
+          justify-content: space-between;
+          padding: var(--spacing-sm);
+          gap: var(--spacing-sm);
+        }
+
+        .logo {
+          margin-bottom: 0;
+        }
+
+        .logo-img {
+          width: 35px;
+          height: 35px;
+        }
+
+        .logo-text h1 {
+          font-size: 0.9rem;
+        }
+
+        .logo-text p {
+          font-size: 0.7rem;
+        }
+
+        .services-grid {
+          grid-template-columns: 1fr;
+          gap: var(--spacing-sm);
+        }
+
+        .portfolio-grid {
+          grid-template-columns: 1fr;
+          gap: var(--spacing-sm);
+        }
+
+        .portfolio-item {
+          height: 180px;
+        }
+
+        .portfolio-filter {
+          justify-content: center;
+          gap: var(--spacing-sm);
+        }
+
+        .filter-btn {
+          font-size: 0.75rem;
+          padding: 4px 8px;
+        }
+
+        .profile-pic {
+          width: 90px;
+          height: 90px;
+        }
+
+        .section {
+          padding: var(--spacing-sm);
+        }
+
+        .section-title {
+          font-size: 1.1rem;
+        }
+
+        .about-content {
+          font-size: 0.95rem;
+        }
+
+        .service-card {
+          padding: var(--spacing-sm);
+        }
+
+        .service-icon {
+          width: 45px;
+          height: 45px;
+        }
+
+        .service-icon i {
+          font-size: 1.2rem;
+        }
+
+        .social-icons {
+          gap: var(--spacing-sm);
+        }
+
+        .social-icon {
+          width: 35px;
+          height: 35px;
+          font-size: 1rem;
+        }
+
+        .contact-icon {
+          width: 30px;
+          height: 30px;
+        }
+
+        .contact-text strong {
+          font-size: 0.75rem;
+        }
+
+        .contact-text span {
+          font-size: 0.85rem;
+        }
+      }
+
+      /* Landscape orientation adjustments */
+      @media (max-height: 500px) and (orientation: landscape) {
+        .main-wrapper {
+          margin: var(--spacing-sm) auto;
+        }
+
+        .sidebar {
+          padding: var(--spacing-sm);
+        }
+
+        .profile-pic {
+          width: 80px;
+          height: 80px;
+        }
+
+        .section {
+          padding: var(--spacing-sm);
+        }
+      }
+
+      /* High DPI displays */
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .profile-pic,
+        .logo-img,
+        .portfolio-img {
+          image-rendering: -webkit-optimize-contrast;
+          image-rendering: crisp-edges;
+        }
+      }
+
+      /* Reduced motion for accessibility */
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
+      /* Dark mode support */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --dark-bg: #0a0a0a;
+          --card-bg: #1a1a1a;
+        }
+      }
+
+      /* Print styles */
+      @media print {
+        .navbar,
+        .socials,
+        .portfolio-filter,
+        .mobile-menu-toggle {
+          display: none;
+        }
+
+        .main-wrapper {
+          flex-direction: column;
+        }
+
+        .sidebar {
+          position: static;
+          width: 100%;
+        }
+
+        body {
+          background: white;
+          color: black;
+        }
+
+        .section {
+          background: white;
+          box-shadow: none;
+          border: 1px solid #ccc;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <nav class="navbar">
+          <div class="logo">
+            <img src="images/profile-pic.jpg" alt="Joshua Temisan" class="logo-img" />
+            <div class="logo-text">
+              <h1>Joshua Ayotope Temisan</h1>
+              <p>Mobile App Developer</p>
+            </div>
+          </div>
+          <div class="mobile-menu-toggle" id="mobileMenuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="nav-links" id="navLinks">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#resume">Resume</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </nav>
+      </header>
+
+      <div class="main-wrapper">
+        <aside class="sidebar">
+          <div class="profile">
+            <img
+              src="images/Just him.jpg"
+              alt="Profile Picture"
+              class="profile-pic"
+            />
+            <h2>Joshua Ayotope Temisan</h2>
+            <p>Mobile App Developer/Cyber Security Analyst</p>
+          </div>
+
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-text">
+                <strong>Email</strong>
+                <span>maceyjoshua07@gmail.com</span>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="contact-text">
+                <strong>Phone</strong>
+                <span>+2349011393407</span>
+                <span>+2348117852082</span>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-briefcase"></i>
+              </div>
+              <div class="contact-text">
+                <strong>Experience</strong>
+                <span>1 Year</span>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-text">
+                <strong>Location</strong>
+                <span>Lagos</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <main class="main-content">
+          <section id="about" class="section">
+            <h2 class="section-title">About Me</h2>
+            <p>
+              I am a passionate Mobile app developer with a year of experience in
+              creating innovative and user-friendly applications for both iOS
+              and Android platforms.
+            </p>
+            <p>
+              My expertise lies in developing high-performance mobile apps
+              that offer seamless user experiences and meet client
+              requirements effectively. I specialize in React Native and Flutter development,
+              allowing me to create cross-platform solutions that reach a wider audience
+              while maintaining native-like performance.
+            </p>
+            <p>
+              With a background in Cyber Security and Network Administration
+            </p>
+          </section>
+
+          <section id="services" class="section" style="display: none">
+            <h2 class="section-title">What I Do</h2>
+            <div class="services-grid">
+              <div class="service-card">
+                <div class="service-icon">
+                  <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3 class="service-title">Mobile App Development</h3>
+                <p class="service-description">
+                  Building innovative and user-friendly mobile applications for
+                  iOS and Android platforms.
+                </p>
+              </div>
+
+              <div class="service-card">
+                <div class="service-icon">
+                  <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3 class="service-title">Cross-Platform Development</h3>
+                <p class="service-description">
+                  Creating versatile apps using frameworks like React Native and
+                  Flutter for broader reach.
+                </p>
+              </div>
+
+              <div class="service-card">
+                <div class="service-icon">
+                  <i class="fas fa-network-wired"></i>
+                </div>
+                <h3 class="service-title">Cyber Security</h3>
+                <p class="service-description">
+                  Protecting systems and networks from cyber threats and
+                  vulnerabilities.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section id="resume" class="section" style="display: none">
+            <h2 class="section-title">Resume</h2>
+            <div class="resume-content">
+              <h3>Education</h3>
+              <p><strong>Bachelor of Science in Cyber Security</strong></p>
+              <p>Caleb University, Nigeria | Graduated: 2024</p>
+
+              <h3>Work Experience</h3>
+              <div class="job">
+                <h4>Mobile App Developer</h4>
+                <p>
+                  <strong>Teacch</strong> | Lagos, Nigeria | Nov 2024 - Present
+                </p>
+                <ul>
+                  <li>
+                    Developed and maintained mobile applications for iOS and
+                    Android platforms.
+                  </li>
+                  <li>
+                    Collaborated with cross-functional teams to define, design,
+                    and ship new features.
+                  </li>
+                  <li>
+                    Participated in code reviews and contributed to team
+                    knowledge sharing.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="job">
+                <h4>Intern - Network and Hardware Technician</h4>
+                <p>
+                  <strong>Nigerian Ports Authority</strong> | Lagos, Nigeria |
+                  May 2023 - Nov 2023
+                </p>
+                <ul>
+                  <li>
+                    Assisted in the configuration and maintenance of network
+                    infrastructure.
+                  </li>
+                  <li>
+                    Supported the network and hardware team in the configuration
+                    and maintenance of network infrastructure.
+                  </li>
+                  <li>
+                    Gained experience in both hardware and software
+                    troubleshooting.
+                  </li>
+                </ul>
+              </div>
+
+              <h3>Skills</h3>
+              <ul>
+                <li>Mobile App Development (React Native, Flutter)</li>
+                <li>Web Development (HTML, CSS)</li>
+                <li>Version Control (Git, GitHub)</li>
+              </ul>
+          </section>
+
+          <section id="portfolio" class="section" style="display: none">
+            <h2 class="section-title">Portfolio</h2>
+            <div class="portfolio-intro">
+              <p>
+                Here are some of my recent mobile application projects. Each one
+                represents my commitment to quality, user experience, and
+                innovative solutions.
+              </p>
+            </div>
+
+            <div class="portfolio-filter">
+              <button
+                class="filter-btn active"
+                onclick="filterPortfolio('all')"
+              >
+                All Projects
+              </button>
+              <button class="filter-btn" onclick="filterPortfolio('mobile')">
+                Mobile Apps
+              </button>
+              </button>
+              <button class="filter-btn" onclick="filterPortfolio('flutter')">
+                Flutter
+              </button>
+              <button class="filter-btn" onclick="filterPortfolio('react')">
+                React Native
+              </button>
+            </div>
+
+            <div class="portfolio-grid">
+              <!-- Project 1 -->
+              <div class="portfolio-item" data-category="mobile react">
+                <img
+                  src="images/Shop_mammy logo.png"
+                  alt="Shopmammy"
+                  class="portfolio-img"
+                />
+                <div class="portfolio-overlay">
+                  <h3 class="portfolio-title">App</h3>
+                  <p class="portfolio-description">A comprehensive e-commerce platform for seamless shopping and order management that allows users to give out from their cart to the community. A platform that supports a cause.</p>
+                  <p class="portfolio-category">React Native, Mobile App</p>
+                </div>
+              </div>
+
+              <!-- Project 2 -->
+              <div class="portfolio-item" data-category="mobile flutter">
+                <img
+                  src="images/f 5.png"
+                  alt="Focus Coach AI"
+                  class="portfolio-img"
+                />
+                <div class="portfolio-overlay">
+                  <h3 class="portfolio-title">Focus AI Coach App</h3>
+                  <p class="portfolio-description">An AI-powered mobile app designed to help users improve focus and productivity.</p>
+                  <p class="portfolio-category">Flutter, AI Coach</p>
+                </div>
+              </div>
+
+              <!-- Project 3 -->
+              <div class="portfolio-item" data-category="mobile react">
+                <img
+                  src="images/SMR V2.png"
+                  alt="Shopmammy Rider"
+                  class="portfolio-img"
+                />
+                <div class="portfolio-overlay">
+                  <h3 class="portfolio-title">Shopmammy Rider Delivery App</h3>
+                  <p class="portfolio-description">A delivery management app for riders, enabling real-time order tracking and efficient deliveries.</p>
+                  <p class="portfolio-category">React Native, Mobile App</p>
+                </div>
+              </div>
+
+              <!-- Project 4 -->
+              <div class="portfolio-item" data-category="mobile flutter">
+                <img
+                  src="images/Oasis.png"
+                  alt="A Bank App"
+                  class="portfolio-img"
+                />
+                <div class="portfolio-overlay">
+                  <h3 class="portfolio-title">OasisBank App</h3>
+                  <p class="portfolio-description">A modern banking app offering secure transactions, account management, and financial tools.</p>
+                  <p class="portfolio-category">Flutter, Mobile App</p>
+                </div>
+              </div>
+
+              <!-- Project 5 -->
+              <div class="portfolio-item" data-category="mobile react">
+                <img
+                  src="images/applogo.png"
+                  alt="Shopmammy Vendor"
+                  class="portfolio-img"
+                />
+                <div class="portfolio-overlay">
+                  <h3 class="portfolio-title">Shopmammy Vendor App</h3>
+                  <p class="portfolio-description">A vendor-focused app for managing products, orders, and sales analytics on the Shopmammy platform.</p>
+                  <p class="portfolio-category">React, Mobile App</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="contact" class="section" style="display: none">
+            <h2 class="section-title">Contact</h2>
+
+            <div class="contact-form-container">
+              <p class="contact-intro">
+                Feel free to reach out to me for collaborations, job
+                opportunities, or any questions. I'll get back to you as soon as
+                possible!
+              </p>
+
+              <form class="contact-form">
+                <div class="form-group">
+                  <label for="name">Your Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your name"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Your Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="subject">Subject</label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    placeholder="Enter subject"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    placeholder="Write your message here..."
+                    required
+                  ></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                  <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+              </form>
+
+              <div class="contact-alternative">
+                <h3>Or Contact Me Directly</h3>
+                <div class="direct-contact">
+                  <div class="direct-contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>maceyjoshua07@gmail.com</span>
+                  </div>
+                  <div class="direct-contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+2349011393407</span>
+                  </div>
+                  <div class="direct-contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Lagos, Nigeria</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Social Media Section -->
+          <section class="socials">
+            <h2>Connect with Me</h2>
+            <div class="social-icons">
+              <a
+                href="https://www.linkedin.com/in/Ayotope Joshua"
+                target="_blank"
+                class="social-icon"
+              >
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a
+                href="https://github.com/ayopium07"
+                target="_blank"
+                class="social-icon"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+              <a
+                href="https://twitter.com/Thatuglyboy_7"
+                target="_blank"
+                class="social-icon"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/temisann7"
+                target="_blank"
+                class="social-icon"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="projectModal" class="modal">
+      <div class="modal-content">
+        <span class="close-button" onclick="closeModal()">&times;</span>
+        <h2 id="modalTitle">Project Title</h2>
+        <p id="modalDescription">Project description goes here.</p>
+        <a id="modalLink" href="#" target="_blank">View Project</a>
+      </div>
+    </div>
+
+    <script>
+      // Mobile menu toggle functionality
+      const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+      const navLinks = document.getElementById('navLinks');
+
+      mobileMenuToggle.addEventListener('click', function() {
+        mobileMenuToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+      });
+
+      // Close mobile menu when clicking on a link
+      const navLinksItems = navLinks.querySelectorAll('a');
+      navLinksItems.forEach(link => {
+        link.addEventListener('click', function() {
+          mobileMenuToggle.classList.remove('active');
+          navLinks.classList.remove('active');
+        });
+      });
+
+      // Close mobile menu when clicking outside
+      document.addEventListener('click', function(event) {
+        if (!mobileMenuToggle.contains(event.target) && !navLinks.contains(event.target)) {
+          mobileMenuToggle.classList.remove('active');
+          navLinks.classList.remove('active');
+        }
+      });
+
+      // Smooth scrolling for navigation links
+      navLinksItems.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').substring(1);
+          const targetSection = document.getElementById(targetId);
+          
+          if (targetSection) {
+            targetSection.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Show all sections by default (remove display: none)
+      function showAllSections() {
+        const sections = document.querySelectorAll(".section");
+        sections.forEach((section) => {
+          section.style.display = "block";
+        });
+      }
+
+      // Initialize the page
+      showAllSections();
+
+      function showSection(sectionId) {
+        // Hide all sections
+        const sections = document.querySelectorAll(".section");
+        sections.forEach((section) => {
+          section.style.display = "none";
+        });
+
+        // Show the selected section
+        const selectedSection = document.getElementById(sectionId);
+        if (selectedSection) {
+          selectedSection.style.display = "block";
+        }
+      }
+
+      function filterPortfolio(category) {
+        // Update active button
+        const buttons = document.querySelectorAll(".filter-btn");
+        buttons.forEach((btn) => {
+          btn.classList.remove("active");
+          if (
+            btn.textContent.toLowerCase().includes(category) ||
+            (category === "all" && btn.textContent.includes("All"))
+          ) {
+            btn.classList.add("active");
+          }
+        });
+
+        // Filter items
+        const items = document.querySelectorAll(".portfolio-item");
+        items.forEach((item) => {
+          if (category === "all") {
+            item.style.display = "block";
+          } else {
+            const itemCategories = item
+              .getAttribute("data-category")
+              .split(" ");
+            if (itemCategories.includes(category)) {
+              item.style.display = "block";
+            } else {
+              item.style.display = "none";
+            }
+          }
+        });
+      }
+
+      function openModal(title, description, link) {
+        document.getElementById("modalTitle").innerText = title;
+        document.getElementById("modalDescription").innerText = description;
+        document.getElementById("modalLink").href = link;
+        document.getElementById("projectModal").style.display = "block";
+      }
+
+      function closeModal() {
+        document.getElementById("projectModal").style.display = "none";
+      }
+
+      // Close the modal when clicking outside of it
+      window.onclick = function (event) {
+        const modal = document.getElementById("projectModal");
+        if (event.target == modal) {
+          closeModal();
+        }
+      };
+
+      // Add responsive behavior for mobile menu
+      function handleResize() {
+        if (window.innerWidth > 767) {
+          mobileMenuToggle.classList.remove('active');
+          navLinks.classList.remove('active');
+        }
+      }
+
+      // Listen for window resize
+      window.addEventListener('resize', handleResize);
+
+      // Add touch support for mobile devices
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      document.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+      });
+
+      document.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      });
+
+      function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+
+        if (Math.abs(diff) > swipeThreshold) {
+          if (diff > 0 && window.innerWidth <= 767) {
+            // Swipe left - close menu if open
+            mobileMenuToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+          } else if (diff < 0 && window.innerWidth <= 767) {
+            // Swipe right - open menu if closed
+            mobileMenuToggle.classList.add('active');
+            navLinks.classList.add('active');
+          }
+        }
+      }
+
+      // Add loading animation
+      window.addEventListener('load', function() {
+        document.body.classList.add('loaded');
+      });
+
+      // Add scroll-based animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+          }
+        });
+      }, observerOptions);
+
+      // Observe all sections for animation
+      document.querySelectorAll('.section').forEach(section => {
+        observer.observe(section);
+      });
+    </script>
+  </body>
+</html>
