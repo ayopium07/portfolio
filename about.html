@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - Joshua Ayotope Temisan</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter",
+          "Helvetica Neue", Arial, sans-serif;
+        background-color: #10172a;
+        color: #ffffff;
+        min-height: 100vh;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* Navigation */
+      .navbar {
+        background-color: #1a1d24;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        padding: 1.5rem 8%;
+        border-bottom: 1px solid #a0a0a0;
+      }
+
+      .nav-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+
+      .logo-img {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        object-fit: cover;
+        border: 2px solid #2196f3;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: #2196f3;
+      }
+
+      /* Main Content */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 4rem 8%;
+      }
+
+      /* Who Am I Section */
+      .who-am-i-section {
+        margin-bottom: 6rem;
+      }
+
+      .who-am-i-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 0.5rem;
+        text-align: center;
+      }
+
+      .who-am-i-subtitle {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #3b82f6;
+        margin-bottom: 3rem;
+        text-align: center;
+      }
+
+      .who-am-i-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .who-am-i-text {
+        color: #94a3b8;
+        font-size: 1rem;
+        line-height: 1.6;
+        text-align: center;
+      }
+
+      .who-am-i-text p {
+        margin-bottom: 1rem;
+      }
+
+      /* Skills & Technologies Section */
+      .skills-section {
+        margin-bottom: 6rem;
+      }
+
+      .skills-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #ffffff;
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .skill-card {
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 1.5rem;
+        text-align: center;
+        transition: all 0.4s;
+        min-height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .skill-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
+        border-color: rgba(59, 130, 246, 0.3);
+      }
+
+      .skill-icon {
+        width: 48px;
+        height: 48px;
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+        font-size: 1.2rem;
+        color: #ffffff;
+      }
+
+      .skill-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 0.75rem;
+      }
+
+      .skill-list {
+        list-style: none;
+        color: #94a3b8;
+        font-size: 0.85rem;
+        line-height: 1.5;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .skill-list li {
+        margin-bottom: 0.3rem;
+      }
+
+      /* Experience Section */
+      .experience-section {
+        margin-bottom: 6rem;
+      }
+
+      .experience-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #ffffff;
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .experience-list {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .experience-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.5rem;
+        margin-bottom: 2.5rem;
+        padding-bottom: 2.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .experience-item:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+
+      .experience-icon {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+      }
+
+      .experience-content h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 0.25rem;
+      }
+
+      .experience-content .company {
+        color: #3b82f6;
+        font-size: 0.9rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .experience-content .date {
+        color: #94a3b8;
+        font-size: 0.9rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .experience-content .description {
+        color: #94a3b8;
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      /* Education Section */
+      .education-section {
+        margin-bottom: 6rem;
+      }
+
+      .education-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #ffffff;
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .education-list {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .education-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.5rem;
+        margin-bottom: 2.5rem;
+        padding-bottom: 2.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .education-item:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+
+      .education-icon {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+      }
+
+      .education-content h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 0.25rem;
+      }
+
+      .education-content .university {
+        color: #3b82f6;
+        font-size: 0.9rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .education-content .year {
+        color: #94a3b8;
+        font-size: 0.9rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .education-content .description {
+        color: #94a3b8;
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      /* Download Resume Button */
+      .download-section {
+        text-align: center;
+        margin-top: 4rem;
+      }
+
+      .download-btn {
+        background-color: #3b82f6;
+        color: #ffffff;
+        padding: 1rem 2rem;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        transition: all 0.3s;
+      }
+
+      .download-btn:hover {
+        background-color: #2563eb;
+        transform: translateY(-3px);
+        box-shadow: 0 12px 24px rgba(59, 130, 246, 0.3);
+      }
+
+      /* Footer */
+      .footer {
+        background-color: #1a1d24;
+        border-top: 1px solid #a0a0a0;
+        padding: 2rem 8%;
+        text-align: center;
+      }
+
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .footer-text {
+        color: #ffffff;
+        font-size: 0.9rem;
+      }
+
+      .footer-social-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .footer-social-link {
+        color: #ffffff;
+        font-size: 1.2rem;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-social-link:hover {
+        color: #2196f3;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1024px) {
+        .skills-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1.5rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .navbar {
+          padding: 1rem 5%;
+        }
+
+        .container {
+          padding: 2rem 5%;
+        }
+
+        .nav-links {
+          gap: 1rem;
+        }
+
+        .who-am-i-title {
+          font-size: 2rem;
+        }
+
+        .who-am-i-subtitle {
+          font-size: 1.1rem;
+        }
+
+        .skills-title,
+        .experience-title,
+        .education-title {
+          font-size: 2rem;
+        }
+
+        .skills-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .skill-card {
+          padding: 1.25rem;
+          min-height: 180px;
+        }
+
+        .experience-item,
+        .education-item {
+          flex-direction: column;
+          text-align: center;
+          gap: 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .navbar {
+          padding: 1rem 4%;
+        }
+
+        .container {
+          padding: 1.5rem 4%;
+        }
+
+        .nav-links {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        .download-btn {
+          padding: 0.875rem 1.5rem;
+          font-size: 1rem;
+        }
+      }
+
+      /* Animation */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .skill-card,
+      .experience-item,
+      .education-item {
+        animation: fadeInUp 0.6s ease forwards;
+        opacity: 0;
+      }
+
+      .skill-card:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      .skill-card:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .skill-card:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      .skill-card:nth-child(4) {
+        animation-delay: 0.4s;
+      }
+      .skill-card:nth-child(5) {
+        animation-delay: 0.5s;
+      }
+      .skill-card:nth-child(6) {
+        animation-delay: 0.6s;
+      }
+      .skill-card:nth-child(7) {
+        animation-delay: 0.7s;
+      }
+      .skill-card:nth-child(8) {
+        animation-delay: 0.8s;
+      }
+      .skill-card:nth-child(9) {
+        animation-delay: 0.9s;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-content">
+        <a href="index.html" class="logo">
+          <img src="images/JAA.jpg" alt="JAA" class="logo-img" />
+        </a>
+        <ul class="nav-links">
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <!-- Who Am I Section -->
+      <div class="who-am-i-section">
+        <h1 class="who-am-i-title">Who Am I?</h1>
+        <h2 class="who-am-i-subtitle">
+          Mobile & Web Developer | Cybersecurity Enthusiast
+        </h2>
+
+        <div class="who-am-i-content">
+          <div class="who-am-i-text">
+            <p>
+              I am a passionate Mobile App Developer with a unique background in
+              Cybersecurity, bringing a security-first approach to every
+              project. With over a year of experience in React Native and
+              Flutter development, I create cross-platform solutions that not
+              only meet user requirements but also implement robust security
+              measures to protect user data and maintain application integrity.
+            </p>
+            <p>
+              My expertise lies in developing high-performance mobile apps that
+              offer seamless user experiences while maintaining the highest
+              security standards. I specialize in identifying potential
+              vulnerabilities during development and implementing proactive
+              security measures that protect both users and businesses.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills & Technologies Section -->
+      <div class="skills-section">
+        <h2 class="skills-title">Skills & Technologies</h2>
+        <div class="skills-grid">
+          <!-- Frontend -->
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3 class="skill-title">Frontend</h3>
+            <ul class="skill-list">
+              <li>React</li>
+              <li>Vue.js</li>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+            </ul>
+          </div>
+
+          <!-- Backend -->
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fas fa-server"></i>
+            </div>
+            <h3 class="skill-title">Backend</h3>
+            <ul class="skill-list">
+              <li>Node.js</li>
+              <li>Express</li>
+              <li>Python</li>
+              <li>Django</li>
+              <li>REST APIs</li>
+            </ul>
+          </div>
+
+          <!-- Mobile -->
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h3 class="skill-title">Mobile</h3>
+            <ul class="skill-list">
+              <li>React Native</li>
+              <li>Flutter</li>
+              <li>Swift</li>
+              <li>Kotlin</li>
+            </ul>
+          </div>
+
+          <!-- DevOps -->
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <h3 class="skill-title">DevOps</h3>
+            <ul class="skill-list">
+              <li>Docker</li>
+              <li>CI/CD</li>
+              <li>Linux</li>
+              <li>Shell Scripting</li>
+            </ul>
+          </div>
+
+          <!-- Databases -->
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fas fa-database"></i>
+            </div>
+            <h3 class="skill-title">Databases</h3>
+            <ul class="skill-list">
+              <li>MongoDB</li>
+              <li>PostgreSQL</li>
+              <li>MySQL</li>
+              <li>Firebase</li>
+            </ul>
+          </div>
+
+          <!-- Cloud Services -->
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fas fa-cloud"></i>
+            </div>
+            <h3 class="skill-title">Cloud Services</h3>
+            <ul class="skill-list">
+              <li>AWS</li>
+              <li>Azure</li>
+              <li>Google Cloud</li>
+              <li>Vercel</li>
+            </ul>
+          </div>
+
+          <!-- Cybersecurity -->
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3 class="skill-title">Cybersecurity</h3>
+            <ul class="skill-list">
+              <li>Network Security</li>
+              <li>Penetration Testing</li>
+              <li>Vulnerability Assessment</li>
+            </ul>
+          </div>
+
+          <!-- Version Control -->
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fas fa-code-branch"></i>
+            </div>
+            <h3 class="skill-title">Version Control</h3>
+            <ul class="skill-list">
+              <li>Git</li>
+              <li>GitHub</li>
+              <li>GitLab</li>
+              <li>Bitbucket</li>
+            </ul>
+          </div>
+
+          <!-- UI/UX Design -->
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fas fa-palette"></i>
+            </div>
+            <h3 class="skill-title">UI/UX Design</h3>
+            <ul class="skill-list">
+              <li>Figma</li>
+              <li>Adobe XD</li>
+              <li>Prototyping</li>
+              <li>Wireframing</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Experience Section -->
+      <div class="experience-section">
+        <h2 class="experience-title">Experience</h2>
+        <div class="experience-list">
+          <div class="experience-item">
+            <div class="experience-icon">
+              <i class="fas fa-briefcase"></i>
+            </div>
+            <div class="experience-content">
+              <h3>Mobile App Developer</h3>
+              <div class="company">Teacch</div>
+              <div class="date">Nov 2024 - Present</div>
+              <div class="description">
+                Developed and maintained mobile applications for iOS and Android
+                platforms. Collaborated with cross-functional teams to define,
+                design, and ship new features. Participated in code reviews and
+                contributed to team knowledge sharing.
+              </div>
+            </div>
+          </div>
+
+          <div class="experience-item">
+            <div class="experience-icon">
+              <i class="fas fa-briefcase"></i>
+            </div>
+            <div class="experience-content">
+              <h3>Intern - Network and Hardware Technician</h3>
+              <div class="company">Nigerian Ports Authority</div>
+              <div class="date">May 2023 - Nov 2023</div>
+              <div class="description">
+                Assisted in the configuration and maintenance of network
+                infrastructure. Supported the network and hardware team in
+                troubleshooting and resolving technical issues. Gained hands-on
+                experience in both hardware and software troubleshooting.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Education Section -->
+      <div class="education-section">
+        <h2 class="education-title">Education</h2>
+        <div class="education-list">
+          <div class="education-item">
+            <div class="education-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="education-content">
+              <h3>Bachelor of Science in Cyber Security</h3>
+              <div class="university">Caleb University, Nigeria</div>
+              <div class="year">2024</div>
+              <div class="description">
+                Specialized in network security, penetration testing, and secure
+                software development practices. Completed projects on
+                vulnerability assessment and security implementation.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Download Resume Button -->
+      <div class="download-section">
+        <a href="#" class="download-btn">
+          <i class="fas fa-download"></i>
+          Download Resume
+        </a>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-text">
+          © 2024 Joshua Ayotope. All rights reserved.
+        </div>
+        <div class="footer-social-links">
+          <a
+            href="https://github.com/ayopium07"
+            class="footer-social-link"
+            title="GitHub"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/Ayotope Joshua"
+            class="footer-social-link"
+            title="LinkedIn"
+          >
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a
+            href="https://twitter.com/Thatuglyboy_7"
+            class="footer-social-link"
+            title="Twitter"
+          >
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Smooth scroll animation
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      document
+        .querySelectorAll(".skill-card, .experience-item, .education-item")
+        .forEach((element) => {
+          element.style.opacity = "0";
+          element.style.transform = "translateY(30px)";
+          element.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+          observer.observe(element);
+        });
+    </script>
+  </body>
+</html>

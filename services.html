@@ -34,8 +34,8 @@
 
       body {
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background-color: var(--dark-bg);
-        color: var(--text-primary);
+        background-color: #1a1d24;
+        color: #ffffff;
         line-height: 1.6;
         overflow-x: hidden;
       }
@@ -48,12 +48,11 @@
 
       /* Header & Navigation */
       header {
-        background-color: rgba(28, 37, 65, 0.95);
-        backdrop-filter: blur(10px);
+        background-color: #1a1d24;
         position: sticky;
         top: 0;
         z-index: 100;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid #a0a0a0;
       }
 
       .navbar {
@@ -69,26 +68,15 @@
       .logo {
         display: flex;
         align-items: center;
-        gap: var(--spacing-md);
+        text-decoration: none;
       }
 
       .logo-img {
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
         object-fit: cover;
-        border: 2px solid var(--primary-light);
-      }
-
-      .logo-text h1 {
-        font-size: 1.2rem;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-      }
-
-      .logo-text p {
-        font-size: 0.85rem;
-        color: var(--text-muted);
+        border: 2px solid #2196f3;
       }
 
       .nav-links {
@@ -97,31 +85,16 @@
       }
 
       .nav-links a {
-        color: var(--text-secondary);
+        color: #ffffff;
         text-decoration: none;
         font-weight: 500;
         font-size: 1rem;
-        position: relative;
-        transition: color var(--transition-speed);
+        transition: color 0.3s;
       }
 
-      .nav-links a:hover {
-        color: var(--primary-light);
-      }
-
-      .nav-links a::after {
-        content: "";
-        position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: -4px;
-        left: 0;
-        background-color: var(--primary-light);
-        transition: width var(--transition-speed);
-      }
-
-      .nav-links a:hover::after {
-        width: 100%;
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: #2196f3;
       }
 
       /* Mobile Menu Toggle */
@@ -618,6 +591,43 @@
         }
       }
 
+      /* Footer */
+      .footer {
+        background-color: #1a1d24;
+        border-top: 1px solid #a0a0a0;
+        padding: 2rem 8%;
+        text-align: center;
+      }
+
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .footer-text {
+        color: #ffffff;
+        font-size: 0.9rem;
+      }
+
+      .footer-social-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .footer-social-link {
+        color: #ffffff;
+        font-size: 1.2rem;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-social-link:hover {
+        color: #2196f3;
+      }
+
       /* Print styles */
       @media print {
         .navbar,
@@ -642,28 +652,19 @@
     <div class="container">
       <header>
         <nav class="navbar">
-          <div class="logo">
-            <img
-              src="images/profile-pic.jpg"
-              alt="Joshua Temisan"
-              class="logo-img"
-            />
-            <div class="logo-text">
-              <h1>Joshua Ayotope Temisan</h1>
-              <p>Mobile App Developer</p>
-            </div>
-          </div>
+          <a href="index.html" class="logo">
+            <img src="images/JAA.jpg" alt="JAA" class="logo-img" />
+          </a>
           <div class="mobile-menu-toggle" id="mobileMenuToggle">
             <span></span>
             <span></span>
             <span></span>
           </div>
           <div class="nav-links" id="navLinks">
-            <a href="index.html">Home</a>
-            <a href="services.html">Services</a>
-            <a href="index.html#resume">Resume</a>
-            <a href="index.html#portfolio">Portfolio</a>
-            <a href="index.html#contact">Contact</a>
+            <a href="about.html">About</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="services.html" class="active">Services</a>
+            <a href="contact.html">Contact</a>
           </div>
         </nav>
       </header>
@@ -741,6 +742,37 @@
         </section>
       </main>
     </div>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-text">
+          © 2024 Joshua Ayotope. All rights reserved.
+        </div>
+        <div class="footer-social-links">
+          <a
+            href="https://github.com/ayopium07"
+            class="footer-social-link"
+            title="GitHub"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/Ayotope Joshua"
+            class="footer-social-link"
+            title="LinkedIn"
+          >
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a
+            href="https://twitter.com/Thatuglyboy_7"
+            class="footer-social-link"
+            title="Twitter"
+          >
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
 
     <script>
       // Mobile menu toggle functionality
