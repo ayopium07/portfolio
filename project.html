@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio - Joshua Ayotope Temisan</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+      /* Folder & Project Specific Styles */
+      
+      .header-section {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      
+      .page-title {
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      
+      .page-subtitle {
+        color: var(--text-muted);
+        max-width: 700px;
+        margin: 0 auto 2rem;
+      }
+
+      /* Portfolio Filter */
+      .portfolio-filter {
+        display: flex;
+        gap: 0.75rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 3rem;
+      }
+
+      .filter-btn {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        color: var(--text-muted);
+        padding: 0.625rem 1.5rem;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 500;
+        font-size: 0.9rem;
+        transition: all 0.3s var(--ease-spring);
+        font-family: 'Outfit', sans-serif;
+      }
+
+      .filter-btn:hover, .filter-btn.active {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px var(--primary-glow);
+      }
+
+      /* Folder Case Container */
+      .folder-case-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 50vh;
+        margin: 3rem 0;
+        perspective: 1200px;
+      }
+
+      .folder-case {
+        position: relative;
+        width: 320px;
+        height: 260px;
+        cursor: pointer;
+        transform-style: preserve-3d;
+        transition: all 0.6s var(--ease-elastic);
+      }
+
+      .folder-case:hover:not(.opened) {
+        transform: translateY(-20px) rotateX(5deg);
+      }
+
+      /* Folder Flap */
+      .folder-flap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 180px;
+        height: 50px;
+        background: var(--glass-bg);
+        backdrop-filter: blur(40px);
+        border: 1px solid var(--glass-border);
+        border-radius: 12px 12px 0 0;
+        z-index: 5;
+      }
+
+      /* Folder Body */
+      .folder-body {
+        position: absolute;
+        top: 30px;
+        left: 0;
+        width: 100%;
+        height: 230px;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(40px);
+        border: 1px solid var(--glass-border);
+        border-radius: 0 16px 16px 16px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .folder-text {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        z-index: 4;
+        transition: all 0.4s ease;
+      }
+
+      .folder-label {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--text-main);
+      }
+
+      .folder-hint {
+        font-size: 0.8rem;
+        color: var(--text-dim);
+        margin-top: 4px;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%, 100% { opacity: 0.6; }
+        50% { opacity: 1; }
+      }
+
+      .folder-case.opened {
+        transform: scale(0.9) translateY(-30px);
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .folder-case.opened .folder-documents {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      /* Documents inside folder */
+      .folder-documents {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        gap: 8px;
+        perspective: 1000px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+
+      .document {
+        width: 45px;
+        height: 55px;
+        background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+        border-radius: 4px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+      
+      .document:nth-child(2) { transform: translateX(15px) translateY(-8px) rotateZ(-5deg); }
+      .document:nth-child(3) { transform: translateX(30px) translateY(-16px) rotateZ(-10deg); }
+
+
+      /* Projects Wrapper */
+      .projects-wrapper {
+        display: none;
+        animation: slideUp 0.8s var(--ease-elastic);
+      }
+      .projects-wrapper.active { display: block; }
+
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
+        padding-bottom: 2rem;
+      }
+
+      /* Portfolio Card */
+      .portfolio-card {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        transition: all 0.4s var(--ease-spring);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .portfolio-card:hover {
+        transform: translateY(-8px);
+        border-color: var(--glass-highlight);
+        box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+      }
+
+      .card-image-wrapper {
+        width: 100%;
+        height: 220px;
+        background: rgba(0,0,0,0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .card-image {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        transition: transform 0.5s ease;
+      }
+
+      .portfolio-card:hover .card-image {
+        transform: scale(1.08);
+      }
+
+      .card-content {
+        padding: 1.5rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .card-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        color: var(--text-main);
+      }
+      
+      .card-description {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin-bottom: 1rem;
+        flex-grow: 1;
+        line-height: 1.5;
+      }
+
+      .card-tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: auto;
+      }
+
+      .tech-tag {
+        background: rgba(255,255,255,0.05);
+        border: 1px solid var(--glass-border);
+        color: var(--text-dim);
+        padding: 0.25rem 0.75rem;
+        border-radius: 6px;
+        font-size: 0.8rem;
+      }
+
+      /* Web Project Logos */
+      .web-project-logos {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--glass-border);
+      }
+
+      .logo-link {
+        width: 42px;
+        height: 42px;
+        border-radius: 8px;
+        background: rgba(255,255,255,0.05);
+        padding: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s;
+      }
+
+      .logo-link:hover { background: rgba(255,255,255,0.1); }
+      .logo-link img { width: 100%; height: 100%; object-fit: contain; }
+
+      .website-link-btn {
+        flex: 1;
+        padding: 0.6rem;
+        background: var(--primary);
+        color: white;
+        text-align: center;
+        border-radius: 8px;
+        font-weight: 500;
+        font-size: 0.9rem;
+        transition: 0.3s;
+      }
+      
+      .website-link-btn:hover {
+        background: var(--accent-cyan);
+        transform: translateY(-2px);
+      }
+      
+      /* Close Button */
+      .close-projects-btn {
+        position: fixed;
+        top: 2rem;
+        right: 2rem;
+        width: 48px;
+        height: 48px;
+        background: var(--glass-bg);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        color: var(--text-main);
+        border-radius: 12px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+        z-index: 999;
+        opacity: 0;
+        pointer-events: none;
+      }
+      
+      .close-projects-btn.visible {
+        opacity: 1;
+        pointer-events: all;
+      }
+      
+      .close-projects-btn:hover {
+        background: rgba(255,255,255,0.1);
+        transform: rotate(90deg);
+      }
+      
+      /* Animations */
+      @keyframes popOut {
+        0% { opacity: 0; transform: scale(0.3) translateY(40px); }
+        50% { transform: scale(1.05) translateY(0); }
+        100% { opacity: 1; transform: scale(1) translateY(0); }
+      }
+      
+      .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 3rem 0;
+      }
+
+      .pagination-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid var(--glass-border);
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Outfit', sans-serif;
+      }
+
+      .pagination-btn:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+      }
+
+      .pagination-btn.active {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+      
+      .pagination-btn:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="nav-content">
+        <a href="index.html" class="logo">
+          <img src="images/JAA.jpg" alt="JAA" class="logo-img" />
+        </a>
+        <div class="mobile-menu-toggle" id="mobileMenuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="about.html">About</a></li>
+          <li><a href="portfolio.html" class="active">Portfolio</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="header-section">
+        <h1 class="page-title">My Projects</h1>
+        <p class="page-subtitle">
+          Explore a selection of my work, showcasing my skills in mobile and web
+          development, as well as cybersecurity.
+        </p>
+
+        <div class="portfolio-filter">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="mobile">Mobile</button>
+          <button class="filter-btn" data-filter="web">Web</button>
+          <button class="filter-btn" data-filter="security">Cybersecurity</button>
+        </div>
+      </div>
+
+      <!-- Folder Case -->
+      <div class="folder-case-container">
+        <div class="folder-case" id="folderCase">
+          <!-- Folder Flap -->
+          <div class="folder-flap"></div>
+          
+          <!-- Folder Body -->
+          <div class="folder-body">
+            <div class="folder-documents" id="folderDocuments">
+              <div class="document"></div>
+              <div class="document"></div>
+              <div class="document"></div>
+            </div>
+          </div>
+          
+          <!-- Folder Text -->
+          <div class="folder-text">
+            <div class="folder-label">My Projects</div>
+            <div class="folder-hint">Click to explore</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Close Button -->
+      <button class="close-projects-btn" id="closeProjectsBtn">✕</button>
+
+      <!-- Projects Wrapper -->
+      <div class="projects-wrapper" id="projectsWrapper">
+        <div class="portfolio-grid" id="portfolioGrid">
+          <!-- Project 1: Shopmammy -->
+          <div class="portfolio-card" data-category="mobile">
+            <div class="card-image-wrapper">
+              <img src="images/Shop_mammy logo.png" alt="Shopmammy E-commerce" class="card-image" />
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Shopmammy E-commerce Platform</h3>
+              <p class="card-description">
+                A comprehensive e-commerce platform for seamless shopping and
+                order management that allows users to give out from their cart to
+                the community.
+              </p>
+              <div class="card-tech-tags">
+                <span class="tech-tag">React Native</span>
+                <span class="tech-tag">Firebase</span>
+                <span class="tech-tag">Node.js</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: Focus AI Coach -->
+          <div class="portfolio-card" data-category="mobile">
+            <div class="card-image-wrapper">
+              <img src="images/f 5.png" alt="Focus AI Coach" class="card-image" />
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Focus AI Coach App</h3>
+              <p class="card-description">
+                An AI-powered mobile app designed to help users improve focus and
+                productivity with secure data handling and privacy protection.
+              </p>
+              <div class="card-tech-tags">
+                <span class="tech-tag">Flutter</span>
+                <span class="tech-tag">AI/ML</span>
+                <span class="tech-tag">Dart</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: Shopmammy Rider -->
+          <div class="portfolio-card" data-category="mobile">
+            <div class="card-image-wrapper">
+              <img src="images/SMR V2.png" alt="Shopmammy Rider" class="card-image" />
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Shopmammy Rider Delivery App</h3>
+              <p class="card-description">
+                A delivery management app for riders with real-time tracking,
+                secure payment processing, and location-based security features.
+              </p>
+              <div class="card-tech-tags">
+                <span class="tech-tag">React Native</span>
+                <span class="tech-tag">GPS</span>
+                <span class="tech-tag">Real-time</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: OasisBank App -->
+          <div class="portfolio-card" data-category="mobile security">
+            <div class="card-image-wrapper security">
+              <img src="images/Oasis.png" alt="OasisBank App" class="card-image" />
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">OasisBank Mobile App</h3>
+              <p class="card-description">
+                A modern banking app with enterprise-grade security, secure
+                transactions, and advanced fraud detection capabilities.
+              </p>
+              <div class="card-tech-tags">
+                <span class="tech-tag">Flutter</span>
+                <span class="tech-tag">Security</span>
+                <span class="tech-tag">Encryption</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5: Shopmammy Vendor -->
+          <div class="portfolio-card" data-category="mobile web">
+            <div class="card-image-wrapper project-mgmt">
+              <img src="images/applogo.png" alt="Shopmammy Vendor" class="card-image" />
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Shopmammy Vendor App</h3>
+              <p class="card-description">
+                A vendor-focused app for managing products, orders, and sales
+                analytics with secure data transmission and access controls.
+              </p>
+              <div class="card-tech-tags">
+                <span class="tech-tag">React Native</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6: Fitness Tracker -->
+          <div class="portfolio-card" data-category="mobile">
+            <div class="card-image-wrapper fitness">
+              <img src="images/mobile-app-icon.png" alt="Fitness Tracker" class="card-image" />
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Fitness Tracking App</h3>
+              <p class="card-description">
+                A fitness tracking app with personalized workout plans and
+                progress tracking. Built with a focus on user privacy and data security.
+              </p>
+              <div class="card-tech-tags">
+                <span class="tech-tag">Flutter</span>
+                <span class="tech-tag">HealthKit</span>
+                <span class="tech-tag">Analytics</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Project 7: Festival Of Change 25 -->
+          <div class="portfolio-card" data-category="web">
+            <div class="card-image-wrapper">
+              <img src="images/FOC25.jpg" alt="Festival Of Change 25" class="card-image" />
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Festival Of Change 25</h3>
+              <p class="card-description">
+                The Festival of Change is a Global event that brings together educators, technologists, and innovators.
+              </p>
+              <div class="web-project-logos">
+                <a href="https://www.festivalofchange.org/" target="_blank" class="logo-link" title="Visit Website">
+                  <img src="images/FOC25.jpg" alt="FOC25 Logo" />
+                </a>
+                <a href="https://www.festivalofchange.org/" target="_blank" class="website-link-btn">
+                  Visit Website
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 8: SWIP -->
+          <div class="portfolio-card" data-category="web">
+            <div class="card-image-wrapper">
+              <img src="images/swiplo.jpg" alt="SWIP" class="card-image" />
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Sustainable World Impact Program</h3>
+              <p class="card-description">
+                Youth-led sustainability organization from Nigeria placing SDG 17 at the center of our model.
+              </p>
+              <div class="web-project-logos">
+                <a href="https://www.theswip.org/" target="_blank" class="logo-link" title="Visit Website">
+                  <img src="images/swiplo.jpg" alt="SWIP Logo" />
+                </a>
+                <a href="https://www.theswip.org/" target="_blank" class="website-link-btn">
+                  Visit Website
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 9: TEACcH -->
+          <div class="portfolio-card" data-category="web">
+            <div class="card-image-wrapper">
+              <img src="images/TEACcHlo.png" alt="TEACcH" class="card-image" />
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">TEACcH</h3>
+              <p class="card-description">
+                TEACcH is a Social Innovation Hub to Empower a Better Tomorrow.
+              </p>
+              <div class="web-project-logos">
+                <a href="https://www.teacch.co/" target="_blank" class="logo-link" title="Visit Website">
+                  <img src="images/TEACcHlo.png" alt="TEACcH Logo" />
+                </a>
+                <a href="https://www.teacch.co/" target="_blank" class="website-link-btn">
+                  Visit Website
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 10: Rekora -->
+          <div class="portfolio-card" data-category="web">
+            <div class="card-image-wrapper">
+              <img src="images/rekoralo.jpg" alt="Rekora" class="card-image" />
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Rekora Initiatives</h3>
+              <p class="card-description">
+                Rekora Initiatives is a STEM program focused on empowering students through technology.
+              </p>
+              <div class="web-project-logos">
+                <a href="https://www.rekora.org/" target="_blank" class="logo-link" title="Visit Website">
+                  <img src="images/rekoralo.jpg" alt="Rekora Logo" />
+                </a>
+                <a href="https://www.rekora.org/" target="_blank" class="website-link-btn">
+                  Visit Website
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 11: The OAK -->
+          <div class="portfolio-card" data-category="web">
+            <div class="card-image-wrapper">
+              <img src="images/loname.png" alt="The OAK" class="card-image" />
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">The OAK</h3>
+              <p class="card-description">
+                A sex educators platform dedicated to providing accurate and inclusive information.
+              </p>
+              <div class="web-project-logos">
+                <a href="https://www.theoaking.com/" target="_blank" class="logo-link" title="Visit Website">
+                  <img src="images/loname.png" alt="The OAK Logo" />
+                </a>
+                <a href="https://www.theoaking.com/" target="_blank" class="website-link-btn">
+                  Visit Website
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <button class="pagination-btn" disabled><i class="fas fa-chevron-left"></i></button>
+        <button class="pagination-btn active">1</button>
+        <button class="pagination-btn">2</button>
+        <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-text">
+          © 2024 Joshua Ayotope. All rights reserved.
+        </div>
+        <div class="footer-social-links">
+          <a href="https://github.com/ayopium07" class="footer-social-link"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/Ayotope Joshua" class="footer-social-link"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://twitter.com/Thatuglyboy_7" class="footer-social-link"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/temisann7?igsh=ZTI3aGZ0enE1ZGFs" class="footer-social-link"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Filter Logic
+      const filterBtns = document.querySelectorAll(".filter-btn");
+      const portfolioCards = document.querySelectorAll(".portfolio-card");
+
+      filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterBtns.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          const filter = btn.getAttribute("data-filter");
+
+          portfolioCards.forEach((card) => {
+            const category = card.getAttribute("data-category");
+            if (filter === "all" || category.includes(filter)) {
+              card.style.display = "flex";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+      });
+
+      // Pagination Interactions (Visual only for now)
+      const paginationBtns = document.querySelectorAll(".pagination-btn");
+      paginationBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          if (!btn.disabled && !isNaN(btn.textContent)) {
+             paginationBtns.forEach(b => b.classList.remove("active"));
+             btn.classList.add("active");
+          }
+        });
+      });
+
+      // Mobile Menu
+      const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+      const navLinks = document.getElementById("navLinks");
+      mobileMenuToggle.addEventListener("click", () => {
+        mobileMenuToggle.classList.toggle("active");
+        navLinks.classList.toggle("active");
+      });
+
+      // Folder Animation Logic
+      const folderCase = document.getElementById("folderCase");
+      const projectsWrapper = document.getElementById("projectsWrapper");
+      const closeProjectsBtn = document.getElementById("closeProjectsBtn");
+
+      folderCase.addEventListener("click", () => {
+        folderCase.classList.add("opened");
+        projectsWrapper.classList.add("active");
+        closeProjectsBtn.classList.add("visible");
+        
+        // Staggered Animation
+        portfolioCards.forEach((card, index) => {
+          card.style.animation = 'none';
+          card.offsetHeight; /* trigger reflow */
+          card.style.animation = `popOut 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards ${index * 0.1}s`;
+        });
+      });
+
+      closeProjectsBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        folderCase.classList.remove("opened");
+        projectsWrapper.classList.remove("active");
+        closeProjectsBtn.classList.remove("visible");
+      });
+    </script>
+  </body>
+</html>

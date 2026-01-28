@@ -213,7 +213,7 @@
       }
 
       .who-am-i-card {
-        padding: 3rem;
+        padding: 0;
       }
 
       .who-am-i-title {
@@ -270,84 +270,48 @@
       }
 
       .skill-card {
-        background: var(--glass-bg);
-        backdrop-filter: blur(40px) saturate(180%);
-        -webkit-backdrop-filter: blur(40px) saturate(180%);
-        border: 1px solid var(--glass-border);
-        border-radius: 20px;
-        padding: 2rem;
+        padding: 1rem;
         text-align: center;
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        min-height: 220px;
+        transition: all 0.3s ease;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12),
-          inset 0 1px 0 rgba(255, 255, 255, 0.05);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .skill-card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 1px;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.1),
-          transparent
-        );
+        justify-content: flex-start;
+        align-items: center;
       }
 
       .skill-card:hover {
         transform: translateY(-4px);
-        border-color: rgba(255, 255, 255, 0.15);
-        box-shadow: 0 12px 48px rgba(0, 0, 0, 0.16),
-          inset 0 1px 0 rgba(255, 255, 255, 0.1);
       }
 
       .skill-icon {
         width: 52px;
         height: 52px;
-        background: var(--glass-bg);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 1px solid var(--glass-border);
+        background: rgba(255, 255, 255, 0.05); /* kept subtle background for icon only */
         border-radius: 12px;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 0 auto 1.25rem;
+        margin-bottom: 1rem;
         font-size: 1.25rem;
         color: var(--accent-blue-bright);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
       }
 
       .skill-title {
         font-size: 1.125rem;
         font-weight: 600;
         color: var(--text-primary);
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
       }
 
       .skill-list {
         list-style: none;
         color: var(--text-secondary);
-        font-size: 0.875rem;
+        font-size: 0.9rem;
         line-height: 1.6;
-        flex-grow: 1;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        gap: 0.5rem;
-      }
-
-      .skill-list li {
-        margin-bottom: 0;
+        align-items: center;
+        gap: 0.25rem;
       }
 
       /* Experience Section */
@@ -360,7 +324,7 @@
         font-weight: 700;
         color: var(--text-primary);
         text-align: center;
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
       }
 
       .experience-list {
@@ -368,89 +332,69 @@
         margin: 0 auto;
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 3rem;
+        position: relative;
+      }
+      
+      /* Add a timeline line */
+      .experience-list::before {
+        content: "";
+        position: absolute;
+        left: 24px;
+        top: 0;
+        height: 100%;
+        width: 2px;
+        background: var(--glass-border);
       }
 
       .experience-item {
-        background: var(--glass-bg);
-        backdrop-filter: blur(40px) saturate(180%);
-        -webkit-backdrop-filter: blur(40px) saturate(180%);
-        border: 1px solid var(--glass-border);
-        border-radius: 20px;
-        padding: 2rem;
+        padding: 0;
         display: flex;
         align-items: flex-start;
-        gap: 1.5rem;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12),
-          inset 0 1px 0 rgba(255, 255, 255, 0.05);
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        gap: 2rem;
         position: relative;
-        overflow: hidden;
-      }
-
-      .experience-item::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 1px;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.1),
-          transparent
-        );
-      }
-
-      .experience-item:hover {
-        transform: translateY(-2px);
-        border-color: rgba(255, 255, 255, 0.15);
-        box-shadow: 0 12px 48px rgba(0, 0, 0, 0.16),
-          inset 0 1px 0 rgba(255, 255, 255, 0.08);
       }
 
       .experience-icon {
-        width: 48px;
-        height: 48px;
-        background: var(--glass-bg);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 1px solid var(--glass-border);
-        border-radius: 12px;
+        width: 50px;
+        height: 50px;
+        background: var(--bg-deep); /* Match background to hide line behind */
+        border: 2px solid var(--accent-blue);
+        border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         color: var(--accent-blue-bright);
         font-size: 1.125rem;
         flex-shrink: 0;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        z-index: 2;
       }
 
       .experience-content h3 {
-        font-size: 1.125rem;
+        font-size: 1.25rem;
         font-weight: 600;
         color: var(--text-primary);
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.25rem;
       }
 
       .experience-content .company {
         color: var(--accent-blue-bright);
-        font-size: 0.9375rem;
+        font-size: 1rem;
         margin-bottom: 0.25rem;
         font-weight: 500;
       }
 
       .experience-content .date {
         color: var(--text-tertiary);
-        font-size: 0.875rem;
+        font-size: 0.85rem;
         margin-bottom: 1rem;
+        display: block;
       }
 
       .experience-content .description {
         color: var(--text-secondary);
-        font-size: 0.9375rem;
-        line-height: 1.7;
+        font-size: 1rem;
+        line-height: 1.6;
         text-align: left;
       }
 
@@ -464,7 +408,7 @@
         font-weight: 700;
         color: var(--text-primary);
         text-align: center;
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
       }
 
       .education-list {
@@ -472,89 +416,68 @@
         margin: 0 auto;
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 3rem;
+        position: relative;
+      }
+      
+      .education-list::before {
+        content: "";
+        position: absolute;
+        left: 24px;
+        top: 0;
+        height: 100%;
+        width: 2px;
+        background: var(--glass-border);
       }
 
       .education-item {
-        background: var(--glass-bg);
-        backdrop-filter: blur(40px) saturate(180%);
-        -webkit-backdrop-filter: blur(40px) saturate(180%);
-        border: 1px solid var(--glass-border);
-        border-radius: 20px;
-        padding: 2rem;
+        padding: 0;
         display: flex;
         align-items: flex-start;
-        gap: 1.5rem;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12),
-          inset 0 1px 0 rgba(255, 255, 255, 0.05);
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        gap: 2rem;
         position: relative;
-        overflow: hidden;
-      }
-
-      .education-item::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 1px;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.1),
-          transparent
-        );
-      }
-
-      .education-item:hover {
-        transform: translateY(-2px);
-        border-color: rgba(255, 255, 255, 0.15);
-        box-shadow: 0 12px 48px rgba(0, 0, 0, 0.16),
-          inset 0 1px 0 rgba(255, 255, 255, 0.08);
       }
 
       .education-icon {
-        width: 48px;
-        height: 48px;
-        background: var(--glass-bg);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 1px solid var(--glass-border);
-        border-radius: 12px;
+        width: 50px;
+        height: 50px;
+        background: var(--bg-deep);
+        border: 2px solid var(--accent-blue);
+        border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         color: var(--accent-blue-bright);
         font-size: 1.125rem;
         flex-shrink: 0;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        z-index: 2;
       }
 
       .education-content h3 {
-        font-size: 1.125rem;
+        font-size: 1.25rem;
         font-weight: 600;
         color: var(--text-primary);
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.25rem;
       }
 
       .education-content .university {
         color: var(--accent-blue-bright);
-        font-size: 0.9375rem;
+        font-size: 1rem;
         margin-bottom: 0.25rem;
         font-weight: 500;
       }
 
       .education-content .year {
         color: var(--text-tertiary);
-        font-size: 0.875rem;
+        font-size: 0.85rem;
         margin-bottom: 1rem;
+        display: block;
       }
 
       .education-content .description {
         color: var(--text-secondary);
-        font-size: 0.9375rem;
-        line-height: 1.7;
+        font-size: 1rem;
+        line-height: 1.6;
         text-align: left;
       }
 
@@ -893,7 +816,7 @@
         </div>
         <ul class="nav-links" id="navLinks">
           <li><a href="about.html" class="active">About</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="project.html">Project</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -903,7 +826,7 @@
     <div class="container">
       <!-- Who Am I Section -->
       <div class="who-am-i-section">
-        <div class="who-am-i-card glass-card">
+        <div class="who-am-i-card">
           <h1 class="who-am-i-title">Who Am I?</h1>
           <h2 class="who-am-i-subtitle">
             Mobile & Web Developer | Cybersecurity Enthusiast
@@ -989,14 +912,25 @@
               <i class="fas fa-briefcase"></i>
             </div>
             <div class="experience-content">
-              <h3>Mobile App Developer</h3>
-              <div class="company">Teacch</div>
+              <h3>Mobile App Developer & Web Developer</h3>
+              <div class="company">TEACcH</div>
               <div class="date">Nov 2024 - Present</div>
               <div class="description">
-                Developed and maintained mobile applications for iOS and Android
-                platforms. Collaborated with cross-functional teams to define,
-                design, and ship new features. Participated in code reviews and
-                contributed to team knowledge sharing.
+               Spearhead development of native and cross-platform mobile applications for iOS and Android using Flutter and React Native. Design and deploy responsive web applications utilizing modern technologies including HTML, CSS, JavaScript, and TypeScript. Partner with cross-functional teams to deliver user-focused features across mobile and web ecosystems. Drive technical excellence through code reviews, best practices implementation, and continuous team mentorship.
+              </div>
+            </div>
+          </div>
+
+          <div class="experience-item">
+            <div class="experience-icon">
+              <i class="fas fa-briefcase"></i>
+            </div>
+            <div class="experience-content">
+              <h3>Web Developer- CTO & Tech Lead</h3>
+              <div class="company">SWIP- Sustainable World Impact Program</div>
+              <div class="date">Oct 2025 - Present</div>
+              <div class="description">
+               Manage the organization’s website and tech infrastructure, ensuring seamless operations.
               </div>
             </div>
           </div>
@@ -1045,7 +979,7 @@
       <!-- Download Resume Button -->
       <div class="download-section">
         <a
-          href="https://docs.google.com/document/d/1r873Uf0bQ1gIbOlzuw0kZtshK38zClL3N_fh58FmL9o/edit?usp=sharing"
+          href="https://docs.google.com/document/d/1p4zIgpajVdsabAXjgDuQAcA-MPllbzO8nHvjcPOrp5k/edit?tab=t.0"
           class="download-btn"
           download
         >

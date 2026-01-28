@@ -3,503 +3,71 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Joshua Ayotope Adeyefa - Mobile & Web Developer</title>
+    <title>Joshua Ayotope Adeyefa - Mobile App & Web Developer</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      :root {
-        --glass-bg: rgba(255, 255, 255, 0.03);
-        --glass-border: rgba(255, 255, 255, 0.08);
-        --glass-glow: rgba(100, 200, 255, 0.1);
-        --accent-blue: #5b9dd9;
-        --accent-blue-bright: #7db3e8;
-        --text-primary: rgba(255, 255, 255, 0.95);
-        --text-secondary: rgba(255, 255, 255, 0.6);
-        --text-tertiary: rgba(255, 255, 255, 0.4);
-      }
-
-      body {
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-          sans-serif;
-        background: #0a0e1a;
-        background-image: radial-gradient(
-            at 20% 30%,
-            rgba(30, 60, 100, 0.15) 0px,
-            transparent 50%
-          ),
-          radial-gradient(
-            at 80% 70%,
-            rgba(40, 80, 140, 0.1) 0px,
-            transparent 50%
-          );
-        color: var(--text-primary);
-        min-height: 100vh;
-        line-height: 1.6;
-        overflow-x: hidden;
-        position: relative;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-
-      /* Subtle Ambient Light */
-      body::before {
-        content: "";
-        position: fixed;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(
-          circle,
-          rgba(90, 160, 220, 0.03) 0%,
-          transparent 70%
-        );
-        animation: ambientGlow 20s ease-in-out infinite;
-        pointer-events: none;
-        z-index: 0;
-      }
-
-      @keyframes ambientGlow {
-        0%,
-        100% {
-          transform: translate(0, 0);
-          opacity: 0.5;
-        }
-        50% {
-          transform: translate(5%, 5%);
-          opacity: 0.8;
-        }
-      }
-
-      /* Main Content */
-      .main-content {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 6rem 8%;
-        min-height: 100vh;
-        position: relative;
-        z-index: 1;
-      }
-
-      .container {
-        max-width: 1100px;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-      }
-
-      /* Glass Card System */
-      .glass-card {
-        background: var(--glass-bg);
-        backdrop-filter: blur(40px) saturate(180%);
-        -webkit-backdrop-filter: blur(40px) saturate(180%);
-        border: 1px solid var(--glass-border);
-        border-radius: 24px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12),
-          inset 0 1px 0 rgba(255, 255, 255, 0.05);
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .glass-card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 1px;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.1),
-          transparent
-        );
-      }
-
-      .glass-card:hover {
-        transform: translateY(-2px);
-        border-color: rgba(255, 255, 255, 0.12);
-        box-shadow: 0 12px 48px rgba(0, 0, 0, 0.16),
-          inset 0 1px 0 rgba(255, 255, 255, 0.08),
-          0 0 0 1px rgba(100, 200, 255, 0.05);
-      }
-
-      /* Hero Card */
-      .hero-card {
-        padding: 4rem;
-        animation: fadeInUp 0.8s ease-out;
-      }
-
-      .hero-content {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-      }
-
-      .headline {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      .name-line {
-        font-size: clamp(1.75rem, 4vw, 2.5rem);
-        font-weight: 600;
-        color: var(--text-primary);
-        letter-spacing: -0.02em;
-        line-height: 1.2;
-        margin-bottom: 0.5rem;
-      }
-
-      .tagline-lines {
-        font-size: clamp(2.5rem, 6vw, 4.5rem);
-        font-weight: 700;
-        color: var(--text-primary);
-        letter-spacing: -0.03em;
-        line-height: 1.05;
-      }
-
-      .headline-line {
-        display: block;
-      }
-
-      .description {
-        font-size: clamp(1rem, 1.5vw, 1.125rem);
-        font-weight: 400;
-        color: var(--text-secondary);
-        line-height: 1.7;
-        max-width: 600px;
-      }
-
-      /* Glass Button */
-      .cta-button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.875rem 2rem;
-        font-size: 0.9375rem;
-        font-weight: 500;
-        color: var(--text-primary);
-        background: var(--glass-bg);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 1px solid var(--glass-border);
-        border-radius: 12px;
-        cursor: pointer;
-        text-decoration: none;
-        letter-spacing: 0.3px;
-        position: relative;
-        overflow: hidden;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        width: fit-content;
-        margin-top: 0.5rem;
-      }
-
-      .cta-button::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.05),
-          transparent
-        );
-        transition: left 0.5s;
-      }
-
-      .cta-button:hover::before {
-        left: 100%;
-      }
-
-      .cta-button:hover {
-        transform: translateY(-1px);
-        border-color: rgba(255, 255, 255, 0.15);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15),
-          inset 0 1px 0 rgba(255, 255, 255, 0.1);
-      }
-
-      /* Social Links Card */
-      .social-card {
-        padding: 1.5rem 2rem;
-        display: flex;
-        gap: 1rem;
-        justify-content: center;
-        align-items: center;
-        animation: fadeInUp 0.8s ease-out 0.2s both;
-      }
-
-      .social-link {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 44px;
-        height: 44px;
-        color: var(--text-secondary);
-        font-size: 1.25rem;
-        text-decoration: none;
-        border-radius: 10px;
-        background: var(--glass-bg);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 1px solid var(--glass-border);
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .social-link::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 0;
-        height: 0;
-        border-radius: 50%;
-        background: rgba(100, 200, 255, 0.1);
-        transform: translate(-50%, -50%);
-        transition: width 0.4s, height 0.4s;
-      }
-
-      .social-link:hover::before {
-        width: 100%;
-        height: 100%;
-      }
-
-      .social-link:hover {
-        color: var(--text-primary);
-        transform: translateY(-2px);
-        border-color: rgba(255, 255, 255, 0.15);
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12),
-          inset 0 1px 0 rgba(255, 255, 255, 0.08);
-      }
-
-      /* Footer */
-      .footer {
-        position: relative;
-        z-index: 1;
-        padding: 2rem 8%;
-        border-top: 1px solid var(--glass-border);
-        background: rgba(10, 14, 26, 0.3);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-      }
-
-      .footer-content {
-        max-width: 1100px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 1rem;
-      }
-
-      .footer-text {
-        color: var(--text-tertiary);
-        font-size: 0.8125rem;
-        font-weight: 400;
-      }
-
-      .footer-social-links {
-        display: flex;
-        gap: 0.75rem;
-      }
-
-      .footer-social-link {
-        color: var(--text-tertiary);
-        font-size: 1rem;
-        text-decoration: none;
-        transition: all 0.3s;
-        padding: 0.5rem;
-        border-radius: 6px;
-      }
-
-      .footer-social-link:hover {
-        color: var(--accent-blue-bright);
-        transform: translateY(-1px);
-      }
-
-      /* Animations */
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      /* Responsive Design */
-      @media (max-width: 768px) {
-        .main-content {
-          padding: 4rem 5%;
-        }
-
-        .hero-card {
-          padding: 3rem 2rem;
-        }
-
-        .social-card {
-          padding: 1.25rem 1.5rem;
-        }
-
-        .footer-content {
-          flex-direction: column;
-          text-align: center;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .hero-card {
-          padding: 2.5rem 1.5rem;
-        }
-
-        .cta-button {
-          width: 100%;
-          justify-content: center;
-        }
-
-        .social-link {
-          width: 40px;
-          height: 40px;
-          font-size: 1.125rem;
-        }
-      }
-
-      /* Reduced Motion */
-      @media (prefers-reduced-motion: reduce) {
-        *,
-        *::before,
-        *::after {
-          animation-duration: 0.01ms !important;
-          animation-iteration-count: 1 !important;
-          transition-duration: 0.01ms !important;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="styles/main.css">
   </head>
   <body>
     <div class="main-content">
-      <div class="container">
-        <div class="hero-card glass-card">
-          <div class="hero-content">
-            <h1 class="headline">
-              <span class="name-line">Joshua Ayotope Adeyefa</span>
-              <div class="tagline-lines">
-                <span class="headline-line">Crafting Digital</span>
-                <span class="headline-line">Excellence.</span>
-                <span class="headline-line">Mobile & Web.</span>
+      <div class="container flex-center" style="min-height: 100vh;">
+        <div style="width: 100%; display: flex; flex-direction: column; gap: 2rem;">
+          
+          <!-- Hero Card -->
+          <div class="glass-card animate-fade-in" style="padding: 4rem;">
+            <div class="hero-content flex-col gap-1">
+              <h1 class="headline flex-col">
+                <span style="font-size: 1.5rem; color: var(--text-muted); font-weight: 500;">Hello, I'm</span>
+                <span class="text-gradient" style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; margin-bottom: 0.5rem;">Joshua Ayotope Adeyefa</span>
+                <span style="font-size: clamp(1.5rem, 3vw, 2.5rem); color: var(--text-muted);">Crafting Digital Excellence.</span>
+              </h1>
+
+              <p class="description animate-slide-up delay-100" style="max-width: 600px; margin-top: 1rem;">
+                I specialize in building intuitive mobile apps and responsive
+                websites. My focus is on creating seamless user experiences that
+                solve real-world problems and drive engagement across all devices.
+              </p>
+
+              <div class="animate-slide-up delay-200" style="margin-top: 2rem;">
+                <a href="about.html" class="btn btn-primary">
+                  About Me <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+                </a>
               </div>
-            </h1>
-
-            <p class="description">
-              I specialize in building intuitive mobile apps and responsive
-              websites. My focus is on creating seamless user experiences that
-              solve real-world problems and drive engagement across all devices.
-            </p>
-
-            <a href="about.html" class="cta-button">Explore</a>
+            </div>
           </div>
-        </div>
 
-        <div class="social-card glass-card">
-          <a
-            href="https://github.com/ayopium07"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-link"
-            aria-label="GitHub"
-          >
-            <i class="fab fa-github"></i>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/Ayotope Joshua"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-link"
-            aria-label="LinkedIn"
-          >
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-          <a
-            href="https://twitter.com/Thatuglyboy_7"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-link"
-            aria-label="Twitter"
-          >
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a
-            href="https://www.instagram.com/temisann7?igsh=ZTI3aGZ0enE1ZGFs"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-link"
-            aria-label="Instagram"
-          >
-            <i class="fab fa-instagram"></i>
-          </a>
+          <!-- Social Card -->
+          <div class="glass-card animate-slide-up delay-300" style="padding: 1.5rem; display: flex; justify-content: center; gap: 1.5rem;">
+            <a href="https://github.com/ayopium07" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/Ayotope Joshua" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://twitter.com/Thatuglyboy_7" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com/temisann7?igsh=ZTI3aGZ0enE1ZGFs" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+
         </div>
       </div>
     </div>
 
-    <footer class="footer">
-      <div class="footer-content">
-        <div class="footer-text">
+    <!-- Footer -->
+    <footer style="border-top: 1px solid var(--glass-border); padding: 2rem 0; background: rgba(0,0,0,0.2);">
+      <div class="container flex-center" style="justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding: 0 2rem;">
+        <div style="font-size: 0.9rem; color: var(--text-dim);">
           © 2024 Joshua Ayotope Adeyefa. All rights reserved.
         </div>
-        <div class="footer-social-links">
-          <a
-            href="https://github.com/ayopium07"
-            class="footer-social-link"
-            title="GitHub"
-          >
-            <i class="fab fa-github"></i>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/Ayotope Joshua"
-            class="footer-social-link"
-            title="LinkedIn"
-          >
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-          <a
-            href="https://twitter.com/Thatuglyboy_7"
-            class="footer-social-link"
-            title="Twitter"
-          >
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a
-            href="https://www.instagram.com/temisann7?igsh=ZTI3aGZ0enE1ZGFs"
-            class="footer-social-link"
-            title="Instagram"
-          >
-            <i class="fab fa-instagram"></i>
-          </a>
+        <div class="flex-center gap-1">
+          <a href="https://github.com/ayopium07" style="color: var(--text-dim); transition: 0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.4)'"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/Ayotope Joshua" style="color: var(--text-dim); transition: 0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.4)'"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://twitter.com/Thatuglyboy_7" style="color: var(--text-dim); transition: 0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.4)'"><i class="fab fa-twitter"></i></a>
         </div>
       </div>
     </footer>
