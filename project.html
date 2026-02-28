@@ -3,773 +3,1078 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio - Joshua Ayotope Temisan</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-    <link rel="stylesheet" href="styles/main.css">
+    <title>Projects - Joshua Ayotope Temisan</title>
+    <meta name="description" content="Explore Joshua Ayotope Temisan's portfolio of mobile apps, web platforms, and security-focused projects." />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <style>
-      /* Folder & Project Specific Styles */
-      
-      .header-section {
-        text-align: center;
-        margin-bottom: 3rem;
-      }
-      
-      .page-title {
-        font-size: clamp(2.5rem, 5vw, 3.5rem);
-        margin-bottom: 1rem;
-        background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-      
-      .page-subtitle {
-        color: var(--text-muted);
-        max-width: 700px;
-        margin: 0 auto 2rem;
+      /* ── Reset & Base ──────────────────────────────── */
+      *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+      :root {
+        --bg:          #0a0e1a;
+        --bg-card:     rgba(255,255,255,0.025);
+        --border:      rgba(255,255,255,0.08);
+        --border-hi:   rgba(255,255,255,0.14);
+        --text-1:      rgba(255,255,255,0.95);
+        --text-2:      rgba(255,255,255,0.58);
+        --text-3:      rgba(255,255,255,0.35);
+        --blue:        #5b9dd9;
+        --blue-hi:     #7db3e8;
+        --purple:      #8b5cf6;
+        --teal:        #2dd4bf;
+        --amber:       #f59e0b;
+        --pink:        #ec4899;
+        --green:       #34d399;
+        --accent:      #4361ee;
+        --radius:      16px;
+        --ease:        cubic-bezier(0.4, 0, 0.2, 1);
       }
 
-      /* Portfolio Filter */
-      .portfolio-filter {
+      html { scroll-behavior: smooth; }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--bg);
+        background-image:
+          radial-gradient(at 15% 25%, rgba(30,60,100,0.18) 0px, transparent 55%),
+          radial-gradient(at 85% 75%, rgba(67,97,238,0.1) 0px, transparent 55%);
+        color: var(--text-1);
+        line-height: 1.6;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        min-height: 100vh;
+      }
+
+      a { text-decoration: none; color: inherit; }
+
+      /* ── Ambient Orb ───────────────────────────────── */
+      body::before {
+        content: "";
+        position: fixed;
+        top: -40%; left: -40%;
+        width: 180%; height: 180%;
+        background: radial-gradient(circle, rgba(90,160,220,0.04) 0%, transparent 65%);
+        animation: orb 18s ease-in-out infinite;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      @keyframes orb {
+        0%,100% { transform: translate(0,0);    opacity: .5; }
+        50%      { transform: translate(4%,4%); opacity: .9; }
+      }
+
+      /* ── Nav ───────────────────────────────────────── */
+      header {
+        background: rgba(10,14,26,.45);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        border-bottom: 1px solid var(--border);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .navbar {
         display: flex;
-        gap: 0.75rem;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.25rem 2rem;
+        max-width: 1300px;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      .logo { display: flex; align-items: center; }
+      .logo-img {
+        width: 40px; height: 40px;
+        border-radius: 10px;
+        object-fit: cover;
+        border: 1px solid var(--border);
+        transition: .3s;
+      }
+      .logo:hover .logo-img { border-color: var(--border-hi); transform: scale(1.05); }
+
+      .nav-links { display: flex; gap: 2rem; list-style: none; }
+      .nav-links a {
+        color: var(--text-2);
+        font-weight: 500;
+        font-size: .9375rem;
+        transition: color .3s;
+        position: relative;
+        padding: .5rem 0;
+      }
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: 0; left: 0;
+        width: 0; height: 1px;
+        background: var(--blue-hi);
+        transition: width .3s;
+      }
+      .nav-links a:hover, .nav-links a.active { color: var(--text-1); }
+      .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+
+      .mobile-menu-toggle {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        padding: 5px;
+        z-index: 1000;
+        gap: 5px;
+      }
+      .mobile-menu-toggle span {
+        width: 25px; height: 2.5px;
+        background: var(--text-1);
+        border-radius: 3px;
+        transition: .3s;
+      }
+      .mobile-menu-toggle.active span:nth-child(1) { transform: rotate(-45deg) translate(-5px,6px); }
+      .mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
+      .mobile-menu-toggle.active span:nth-child(3) { transform: rotate(45deg) translate(-5px,-6px); }
+
+      /* ── Page Layout ───────────────────────────────── */
+      main {
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 4rem 2rem 6rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* ── Hero ──────────────────────────────────────── */
+      .page-hero {
+        text-align: center;
+        margin-bottom: 3.5rem;
+        animation: fadeUp .7s ease both;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: .5rem;
+        background: rgba(91,157,217,.1);
+        border: 1px solid rgba(91,157,217,.22);
+        color: var(--blue-hi);
+        font-size: .75rem;
+        font-weight: 700;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+        padding: .4rem 1rem;
+        border-radius: 100px;
+        margin-bottom: 1.5rem;
+      }
+
+      .page-hero h1 {
+        font-size: clamp(2.2rem, 5vw, 3.4rem);
+        font-weight: 800;
+        line-height: 1.15;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,.65) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .page-hero h1 span {
+        background: linear-gradient(135deg, var(--blue) 0%, var(--purple) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .page-hero p {
+        color: var(--text-2);
+        font-size: 1.05rem;
+        max-width: 580px;
+        margin: 0 auto;
+        line-height: 1.75;
+      }
+
+      /* ── Filter Bar ────────────────────────────────── */
+      .filter-bar {
+        display: flex;
         justify-content: center;
+        gap: .6rem;
         flex-wrap: wrap;
         margin-bottom: 3rem;
+        animation: fadeUp .7s .1s ease both;
       }
 
       .filter-btn {
-        background: var(--glass-bg);
-        border: 1px solid var(--glass-border);
-        color: var(--text-muted);
-        padding: 0.625rem 1.5rem;
-        border-radius: 50px;
-        cursor: pointer;
-        font-weight: 500;
-        font-size: 0.9rem;
-        transition: all 0.3s var(--ease-spring);
-        font-family: 'Outfit', sans-serif;
-      }
-
-      .filter-btn:hover, .filter-btn.active {
-        background: var(--primary);
-        color: white;
-        border-color: var(--primary);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px var(--primary-glow);
-      }
-
-      /* Folder Case Container */
-      .folder-case-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 50vh;
-        margin: 3rem 0;
-        perspective: 1200px;
-      }
-
-      .folder-case {
-        position: relative;
-        width: 320px;
-        height: 260px;
-        cursor: pointer;
-        transform-style: preserve-3d;
-        transition: all 0.6s var(--ease-elastic);
-      }
-
-      .folder-case:hover:not(.opened) {
-        transform: translateY(-20px) rotateX(5deg);
-      }
-
-      /* Folder Flap */
-      .folder-flap {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 180px;
-        height: 50px;
-        background: var(--glass-bg);
-        backdrop-filter: blur(40px);
-        border: 1px solid var(--glass-border);
-        border-radius: 12px 12px 0 0;
-        z-index: 5;
-      }
-
-      /* Folder Body */
-      .folder-body {
-        position: absolute;
-        top: 30px;
-        left: 0;
-        width: 100%;
-        height: 230px;
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(40px);
-        border: 1px solid var(--glass-border);
-        border-radius: 0 16px 16px 16px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
         display: flex;
         align-items: center;
-        justify-content: center;
+        gap: .4rem;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        color: var(--text-2);
+        padding: .55rem 1.35rem;
+        border-radius: 100px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: .85rem;
+        font-family: inherit;
+        transition: all .25s var(--ease);
+        letter-spacing: .2px;
       }
 
-      .folder-text {
-        position: absolute;
-        bottom: 20px;
-        left: 0;
-        right: 0;
-        text-align: center;
-        z-index: 4;
-        transition: all 0.4s ease;
+      .filter-btn .dot {
+        width: 7px; height: 7px;
+        border-radius: 50%;
+        background: currentColor;
+        opacity: .5;
+        transition: opacity .25s;
       }
 
-      .folder-label {
-        font-size: 1.2rem;
-        font-weight: 700;
-        color: var(--text-main);
+      .filter-btn:hover {
+        border-color: var(--border-hi);
+        color: var(--text-1);
+        background: rgba(255,255,255,.05);
       }
 
-      .folder-hint {
-        font-size: 0.8rem;
-        color: var(--text-dim);
-        margin-top: 4px;
-        animation: pulse 2s infinite;
+      .filter-btn.active {
+        background: rgba(67,97,238,.18);
+        border-color: rgba(67,97,238,.4);
+        color: #91a8ff;
       }
+      .filter-btn.active .dot { opacity: 1; background: #91a8ff; }
 
-      @keyframes pulse {
-        0%, 100% { opacity: 0.6; }
-        50% { opacity: 1; }
-      }
-
-      .folder-case.opened {
-        transform: scale(0.9) translateY(-30px);
-        opacity: 0;
-        pointer-events: none;
-      }
-
-      .folder-case.opened .folder-documents {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      
-      /* Documents inside folder */
-      .folder-documents {
-        position: relative;
-        z-index: 3;
+      /* ── Count Badge ───────────────────────────────── */
+      .count-row {
         display: flex;
-        gap: 8px;
-        perspective: 1000px;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1.5rem;
+        animation: fadeUp .7s .15s ease both;
       }
 
-      .document {
-        width: 45px;
-        height: 55px;
-        background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
-        border-radius: 4px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-        border: 1px solid rgba(0, 0, 0, 0.1);
+      .count-text {
+        font-size: .83rem;
+        color: var(--text-3);
+        letter-spacing: .5px;
       }
-      
-      .document:nth-child(2) { transform: translateX(15px) translateY(-8px) rotateZ(-5deg); }
-      .document:nth-child(3) { transform: translateX(30px) translateY(-16px) rotateZ(-10deg); }
 
+      .count-text strong { color: var(--text-2); font-weight: 600; }
 
-      /* Projects Wrapper */
-      .projects-wrapper {
-        display: none;
-        animation: slideUp 0.8s var(--ease-elastic);
-      }
-      .projects-wrapper.active { display: block; }
-
-      .portfolio-grid {
+      /* ── Grid ──────────────────────────────────────── */
+      .projects-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 2rem;
-        margin: 2rem 0;
-        padding-bottom: 2rem;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
       }
 
-      /* Portfolio Card */
-      .portfolio-card {
-        background: var(--glass-bg);
-        border: 1px solid var(--glass-border);
-        border-radius: var(--radius-lg);
+      /* ── Card ──────────────────────────────────────── */
+      .project-card {
+        position: relative;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
         overflow: hidden;
-        transition: all 0.4s var(--ease-spring);
         display: flex;
         flex-direction: column;
+        transition: transform .4s var(--ease), border-color .4s, box-shadow .4s;
+        animation: fadeUp .6s ease both;
+        cursor: default;
       }
 
-      .portfolio-card:hover {
-        transform: translateY(-8px);
-        border-color: var(--glass-highlight);
-        box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+      .project-card:hover {
+        transform: translateY(-6px);
+        border-color: var(--border-hi);
+        box-shadow: 0 20px 50px rgba(0,0,0,.3);
       }
 
-      .card-image-wrapper {
+      /* Top shimmer line */
+      .project-card::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,.1), transparent);
+      }
+
+      /* Category badge */
+      .card-badge {
+        position: absolute;
+        top: .9rem;
+        left: .9rem;
+        font-size: .68rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        padding: .28rem .7rem;
+        border-radius: 100px;
+        z-index: 3;
+        backdrop-filter: blur(8px);
+      }
+
+      .badge-web      { background: rgba(45,212,191,.12); color: var(--teal);   border: 1px solid rgba(45,212,191,.25); }
+      .badge-mobile   { background: rgba(91,157,217,.12); color: var(--blue-hi); border: 1px solid rgba(91,157,217,.25); }
+      .badge-security { background: rgba(245,158,11,.12); color: var(--amber);   border: 1px solid rgba(245,158,11,.25); }
+      .badge-multi    { background: rgba(139,92,246,.12); color: #c4b5fd;        border: 1px solid rgba(139,92,246,.25); }
+
+      /* Image area */
+      .card-image-area {
         width: 100%;
-        height: 220px;
-        background: rgba(0,0,0,0.2);
+        height: 200px;
+        background: rgba(0,0,0,.25);
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 1.5rem;
-        position: relative;
         overflow: hidden;
-      }
-      
-      .card-image {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
-        transition: transform 0.5s ease;
+        position: relative;
       }
 
-      .portfolio-card:hover .card-image {
+      .card-image-area img {
+        max-width: 70%;
+        max-height: 70%;
+        object-fit: contain;
+        transition: transform .5s var(--ease);
+        filter: drop-shadow(0 4px 16px rgba(0,0,0,.4));
+      }
+
+      .project-card:hover .card-image-area img {
         transform: scale(1.08);
       }
 
-      .card-content {
-        padding: 1.5rem;
+      /* hover overlay */
+      .card-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(10,14,26,.82);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: .75rem;
+        opacity: 0;
+        transition: opacity .3s var(--ease);
+        z-index: 4;
+      }
+
+      .project-card:hover .card-overlay { opacity: 1; }
+
+      .overlay-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: .4rem;
+        font-size: .8rem;
+        font-weight: 700;
+        padding: .6rem 1.1rem;
+        border-radius: 10px;
+        transition: transform .2s, box-shadow .2s;
+        letter-spacing: .3px;
+      }
+
+      .overlay-btn:hover { transform: translateY(-2px); }
+
+      .overlay-btn.primary {
+        background: linear-gradient(135deg, var(--accent), var(--purple));
+        color: #fff;
+        box-shadow: 0 4px 16px rgba(67,97,238,.35);
+      }
+
+      .overlay-btn.secondary {
+        background: rgba(255,255,255,.08);
+        border: 1px solid var(--border-hi);
+        color: var(--text-1);
+      }
+
+      /* Card body */
+      .card-body {
+        padding: 1.4rem;
         flex: 1;
         display: flex;
         flex-direction: column;
+        gap: .5rem;
       }
 
       .card-title {
-        font-size: 1.2rem;
-        margin-bottom: 0.5rem;
-        color: var(--text-main);
-      }
-      
-      .card-description {
-        font-size: 0.95rem;
-        color: var(--text-muted);
-        margin-bottom: 1rem;
-        flex-grow: 1;
-        line-height: 1.5;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--text-1);
+        line-height: 1.35;
       }
 
-      .card-tech-tags {
+      .card-desc {
+        font-size: .875rem;
+        color: var(--text-2);
+        line-height: 1.6;
+        flex: 1;
+      }
+
+      /* Tech tags */
+      .card-tags {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-top: auto;
+        gap: .4rem;
+        margin-top: .6rem;
       }
 
       .tech-tag {
-        background: rgba(255,255,255,0.05);
-        border: 1px solid var(--glass-border);
-        color: var(--text-dim);
-        padding: 0.25rem 0.75rem;
+        font-size: .72rem;
+        font-weight: 600;
+        padding: .22rem .65rem;
         border-radius: 6px;
-        font-size: 0.8rem;
+        background: rgba(255,255,255,.05);
+        border: 1px solid var(--border);
+        color: var(--text-3);
       }
 
-      /* Web Project Logos */
-      .web-project-logos {
+      /* Web link row (only for web projects) */
+      .card-link-row {
         display: flex;
+        gap: .6rem;
+        margin-top: .9rem;
+        padding-top: .9rem;
+        border-top: 1px solid var(--border);
         align-items: center;
-        gap: 1rem;
-        margin-top: 1.5rem;
-        padding-top: 1rem;
-        border-top: 1px solid var(--glass-border);
       }
 
-      .logo-link {
-        width: 42px;
-        height: 42px;
-        border-radius: 8px;
-        background: rgba(255,255,255,0.05);
-        padding: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: 0.3s;
-      }
-
-      .logo-link:hover { background: rgba(255,255,255,0.1); }
-      .logo-link img { width: 100%; height: 100%; object-fit: contain; }
-
-      .website-link-btn {
+      .visit-btn {
         flex: 1;
-        padding: 0.6rem;
-        background: var(--primary);
-        color: white;
-        text-align: center;
-        border-radius: 8px;
-        font-weight: 500;
-        font-size: 0.9rem;
-        transition: 0.3s;
-      }
-      
-      .website-link-btn:hover {
-        background: var(--accent-cyan);
-        transform: translateY(-2px);
-      }
-      
-      /* Close Button */
-      .close-projects-btn {
-        position: fixed;
-        top: 2rem;
-        right: 2rem;
-        width: 48px;
-        height: 48px;
-        background: var(--glass-bg);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 1px solid var(--glass-border);
-        color: var(--text-main);
-        border-radius: 12px;
-        cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.5rem;
-        transition: all 0.3s ease;
-        z-index: 999;
-        opacity: 0;
+        gap: .4rem;
+        padding: .55rem;
+        background: linear-gradient(135deg, rgba(67,97,238,.25), rgba(139,92,246,.2));
+        border: 1px solid rgba(67,97,238,.3);
+        border-radius: 10px;
+        color: #91a8ff;
+        font-size: .83rem;
+        font-weight: 700;
+        transition: all .25s;
+      }
+
+      .visit-btn:hover {
+        background: linear-gradient(135deg, rgba(67,97,238,.4), rgba(139,92,246,.35));
+        transform: translateY(-1px);
+      }
+
+      .visit-thumb {
+        width: 34px; height: 34px;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        flex-shrink: 0;
+      }
+      .visit-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+      /* ── CTA Banner ────────────────────────────────── */
+      .cta-banner {
+        margin-top: 5rem;
+        background: linear-gradient(135deg, rgba(67,97,238,.14), rgba(139,92,246,.09));
+        border: 1px solid rgba(139,92,246,.22);
+        border-radius: 22px;
+        padding: 3.5rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        animation: fadeUp .7s .3s ease both;
+      }
+
+      .cta-banner::before {
+        content: "";
+        position: absolute;
+        left: 50%; top: 0;
+        transform: translateX(-50%);
+        width: 350px; height: 180px;
+        background: radial-gradient(ellipse at top, rgba(139,92,246,.15), transparent 70%);
         pointer-events: none;
       }
-      
-      .close-projects-btn.visible {
-        opacity: 1;
-        pointer-events: all;
+
+      .cta-banner h2 {
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        font-weight: 800;
+        margin-bottom: .9rem;
+        position: relative;
+        z-index: 1;
       }
-      
-      .close-projects-btn:hover {
-        background: rgba(255,255,255,0.1);
-        transform: rotate(90deg);
+
+      .cta-banner p {
+        color: var(--text-2);
+        font-size: .98rem;
+        max-width: 500px;
+        margin: 0 auto 2rem;
+        line-height: 1.65;
+        position: relative;
+        z-index: 1;
       }
-      
-      /* Animations */
-      @keyframes popOut {
-        0% { opacity: 0; transform: scale(0.3) translateY(40px); }
-        50% { transform: scale(1.05) translateY(0); }
-        100% { opacity: 1; transform: scale(1) translateY(0); }
-      }
-      
-      .pagination {
+
+      .btn-row {
         display: flex;
+        gap: 1rem;
         justify-content: center;
-        align-items: center;
-        gap: 0.5rem;
-        margin: 3rem 0;
+        flex-wrap: wrap;
+        position: relative;
+        z-index: 1;
       }
 
-      .pagination-btn {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        border: 1px solid var(--glass-border);
-        background: rgba(255, 255, 255, 0.05);
-        color: var(--text-muted);
-        cursor: pointer;
-        transition: all 0.3s;
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: .45rem;
+        background: linear-gradient(135deg, #4361ee, #7b5ea7);
+        color: #fff;
+        font-weight: 700;
+        font-size: .9rem;
+        padding: .8rem 1.6rem;
+        border-radius: 12px;
+        transition: all .3s;
+        box-shadow: 0 4px 18px rgba(67,97,238,.3);
+      }
+      .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 26px rgba(67,97,238,.45); }
+
+      .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: .45rem;
+        background: rgba(255,255,255,.05);
+        border: 1px solid var(--border);
+        color: var(--text-1);
+        font-weight: 700;
+        font-size: .9rem;
+        padding: .8rem 1.6rem;
+        border-radius: 12px;
+        transition: all .3s;
+      }
+      .btn-secondary:hover { background: rgba(255,255,255,.09); transform: translateY(-2px); }
+
+      /* ── Footer ────────────────────────────────────── */
+      footer {
+        background: #1a1d24;
+        border-top: 1px solid rgba(160,160,160,.15);
+        padding: 2rem 8%;
+      }
+
+      .footer-content {
         display: flex;
+        justify-content: space-between;
         align-items: center;
-        justify-content: center;
-        font-family: 'Outfit', sans-serif;
+        max-width: 1200px;
+        margin: 0 auto;
       }
 
-      .pagination-btn:hover {
-        background: rgba(255, 255, 255, 0.1);
-        color: white;
+      .footer-text { color: #fff; font-size: .9rem; }
+
+      .footer-social-links { display: flex; gap: 1rem; }
+      .footer-social-link { color: #fff; font-size: 1.2rem; transition: color .3s; }
+      .footer-social-link:hover { color: #2196f3; }
+
+      /* ── Animation ─────────────────────────────────── */
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(22px); }
+        to   { opacity: 1; transform: translateY(0);    }
       }
 
-      .pagination-btn.active {
-        background: var(--primary);
-        color: white;
-        border-color: var(--primary);
+      /* ── Hidden ────────────────────────────────────── */
+      .project-card.hidden {
+        display: none;
       }
-      
-      .pagination-btn:disabled {
-        opacity: 0.3;
-        cursor: not-allowed;
+
+      /* ── Responsive ────────────────────────────────── */
+      @media (max-width: 1024px) {
+        .projects-grid { grid-template-columns: repeat(2, 1fr); }
+      }
+
+      @media (max-width: 768px) {
+        .mobile-menu-toggle { display: flex; }
+
+        .nav-links {
+          position: fixed;
+          top: 64px; left: 0;
+          width: 100%;
+          max-height: 0;
+          overflow: hidden;
+          background: linear-gradient(135deg, rgba(26,29,36,.98), rgba(28,37,65,.98));
+          backdrop-filter: blur(20px);
+          flex-direction: column;
+          padding: 0;
+          gap: 0;
+          transition: max-height .4s var(--ease);
+          border-top: 1px solid rgba(67,97,238,.2);
+          z-index: 999;
+          list-style: none;
+        }
+
+        .nav-links.active { max-height: 400px; padding: 1.5rem; gap: .75rem; }
+
+        .nav-links a {
+          display: block;
+          padding: .85rem 1rem;
+          border-bottom: 1px solid rgba(67,97,238,.1);
+          text-align: center;
+          font-weight: 600;
+          color: #fff;
+        }
+        .nav-links a:last-of-type { border-bottom: none; }
+        .nav-links li:last-child a  { border-bottom: none; }
+
+        .projects-grid { grid-template-columns: 1fr; }
+        main { padding: 2.5rem 1rem 4rem; }
+        .cta-banner { padding: 2.5rem 1.25rem; }
+        .footer-content { flex-direction: column; gap: 1rem; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
       }
     </style>
   </head>
   <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-      <div class="nav-content">
+
+    <!-- Navigation -->
+    <header>
+      <nav class="navbar">
         <a href="index.html" class="logo">
           <img src="images/JAA.jpg" alt="JAA" class="logo-img" />
         </a>
         <div class="mobile-menu-toggle" id="mobileMenuToggle">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </div>
         <ul class="nav-links" id="navLinks">
           <li><a href="about.html">About</a></li>
-          <li><a href="portfolio.html" class="active">Portfolio</a></li>
+          <li><a href="project.html" class="active">Projects</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-      </div>
-    </nav>
+      </nav>
+    </header>
 
-    <div class="container">
-      <div class="header-section">
-        <h1 class="page-title">My Projects</h1>
-        <p class="page-subtitle">
-          Explore a selection of my work, showcasing my skills in mobile and web
-          development, as well as cybersecurity.
+    <main>
+
+      <!-- Hero -->
+      <div class="page-hero">
+        <div class="eyebrow"><i class="fas fa-folder-open"></i> Selected Work</div>
+        <h1>Projects I've <span>built & shipped</span></h1>
+        <p>
+          A curated look at what I've delivered — mobile apps, web platforms,
+          and tools that solve real problems for real users.
         </p>
+      </div>
 
-        <div class="portfolio-filter">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="web">Web</button>
-          <button class="filter-btn" data-filter="mobile">Mobile</button>
-          <button class="filter-btn" data-filter="security">Cybersecurity</button>
+      <!-- Filter Bar -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">
+          <span class="dot"></span> All Projects
+        </button>
+        <button class="filter-btn" data-filter="web">
+          <span class="dot"></span> Web
+        </button>
+        <button class="filter-btn" data-filter="mobile">
+          <span class="dot"></span> Mobile
+        </button>
+        <button class="filter-btn" data-filter="security">
+          <span class="dot"></span> Security
+        </button>
+      </div>
+
+      <!-- Count -->
+      <div class="count-row">
+        <p class="count-text">Showing <strong id="visibleCount">7</strong> projects</p>
+      </div>
+
+      <!-- Grid -->
+      <div class="projects-grid" id="projectsGrid">
+
+        <!-- Festival Of Change 25 -->
+        <div class="project-card" data-category="web" style="animation-delay:.05s">
+          <span class="card-badge badge-web">Web</span>
+          <div class="card-image-area">
+            <img src="images/FOC25.jpg" alt="Festival Of Change 25" />
+            <div class="card-overlay">
+              <a href="https://www.festivalofchange.org/" target="_blank" class="overlay-btn primary">
+                <i class="fas fa-external-link-alt"></i> Visit Site
+              </a>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Festival of Change 25</h3>
+            <p class="card-desc">
+              Global event platform bringing together educators, technologists,
+              and innovators. Designed for scale and discoverability.
+            </p>
+            <div class="card-link-row">
+              <div class="visit-thumb">
+                <img src="images/FOC25.jpg" alt="FOC25" />
+              </div>
+              <a href="https://www.festivalofchange.org/" target="_blank" class="visit-btn">
+                <i class="fas fa-arrow-up-right-from-square"></i>
+                festivalofchange.org
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SWIP -->
+        <div class="project-card" data-category="web" style="animation-delay:.1s">
+          <span class="card-badge badge-web">Web</span>
+          <div class="card-image-area">
+            <img src="images/swiplo.jpg" alt="SWIP" />
+            <div class="card-overlay">
+              <a href="https://www.theswip.org/" target="_blank" class="overlay-btn primary">
+                <i class="fas fa-external-link-alt"></i> Visit Site
+              </a>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Sustainable World Impact Program</h3>
+            <p class="card-desc">
+              Youth-led sustainability organization from Nigeria placing SDG 17
+              at the center of their operational model.
+            </p>
+            <div class="card-link-row">
+              <div class="visit-thumb">
+                <img src="images/swiplo.jpg" alt="SWIP" />
+              </div>
+              <a href="https://www.theswip.org/" target="_blank" class="visit-btn">
+                <i class="fas fa-arrow-up-right-from-square"></i>
+                theswip.org
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- TEACcH -->
+        <div class="project-card" data-category="web" style="animation-delay:.15s">
+          <span class="card-badge badge-web">Web</span>
+          <div class="card-image-area">
+            <img src="images/TEACcHlo.png" alt="TEACcH" />
+            <div class="card-overlay">
+              <a href="https://www.teacch.co/" target="_blank" class="overlay-btn primary">
+                <i class="fas fa-external-link-alt"></i> Visit Site
+              </a>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">TEACcH</h3>
+            <p class="card-desc">
+              A Social Innovation Hub built to empower communities and foster
+              a better tomorrow through education and technology.
+            </p>
+            <div class="card-link-row">
+              <div class="visit-thumb">
+                <img src="images/TEACcHlo.png" alt="TEACcH" />
+              </div>
+              <a href="https://www.teacch.co/" target="_blank" class="visit-btn">
+                <i class="fas fa-arrow-up-right-from-square"></i>
+                teacch.co
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rekora -->
+        <div class="project-card" data-category="web" style="animation-delay:.2s">
+          <span class="card-badge badge-web">Web</span>
+          <div class="card-image-area">
+            <img src="images/rekoralo.jpg" alt="Rekora" />
+            <div class="card-overlay">
+              <a href="https://www.rekora.org/" target="_blank" class="overlay-btn primary">
+                <i class="fas fa-external-link-alt"></i> Visit Site
+              </a>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Rekora Initiatives</h3>
+            <p class="card-desc">
+              STEM program site focused on empowering students through
+              hands-on technology education and mentorship.
+            </p>
+            <div class="card-link-row">
+              <div class="visit-thumb">
+                <img src="images/rekoralo.jpg" alt="Rekora" />
+              </div>
+              <a href="https://www.rekora.org/" target="_blank" class="visit-btn">
+                <i class="fas fa-arrow-up-right-from-square"></i>
+                rekora.org
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- The OAK -->
+        <div class="project-card" data-category="web" style="animation-delay:.25s">
+          <span class="card-badge badge-web">Web</span>
+          <div class="card-image-area">
+            <img src="images/loname.png" alt="The OAK" />
+            <div class="card-overlay">
+              <a href="https://www.theoaking.com/" target="_blank" class="overlay-btn primary">
+                <i class="fas fa-external-link-alt"></i> Visit Site
+              </a>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">The OAK</h3>
+            <p class="card-desc">
+              A sex educators platform delivering accurate, inclusive, and
+              science-backed health information to young people.
+            </p>
+            <div class="card-link-row">
+              <div class="visit-thumb">
+                <img src="images/loname.png" alt="The OAK" />
+              </div>
+              <a href="https://www.theoaking.com/" target="_blank" class="visit-btn">
+                <i class="fas fa-arrow-up-right-from-square"></i>
+                theoaking.com
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Shopmammy -->
+        <div class="project-card" data-category="mobile" style="animation-delay:.3s">
+          <span class="card-badge badge-mobile">Mobile</span>
+          <div class="card-image-area">
+            <img src="images/Shop_mammy logo.png" alt="Shopmammy" />
+            <div class="card-overlay">
+              <span class="overlay-btn secondary" style="cursor:default;">
+                <i class="fas fa-lock"></i> Private Repo
+              </span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Shopmammy E-commerce App</h3>
+            <p class="card-desc">
+              Full-featured e-commerce platform for seamless shopping and
+              order management, including a unique community cart-sharing model.
+            </p>
+            <div class="card-tags">
+              <span class="tech-tag">React Native</span>
+              <span class="tech-tag">Firebase</span>
+              <span class="tech-tag">Node.js</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Shopmammy Rider -->
+        <div class="project-card" data-category="mobile" style="animation-delay:.35s">
+          <span class="card-badge badge-mobile">Mobile</span>
+          <div class="card-image-area">
+            <img src="images/SMR V2.png" alt="Shopmammy Rider" />
+            <div class="card-overlay">
+              <span class="overlay-btn secondary" style="cursor:default;">
+                <i class="fas fa-lock"></i> Private Repo
+              </span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Shopmammy Rider App</h3>
+            <p class="card-desc">
+              Delivery management app for riders with real-time GPS tracking,
+              secure payment processing, and location-aware security features.
+            </p>
+            <div class="card-tags">
+              <span class="tech-tag">React Native</span>
+              <span class="tech-tag">GPS</span>
+              <span class="tech-tag">Real-time</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- OasisBank -->
+        <div class="project-card" data-category="mobile security" style="animation-delay:.4s">
+          <span class="card-badge badge-security">Security + Mobile</span>
+          <div class="card-image-area">
+            <img src="images/Oasis.png" alt="OasisBank" />
+            <div class="card-overlay">
+              <span class="overlay-btn secondary" style="cursor:default;">
+                <i class="fas fa-lock"></i> Private Repo
+              </span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">OasisBank Mobile App</h3>
+            <p class="card-desc">
+              Modern banking app with enterprise-grade encryption, secure
+              transactions, and advanced fraud detection capabilities.
+            </p>
+            <div class="card-tags">
+              <span class="tech-tag">Flutter</span>
+              <span class="tech-tag">Encryption</span>
+              <span class="tech-tag">Fraud Detection</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Focus AI -->
+        <div class="project-card" data-category="mobile" style="animation-delay:.45s">
+          <span class="card-badge badge-mobile">Mobile</span>
+          <div class="card-image-area">
+            <img src="images/f 5.png" alt="Focus AI Coach" />
+            <div class="card-overlay">
+              <span class="overlay-btn secondary" style="cursor:default;">
+                <i class="fas fa-lock"></i> Private Repo
+              </span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Focus AI Coach</h3>
+            <p class="card-desc">
+              AI-powered productivity app that helps users improve focus with
+              personalized coaching, privacy-first data handling, and smart insights.
+            </p>
+            <div class="card-tags">
+              <span class="tech-tag">React Native</span>
+              <span class="tech-tag">AI / ML</span>
+              <span class="tech-tag">Expo</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Shopmammy Vendor -->
+        <div class="project-card" data-category="mobile" style="animation-delay:.5s">
+          <span class="card-badge badge-mobile">Mobile</span>
+          <div class="card-image-area">
+            <img src="images/applogo.png" alt="Shopmammy Vendor" />
+            <div class="card-overlay">
+              <span class="overlay-btn secondary" style="cursor:default;">
+                <i class="fas fa-lock"></i> Private Repo
+              </span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Shopmammy Vendor App</h3>
+            <p class="card-desc">
+              Vendor-focused management app for products, orders, and sales
+              analytics, with secure data transmission and role-based access controls.
+            </p>
+            <div class="card-tags">
+              <span class="tech-tag">React Native</span>
+              <span class="tech-tag">Analytics</span>
+              <span class="tech-tag">Auth</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fitness Tracker -->
+        <div class="project-card" data-category="mobile" style="animation-delay:.55s">
+          <span class="card-badge badge-mobile">Mobile</span>
+          <div class="card-image-area">
+            <img src="images/mobile-app-icon.png" alt="Fitness Tracker" />
+            <div class="card-overlay">
+              <span class="overlay-btn secondary" style="cursor:default;">
+                <i class="fas fa-lock"></i> Private Repo
+              </span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Fitness Tracking App</h3>
+            <p class="card-desc">
+              Personalized workout planning and progress tracking app built with
+              a strong emphasis on user privacy and secure health data storage.
+            </p>
+            <div class="card-tags">
+              <span class="tech-tag">Flutter</span>
+              <span class="tech-tag">HealthKit</span>
+              <span class="tech-tag">Analytics</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /grid -->
+
+      <!-- CTA Banner -->
+      <div class="cta-banner">
+        <h2>Have a project in mind?</h2>
+        <p>
+          Whether it's a mobile app, a web platform, or something in between —
+          let's talk about how I can help bring it to life.
+        </p>
+        <div class="btn-row">
+          <a href="contact.html" class="btn-primary">
+            <i class="fas fa-paper-plane"></i> Get in Touch
+          </a>
+          <a href="services.html" class="btn-secondary">
+            <i class="fas fa-star"></i> What I Bring
+          </a>
         </div>
       </div>
 
-      <!-- Folder Case -->
-      <div class="folder-case-container">
-        <div class="folder-case" id="folderCase">
-          <!-- Folder Flap -->
-          <div class="folder-flap"></div>
-          
-          <!-- Folder Body -->
-          <div class="folder-body">
-            <div class="folder-documents" id="folderDocuments">
-              <div class="document"></div>
-              <div class="document"></div>
-              <div class="document"></div>
-            </div>
-          </div>
-          
-          <!-- Folder Text -->
-          <div class="folder-text">
-            <div class="folder-label">My Projects</div>
-            <div class="folder-hint">Click to explore</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Close Button -->
-      <button class="close-projects-btn" id="closeProjectsBtn">✕</button>
-
-      <!-- Projects Wrapper -->
-      <div class="projects-wrapper" id="projectsWrapper">
-        <div class="portfolio-grid" id="portfolioGrid">
-          <!-- Project 7: Festival Of Change 25 -->
-          <div class="portfolio-card" data-category="web">
-            <div class="card-image-wrapper">
-              <img src="images/FOC25.jpg" alt="Festival Of Change 25" class="card-image" />
-            </div>
-            <div class="card-content">
-              <h3 class="card-title">Festival Of Change 25</h3>
-              <p class="card-description">
-                The Festival of Change is a Global event that brings together educators, technologists, and innovators.
-              </p>
-              <div class="web-project-logos">
-                <a href="https://www.festivalofchange.org/" target="_blank" class="logo-link" title="Visit Website">
-                  <img src="images/FOC25.jpg" alt="FOC25 Logo" />
-                </a>
-                <a href="https://www.festivalofchange.org/" target="_blank" class="website-link-btn">
-                  Visit Website
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 8: SWIP -->
-          <div class="portfolio-card" data-category="web">
-            <div class="card-image-wrapper">
-              <img src="images/swiplo.jpg" alt="SWIP" class="card-image" />
-            </div>
-            <div class="card-content">
-              <h3 class="card-title">Sustainable World Impact Program</h3>
-              <p class="card-description">
-                Youth-led sustainability organization from Nigeria placing SDG 17 at the center of our model.
-              </p>
-              <div class="web-project-logos">
-                <a href="https://www.theswip.org/" target="_blank" class="logo-link" title="Visit Website">
-                  <img src="images/swiplo.jpg" alt="SWIP Logo" />
-                </a>
-                <a href="https://www.theswip.org/" target="_blank" class="website-link-btn">
-                  Visit Website
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 9: TEACcH -->
-          <div class="portfolio-card" data-category="web">
-            <div class="card-image-wrapper">
-              <img src="images/TEACcHlo.png" alt="TEACcH" class="card-image" />
-            </div>
-            <div class="card-content">
-              <h3 class="card-title">TEACcH</h3>
-              <p class="card-description">
-                TEACcH is a Social Innovation Hub to Empower a Better Tomorrow.
-              </p>
-              <div class="web-project-logos">
-                <a href="https://www.teacch.co/" target="_blank" class="logo-link" title="Visit Website">
-                  <img src="images/TEACcHlo.png" alt="TEACcH Logo" />
-                </a>
-                <a href="https://www.teacch.co/" target="_blank" class="website-link-btn">
-                  Visit Website
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 10: Rekora -->
-          <div class="portfolio-card" data-category="web">
-            <div class="card-image-wrapper">
-              <img src="images/rekoralo.jpg" alt="Rekora" class="card-image" />
-            </div>
-            <div class="card-content">
-              <h3 class="card-title">Rekora Initiatives</h3>
-              <p class="card-description">
-                Rekora Initiatives is a STEM program focused on empowering students through technology.
-              </p>
-              <div class="web-project-logos">
-                <a href="https://www.rekora.org/" target="_blank" class="logo-link" title="Visit Website">
-                  <img src="images/rekoralo.jpg" alt="Rekora Logo" />
-                </a>
-                <a href="https://www.rekora.org/" target="_blank" class="website-link-btn">
-                  Visit Website
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 11: The OAK -->
-          <div class="portfolio-card" data-category="web">
-            <div class="card-image-wrapper">
-              <img src="images/loname.png" alt="The OAK" class="card-image" />
-            </div>
-            <div class="card-content">
-              <h3 class="card-title">The OAK</h3>
-              <p class="card-description">
-                A sex educators platform dedicated to providing accurate and inclusive information.
-              </p>
-              <div class="web-project-logos">
-                <a href="https://www.theoaking.com/" target="_blank" class="logo-link" title="Visit Website">
-                  <img src="images/loname.png" alt="The OAK Logo" />
-                </a>
-                <a href="https://www.theoaking.com/" target="_blank" class="website-link-btn">
-                  Visit Website
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 1: Shopmammy -->
-          <div class="portfolio-card" data-category="mobile">
-            <div class="card-image-wrapper">
-              <img src="images/Shop_mammy logo.png" alt="Shopmammy E-commerce" class="card-image" />
-            </div>
-            <div class="card-content">
-              <h3 class="card-title">Shopmammy E-commerce Platform</h3>
-              <p class="card-description">
-                A comprehensive e-commerce platform for seamless shopping and
-                order management that allows users to give out from their cart to
-                the community.
-              </p>
-              <div class="card-tech-tags">
-                <span class="tech-tag">React Native</span>
-                <span class="tech-tag">Firebase</span>
-                <span class="tech-tag">Node.js</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 2: Focus AI Coach -->
-          <div class="portfolio-card" data-category="mobile">
-            <div class="card-image-wrapper">
-              <img src="images/f 5.png" alt="Focus AI Coach" class="card-image" />
-            </div>
-            <div class="card-content">
-              <h3 class="card-title">Focus AI Coach App</h3>
-              <p class="card-description">
-                An AI-powered mobile app designed to help users improve focus and
-                productivity with secure data handling and privacy protection.
-              </p>
-              <div class="card-tech-tags">
-                <span class="tech-tag">Flutter</span>
-                <span class="tech-tag">AI/ML</span>
-                <span class="tech-tag">Dart</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 3: Shopmammy Rider -->
-          <div class="portfolio-card" data-category="mobile">
-            <div class="card-image-wrapper">
-              <img src="images/SMR V2.png" alt="Shopmammy Rider" class="card-image" />
-            </div>
-            <div class="card-content">
-              <h3 class="card-title">Shopmammy Rider Delivery App</h3>
-              <p class="card-description">
-                A delivery management app for riders with real-time tracking,
-                secure payment processing, and location-based security features.
-              </p>
-              <div class="card-tech-tags">
-                <span class="tech-tag">React Native</span>
-                <span class="tech-tag">GPS</span>
-                <span class="tech-tag">Real-time</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 4: OasisBank App -->
-          <div class="portfolio-card" data-category="mobile security">
-            <div class="card-image-wrapper security">
-              <img src="images/Oasis.png" alt="OasisBank App" class="card-image" />
-            </div>
-            <div class="card-content">
-              <h3 class="card-title">OasisBank Mobile App</h3>
-              <p class="card-description">
-                A modern banking app with enterprise-grade security, secure
-                transactions, and advanced fraud detection capabilities.
-              </p>
-              <div class="card-tech-tags">
-                <span class="tech-tag">Flutter</span>
-                <span class="tech-tag">Security</span>
-                <span class="tech-tag">Encryption</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 5: Shopmammy Vendor -->
-          <div class="portfolio-card" data-category="mobile web">
-            <div class="card-image-wrapper project-mgmt">
-              <img src="images/applogo.png" alt="Shopmammy Vendor" class="card-image" />
-            </div>
-            <div class="card-content">
-              <h3 class="card-title">Shopmammy Vendor App</h3>
-              <p class="card-description">
-                A vendor-focused app for managing products, orders, and sales
-                analytics with secure data transmission and access controls.
-              </p>
-              <div class="card-tech-tags">
-                <span class="tech-tag">React Native</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 6: Fitness Tracker -->
-          <div class="portfolio-card" data-category="mobile">
-            <div class="card-image-wrapper fitness">
-              <img src="images/mobile-app-icon.png" alt="Fitness Tracker" class="card-image" />
-            </div>
-            <div class="card-content">
-              <h3 class="card-title">Fitness Tracking App</h3>
-              <p class="card-description">
-                A fitness tracking app with personalized workout plans and
-                progress tracking. Built with a focus on user privacy and data security.
-              </p>
-              <div class="card-tech-tags">
-                <span class="tech-tag">Flutter</span>
-                <span class="tech-tag">HealthKit</span>
-                <span class="tech-tag">Analytics</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Pagination -->
-      <div class="pagination">
-        <button class="pagination-btn" disabled><i class="fas fa-chevron-left"></i></button>
-        <button class="pagination-btn active">1</button>
-        <button class="pagination-btn">2</button>
-        <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
-      </div>
-    </div>
+    </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer>
       <div class="footer-content">
-        <div class="footer-text">
-          © 2024 Joshua Ayotope. All rights reserved.
-        </div>
+        <div class="footer-text">© 2024 Joshua Ayotope. All rights reserved.</div>
         <div class="footer-social-links">
-          <a href="https://github.com/ayopium07" class="footer-social-link"><i class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/Ayotope Joshua" class="footer-social-link"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://twitter.com/Thatuglyboy_7" class="footer-social-link"><i class="fab fa-twitter"></i></a>
-          <a href="https://www.instagram.com/temisann7?igsh=ZTI3aGZ0enE1ZGFs" class="footer-social-link"><i class="fab fa-instagram"></i></a>
+          <a href="https://github.com/ayopium07" class="footer-social-link" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/Ayotope Joshua" class="footer-social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://twitter.com/Thatuglyboy_7" class="footer-social-link" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/temisann7?igsh=ZTI3aGZ0enE1ZGFs" class="footer-social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
     </footer>
 
     <script>
-      // Filter Logic
-      const filterBtns = document.querySelectorAll(".filter-btn");
-      const portfolioCards = document.querySelectorAll(".portfolio-card");
-
-      filterBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          filterBtns.forEach((b) => b.classList.remove("active"));
-          btn.classList.add("active");
-          const filter = btn.getAttribute("data-filter");
-
-          portfolioCards.forEach((card) => {
-            const category = card.getAttribute("data-category");
-            if (filter === "all" || category.includes(filter)) {
-              card.style.display = "flex";
-            } else {
-              card.style.display = "none";
-            }
-          });
-        });
-      });
-
-      // Pagination Interactions (Visual only for now)
-      const paginationBtns = document.querySelectorAll(".pagination-btn");
-      paginationBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          if (!btn.disabled && !isNaN(btn.textContent)) {
-             paginationBtns.forEach(b => b.classList.remove("active"));
-             btn.classList.add("active");
-          }
-        });
-      });
-
-      // Mobile Menu
-      const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+      /* ── Mobile Menu ──────────────────────────────── */
+      const toggle   = document.getElementById("mobileMenuToggle");
       const navLinks = document.getElementById("navLinks");
-      mobileMenuToggle.addEventListener("click", () => {
-        mobileMenuToggle.classList.toggle("active");
+
+      toggle.addEventListener("click", () => {
+        toggle.classList.toggle("active");
         navLinks.classList.toggle("active");
       });
 
-      // Folder Animation Logic
-      const folderCase = document.getElementById("folderCase");
-      const projectsWrapper = document.getElementById("projectsWrapper");
-      const closeProjectsBtn = document.getElementById("closeProjectsBtn");
-
-      folderCase.addEventListener("click", () => {
-        folderCase.classList.add("opened");
-        projectsWrapper.classList.add("active");
-        closeProjectsBtn.classList.add("visible");
-        
-        // Staggered Animation
-        portfolioCards.forEach((card, index) => {
-          card.style.animation = 'none';
-          card.offsetHeight; /* trigger reflow */
-          card.style.animation = `popOut 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards ${index * 0.1}s`;
+      navLinks.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", () => {
+          toggle.classList.remove("active");
+          navLinks.classList.remove("active");
         });
       });
 
-      closeProjectsBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        folderCase.classList.remove("opened");
-        projectsWrapper.classList.remove("active");
-        closeProjectsBtn.classList.remove("visible");
+      document.addEventListener("click", e => {
+        if (!toggle.contains(e.target) && !navLinks.contains(e.target)) {
+          toggle.classList.remove("active");
+          navLinks.classList.remove("active");
+        }
       });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 768) {
+          toggle.classList.remove("active");
+          navLinks.classList.remove("active");
+        }
+      });
+
+      /* ── Filter ───────────────────────────────────── */
+      const filterBtns  = document.querySelectorAll(".filter-btn");
+      const cards       = document.querySelectorAll(".project-card");
+      const countEl     = document.getElementById("visibleCount");
+
+      function updateCount() {
+        const visible = [...cards].filter(c => !c.classList.contains("hidden")).length;
+        countEl.textContent = visible;
+      }
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          filterBtns.forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          const filter = btn.dataset.filter;
+
+          cards.forEach((card, i) => {
+            const cats = card.dataset.category || "";
+            const show = filter === "all" || cats.split(" ").includes(filter);
+            if (show) {
+              card.classList.remove("hidden");
+              card.style.animationDelay = `${i * 0.06}s`;
+              card.style.animation = "none";
+              card.offsetHeight; // reflow
+              card.style.animation = `fadeUp .55s ease both`;
+            } else {
+              card.classList.add("hidden");
+            }
+          });
+
+          updateCount();
+        });
+      });
+
+      updateCount();
     </script>
   </body>
 </html>

@@ -4,544 +4,649 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About - Joshua Ayotope Temisan</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
+    <meta name="description" content="Joshua Ayotope Temisan — Mobile & Web Developer with a Cybersecurity background. 2+ years building cross-platform apps and web platforms." />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+      /* ── Reset & Tokens ─────────────────────────────── */
+      *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
       :root {
-        --glass-bg: rgba(255, 255, 255, 0.03);
-        --glass-border: rgba(255, 255, 255, 0.08);
-        --glass-glow: rgba(100, 200, 255, 0.1);
-        --accent-blue: #5b9dd9;
-        --accent-blue-bright: #7db3e8;
-        --text-primary: rgba(255, 255, 255, 0.95);
-        --text-secondary: rgba(255, 255, 255, 0.6);
-        --text-tertiary: rgba(255, 255, 255, 0.4);
+        --bg:        #0a0e1a;
+        --card:      rgba(255,255,255,.03);
+        --border:    rgba(255,255,255,.08);
+        --border-hi: rgba(255,255,255,.14);
+        --t1:        rgba(255,255,255,.95);
+        --t2:        rgba(255,255,255,.58);
+        --t3:        rgba(255,255,255,.35);
+        --blue:      #5b9dd9;
+        --blue-hi:   #7db3e8;
+        --purple:    #8b5cf6;
+        --teal:      #2dd4bf;
+        --amber:     #f59e0b;
+        --accent:    #4361ee;
+        --ease:      cubic-bezier(0.4, 0, 0.2, 1);
+        --r:         16px;
       }
 
+      html { scroll-behavior: smooth; }
+
       body {
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-          sans-serif;
-        background: #0a0e1a;
-        background-image: radial-gradient(
-            at 20% 30%,
-            rgba(30, 60, 100, 0.15) 0px,
-            transparent 50%
-          ),
-          radial-gradient(
-            at 80% 70%,
-            rgba(40, 80, 140, 0.1) 0px,
-            transparent 50%
-          );
-        color: var(--text-primary);
-        min-height: 100vh;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--bg);
+        background-image:
+          radial-gradient(at 15% 20%, rgba(30,60,100,.18) 0px, transparent 55%),
+          radial-gradient(at 85% 80%, rgba(67,97,238,.1)  0px, transparent 55%);
+        color: var(--t1);
         line-height: 1.6;
         overflow-x: hidden;
-        position: relative;
+        min-height: 100vh;
         -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
       }
+
+      a { text-decoration: none; color: inherit; }
 
       body::before {
         content: "";
         position: fixed;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(
-          circle,
-          rgba(90, 160, 220, 0.03) 0%,
-          transparent 70%
-        );
-        animation: ambientGlow 20s ease-in-out infinite;
+        top: -40%; left: -40%;
+        width: 180%; height: 180%;
+        background: radial-gradient(circle, rgba(90,160,220,.04) 0%, transparent 65%);
+        animation: orb 18s ease-in-out infinite;
         pointer-events: none;
         z-index: 0;
       }
-
-      @keyframes ambientGlow {
-        0%,
-        100% {
-          transform: translate(0, 0);
-          opacity: 0.5;
-        }
-        50% {
-          transform: translate(5%, 5%);
-          opacity: 0.8;
-        }
+      @keyframes orb {
+        0%,100% { transform: translate(0,0); opacity: .5; }
+        50%      { transform: translate(4%,4%); opacity: .9; }
       }
 
-      /* Navigation */
-      .navbar {
-        background: rgba(10, 14, 26, 0.4);
+      /* ── Navigation ─────────────────────────────────── */
+      header {
+        background: rgba(10,14,26,.45);
         backdrop-filter: blur(20px) saturate(180%);
         -webkit-backdrop-filter: blur(20px) saturate(180%);
-        border-bottom: 1px solid var(--glass-border);
+        border-bottom: 1px solid var(--border);
         position: sticky;
         top: 0;
         z-index: 100;
-        padding: 1.25rem 8%;
-        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
       }
 
-      .nav-content {
+      .navbar {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        max-width: 1400px;
+        padding: 1.25rem 2rem;
+        max-width: 1300px;
         margin: 0 auto;
       }
 
-      .logo {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-      }
-
+      .logo { display: flex; align-items: center; }
       .logo-img {
-        width: 40px;
-        height: 40px;
+        width: 40px; height: 40px;
         border-radius: 10px;
         object-fit: cover;
-        border: 1px solid var(--glass-border);
-        transition: all 0.3s;
+        border: 1px solid var(--border);
+        transition: .3s;
       }
+      .logo:hover .logo-img { border-color: var(--border-hi); transform: scale(1.05); }
 
-      .logo:hover .logo-img {
-        border-color: rgba(255, 255, 255, 0.2);
-        transform: scale(1.05);
-      }
-
-      .nav-links {
-        display: flex;
-        gap: 2rem;
-        list-style: none;
-      }
-
+      .nav-links { display: flex; gap: 2rem; list-style: none; }
       .nav-links a {
-        color: var(--text-secondary);
-        text-decoration: none;
+        color: var(--t2);
         font-weight: 500;
-        font-size: 0.9375rem;
-        transition: all 0.3s;
+        font-size: .9375rem;
+        transition: color .3s;
         position: relative;
-        padding: 0.5rem 0;
+        padding: .5rem 0;
       }
-
       .nav-links a::after {
         content: "";
         position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 1px;
-        background: var(--accent-blue-bright);
-        transition: width 0.3s;
+        bottom: 0; left: 0;
+        width: 0; height: 1px;
+        background: var(--blue-hi);
+        transition: width .3s;
       }
-
       .nav-links a:hover,
-      .nav-links a.active {
-        color: var(--text-primary);
-      }
-
+      .nav-links a.active { color: var(--t1); }
       .nav-links a:hover::after,
-      .nav-links a.active::after {
-        width: 100%;
-      }
+      .nav-links a.active::after { width: 100%; }
 
-      /* Glass Card System */
-      .glass-card {
-        background: var(--glass-bg);
-        backdrop-filter: blur(40px) saturate(180%);
-        -webkit-backdrop-filter: blur(40px) saturate(180%);
-        border: 1px solid var(--glass-border);
-        border-radius: 24px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12),
-          inset 0 1px 0 rgba(255, 255, 255, 0.05);
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        position: relative;
-        overflow: hidden;
+      .mobile-menu-toggle {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        padding: 5px;
+        gap: 5px;
+        z-index: 1000;
       }
-
-      .glass-card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 1px;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.1),
-          transparent
-        );
+      .mobile-menu-toggle span {
+        width: 25px; height: 2.5px;
+        background: var(--t1);
+        border-radius: 3px;
+        transition: .3s;
       }
+      .mobile-menu-toggle.active span:nth-child(1) { transform: rotate(-45deg) translate(-5px, 6px); }
+      .mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
+      .mobile-menu-toggle.active span:nth-child(3) { transform: rotate(45deg) translate(-5px,-6px); }
 
-      .glass-card:hover {
-        transform: translateY(-2px);
-        border-color: rgba(255, 255, 255, 0.12);
-        box-shadow: 0 12px 48px rgba(0, 0, 0, 0.16),
-          inset 0 1px 0 rgba(255, 255, 255, 0.08);
-      }
-
-      /* Main Content */
-      .container {
+      /* ── Layout ─────────────────────────────────────── */
+      main {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 4rem 8%;
+        padding: 4rem 2rem 6rem;
         position: relative;
         z-index: 1;
       }
 
-      /* Who Am I Section */
-      .who-am-i-section {
-        margin-bottom: 3rem;
-      }
-
-      .who-am-i-card {
-        padding: 0;
-      }
-
-      .who-am-i-title {
-        font-size: clamp(2rem, 4vw, 2.5rem);
+      /* ── Section labels ─────────────────────────────── */
+      .label {
+        font-size: .75rem;
         font-weight: 700;
-        color: var(--text-primary);
-        margin-bottom: 0.75rem;
-        text-align: center;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--blue-hi);
+        margin-bottom: .6rem;
       }
 
-      .who-am-i-subtitle {
-        font-size: clamp(1rem, 2vw, 1.25rem);
-        font-weight: 500;
-        color: var(--text-secondary);
-        margin-bottom: 2rem;
-        text-align: center;
+      .section-title {
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        font-weight: 800;
+        color: var(--t1);
+        margin-bottom: 1rem;
       }
 
-      .who-am-i-content {
-        max-width: 800px;
-        margin: 0 auto;
+      /* ── Hero / Bio ─────────────────────────────────── */
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        gap: 4rem;
+        align-items: center;
+        margin-bottom: 6rem;
+        animation: fadeUp .7s ease both;
       }
 
-      .who-am-i-text {
-        color: var(--text-secondary);
+      .hero-text .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: .5rem;
+        background: rgba(91,157,217,.1);
+        border: 1px solid rgba(91,157,217,.22);
+        color: var(--blue-hi);
+        font-size: .75rem;
+        font-weight: 700;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+        padding: .4rem 1rem;
+        border-radius: 100px;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-text h1 {
+        font-size: clamp(2.2rem, 5vw, 3.2rem);
+        font-weight: 800;
+        line-height: 1.12;
+        margin-bottom: .5rem;
+        background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,.65) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero-text .role {
+        font-size: 1.1rem;
+        font-weight: 600;
+        background: linear-gradient(135deg, var(--blue) 0%, var(--purple) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-text p {
+        color: var(--t2);
         font-size: 1rem;
-        line-height: 1.7;
-        text-align: center;
+        line-height: 1.75;
+        margin-bottom: 1rem;
+        max-width: 560px;
       }
 
-      .who-am-i-text p {
-        margin-bottom: 1.25rem;
+      .hero-actions {
+        display: flex;
+        gap: .9rem;
+        flex-wrap: wrap;
+        margin-top: 2rem;
       }
 
-      /* Skills & Technologies Section */
-      .skills-section {
-        margin-bottom: 3rem;
-      }
-
-      .skills-title {
-        font-size: clamp(1.75rem, 3vw, 2.25rem);
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: .45rem;
+        background: linear-gradient(135deg, #4361ee, #7b5ea7);
+        color: #fff;
         font-weight: 700;
-        color: var(--text-primary);
+        font-size: .88rem;
+        padding: .78rem 1.5rem;
+        border-radius: 12px;
+        transition: all .3s;
+        box-shadow: 0 4px 18px rgba(67,97,238,.3);
+      }
+      .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 26px rgba(67,97,238,.45); }
+
+      .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: .45rem;
+        background: rgba(255,255,255,.05);
+        border: 1px solid var(--border);
+        color: var(--t1);
+        font-weight: 700;
+        font-size: .88rem;
+        padding: .78rem 1.5rem;
+        border-radius: 12px;
+        transition: all .3s;
+      }
+      .btn-secondary:hover { background: rgba(255,255,255,.09); transform: translateY(-2px); }
+
+      /* Avatar card */
+      .hero-avatar {
+        position: relative;
+      }
+
+      .avatar-card {
+        background: linear-gradient(145deg, rgba(67,97,238,.12), rgba(139,92,246,.08));
+        border: 1px solid rgba(139,92,246,.2);
+        border-radius: 24px;
+        padding: 2.5rem;
         text-align: center;
-        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .avatar-card::before {
+        content: "";
+        position: absolute;
+        top: -50px; right: -50px;
+        width: 180px; height: 180px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(139,92,246,.15), transparent 70%);
+        pointer-events: none;
+      }
+
+      .avatar-img {
+        width: 140px; height: 140px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid rgba(91,157,217,.35);
+        margin: 0 auto 1.25rem;
+        display: block;
+        position: relative;
+        z-index: 1;
+        box-shadow: 0 0 0 6px rgba(91,157,217,.08);
+      }
+
+      .avatar-name {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--t1);
+        margin-bottom: .25rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .avatar-role-tag {
+        font-size: .78rem;
+        color: var(--t3);
+        margin-bottom: 1.5rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .avatar-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: .75rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .avatar-stat {
+        background: rgba(255,255,255,.04);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: .75rem .5rem;
+        text-align: center;
+      }
+
+      .avatar-stat .num {
+        font-size: 1.3rem;
+        font-weight: 800;
+        color: var(--t1);
+        line-height: 1;
+      }
+
+      .avatar-stat .lbl {
+        font-size: .68rem;
+        color: var(--t3);
+        text-transform: uppercase;
+        letter-spacing: .8px;
+        margin-top: .25rem;
+      }
+
+      /* ── Skills ─────────────────────────────────────── */
+      .skills-section {
+        margin-bottom: 5rem;
+        animation: fadeUp .7s .1s ease both;
+      }
+
+      .skills-header {
+        margin-bottom: 2.5rem;
       }
 
       .skills-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 1.5rem;
-        max-width: 1000px;
-        margin: 0 auto;
+        gap: 1.25rem;
       }
 
       .skill-card {
-        padding: 1rem;
-        text-align: center;
-        transition: all 0.3s ease;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-      }
-
-      .skill-card:hover {
-        transform: translateY(-4px);
-      }
-
-      .skill-icon {
-        width: 52px;
-        height: 52px;
-        background: rgba(255, 255, 255, 0.05); /* kept subtle background for icon only */
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 1rem;
-        font-size: 1.25rem;
-        color: var(--accent-blue-bright);
-      }
-
-      .skill-title {
-        font-size: 1.125rem;
-        font-weight: 600;
-        color: var(--text-primary);
-        margin-bottom: 0.5rem;
-      }
-
-      .skill-list {
-        list-style: none;
-        color: var(--text-secondary);
-        font-size: 0.9rem;
-        line-height: 1.6;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.25rem;
-      }
-
-      /* Experience Section */
-      .experience-section {
-        margin-bottom: 3rem;
-      }
-
-      .experience-title {
-        font-size: clamp(1.75rem, 3vw, 2.25rem);
-        font-weight: 700;
-        color: var(--text-primary);
-        text-align: center;
-        margin-bottom: 3rem;
-      }
-
-      .experience-list {
-        max-width: 900px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        gap: 3rem;
-        position: relative;
-      }
-      
-      /* Add a timeline line */
-      .experience-list::before {
-        content: "";
-        position: absolute;
-        left: 24px;
-        top: 0;
-        height: 100%;
-        width: 2px;
-        background: var(--glass-border);
-      }
-
-      .experience-item {
-        padding: 0;
-        display: flex;
-        align-items: flex-start;
-        gap: 2rem;
-        position: relative;
-      }
-
-      .experience-icon {
-        width: 50px;
-        height: 50px;
-        background: var(--bg-deep); /* Match background to hide line behind */
-        border: 2px solid var(--accent-blue);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--accent-blue-bright);
-        font-size: 1.125rem;
-        flex-shrink: 0;
-        z-index: 2;
-      }
-
-      .experience-content h3 {
-        font-size: 1.25rem;
-        font-weight: 600;
-        color: var(--text-primary);
-        margin-bottom: 0.25rem;
-      }
-
-      .experience-content .company {
-        color: var(--accent-blue-bright);
-        font-size: 1rem;
-        margin-bottom: 0.25rem;
-        font-weight: 500;
-      }
-
-      .experience-content .date {
-        color: var(--text-tertiary);
-        font-size: 0.85rem;
-        margin-bottom: 1rem;
-        display: block;
-      }
-
-      .experience-content .description {
-        color: var(--text-secondary);
-        font-size: 1rem;
-        line-height: 1.6;
-        text-align: left;
-      }
-
-      /* Education Section */
-      .education-section {
-        margin-bottom: 3rem;
-      }
-
-      .education-title {
-        font-size: clamp(1.75rem, 3vw, 2.25rem);
-        font-weight: 700;
-        color: var(--text-primary);
-        text-align: center;
-        margin-bottom: 3rem;
-      }
-
-      .education-list {
-        max-width: 900px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        gap: 3rem;
-        position: relative;
-      }
-      
-      .education-list::before {
-        content: "";
-        position: absolute;
-        left: 24px;
-        top: 0;
-        height: 100%;
-        width: 2px;
-        background: var(--glass-border);
-      }
-
-      .education-item {
-        padding: 0;
-        display: flex;
-        align-items: flex-start;
-        gap: 2rem;
-        position: relative;
-      }
-
-      .education-icon {
-        width: 50px;
-        height: 50px;
-        background: var(--bg-deep);
-        border: 2px solid var(--accent-blue);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--accent-blue-bright);
-        font-size: 1.125rem;
-        flex-shrink: 0;
-        z-index: 2;
-      }
-
-      .education-content h3 {
-        font-size: 1.25rem;
-        font-weight: 600;
-        color: var(--text-primary);
-        margin-bottom: 0.25rem;
-      }
-
-      .education-content .university {
-        color: var(--accent-blue-bright);
-        font-size: 1rem;
-        margin-bottom: 0.25rem;
-        font-weight: 500;
-      }
-
-      .education-content .year {
-        color: var(--text-tertiary);
-        font-size: 0.85rem;
-        margin-bottom: 1rem;
-        display: block;
-      }
-
-      .education-content .description {
-        color: var(--text-secondary);
-        font-size: 1rem;
-        line-height: 1.6;
-        text-align: left;
-      }
-
-      /* Download Resume Button */
-      .download-section {
-        text-align: center;
-        margin-top: 3rem;
-      }
-
-      .download-btn {
-        background: var(--glass-bg);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 1px solid var(--glass-border);
-        color: var(--text-primary);
-        padding: 1rem 2rem;
-        border-radius: 12px;
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 0.9375rem;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.75rem;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        padding: 1.6rem;
+        transition: all .35s var(--ease);
         position: relative;
         overflow: hidden;
       }
 
-      .download-btn::before {
+      .skill-card::before {
         content: "";
         position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.05),
-          transparent
-        );
-        transition: left 0.5s;
+        top: 0; left: 0; right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent);
       }
 
-      .download-btn:hover::before {
-        left: 100%;
+      .skill-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--border-hi);
+        box-shadow: 0 16px 40px rgba(0,0,0,.22);
       }
 
-      .download-btn:hover {
-        transform: translateY(-2px);
-        border-color: rgba(255, 255, 255, 0.15);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15),
-          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      .skill-icon-wrap {
+        width: 46px; height: 46px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.15rem;
+        margin-bottom: 1rem;
       }
 
-      /* Footer */
-      .footer {
+      .icon-blue   { background: rgba(91,157,217,.12); color: var(--blue-hi);  border: 1px solid rgba(91,157,217,.2); }
+      .icon-purple { background: rgba(139,92,246,.12); color: #a78bfa;         border: 1px solid rgba(139,92,246,.2); }
+      .icon-teal   { background: rgba(45,212,191,.12); color: var(--teal);     border: 1px solid rgba(45,212,191,.2); }
+
+      .skill-card h3 {
+        font-size: .95rem;
+        font-weight: 700;
+        color: var(--t1);
+        margin-bottom: .9rem;
+      }
+
+      .pill-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .4rem;
+      }
+
+      .pill {
+        font-size: .72rem;
+        font-weight: 600;
+        padding: .25rem .7rem;
+        border-radius: 100px;
+        background: rgba(255,255,255,.05);
+        border: 1px solid var(--border);
+        color: var(--t2);
+        transition: all .2s;
+      }
+
+      .skill-card:hover .pill { border-color: var(--border-hi); color: var(--t1); }
+
+      /* ── Timeline (Experience & Education) ─────────── */
+      .timeline-section {
+        margin-bottom: 5rem;
+        animation: fadeUp .7s .18s ease both;
+      }
+
+      .timeline-section .section-title { margin-bottom: 2.5rem; }
+
+      .timeline {
+        position: relative;
+        padding-left: 2.5rem;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 11px; top: 6px;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(to bottom, rgba(91,157,217,.4), rgba(91,157,217,.05));
+        border-radius: 2px;
+      }
+
+      .tl-item {
+        position: relative;
+        margin-bottom: 2.5rem;
+      }
+
+      .tl-item:last-child { margin-bottom: 0; }
+
+      /* dot */
+      .tl-dot {
+        position: absolute;
+        left: -2.5rem;
+        top: 4px;
+        width: 24px; height: 24px;
+        border-radius: 50%;
+        background: var(--bg);
+        border: 2px solid var(--blue);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--blue-hi);
+        font-size: .65rem;
+        flex-shrink: 0;
+        z-index: 2;
+        box-shadow: 0 0 0 3px rgba(91,157,217,.12);
+      }
+
+      .tl-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        padding: 1.5rem;
+        transition: all .35s var(--ease);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .tl-card::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,.07), transparent);
+      }
+
+      .tl-card:hover {
+        border-color: var(--border-hi);
+        box-shadow: 0 12px 32px rgba(0,0,0,.2);
+        transform: translateX(4px);
+      }
+
+      .tl-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: .4rem;
+        flex-wrap: wrap;
+      }
+
+      .tl-card h3 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--t1);
+      }
+
+      .tl-date {
+        font-size: .75rem;
+        font-weight: 600;
+        color: var(--t3);
+        background: rgba(255,255,255,.04);
+        border: 1px solid var(--border);
+        padding: .2rem .65rem;
+        border-radius: 100px;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      .tl-org {
+        font-size: .88rem;
+        font-weight: 600;
+        color: var(--blue-hi);
+        margin-bottom: .75rem;
+      }
+
+      .tl-desc {
+        font-size: .875rem;
+        color: var(--t2);
+        line-height: 1.65;
+      }
+
+      /* ── Education cards ────────────────────────────── */
+      .education-section {
+        margin-bottom: 5rem;
+        animation: fadeUp .7s .22s ease both;
+      }
+
+      .education-section .section-title { margin-bottom: 2.5rem; }
+
+      .edu-card {
+        background: linear-gradient(135deg, rgba(67,97,238,.1), rgba(139,92,246,.07));
+        border: 1px solid rgba(139,92,246,.2);
+        border-radius: 20px;
+        padding: 2rem;
+        display: flex;
+        gap: 1.5rem;
+        align-items: flex-start;
+        transition: all .35s var(--ease);
+      }
+
+      .edu-card:hover {
+        border-color: rgba(139,92,246,.35);
+        box-shadow: 0 12px 36px rgba(0,0,0,.2);
+        transform: translateY(-3px);
+      }
+
+      .edu-icon {
+        width: 52px; height: 52px;
+        border-radius: 14px;
+        background: rgba(139,92,246,.15);
+        border: 1px solid rgba(139,92,246,.25);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #a78bfa;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+      }
+
+      .edu-content h3 {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--t1);
+        margin-bottom: .3rem;
+      }
+
+      .edu-uni {
+        font-size: .88rem;
+        color: var(--blue-hi);
+        font-weight: 600;
+        margin-bottom: .2rem;
+      }
+
+      .edu-year {
+        font-size: .78rem;
+        color: var(--t3);
+        margin-bottom: .75rem;
+      }
+
+      .edu-desc {
+        font-size: .875rem;
+        color: var(--t2);
+        line-height: 1.65;
+      }
+
+      /* ── Resume CTA ─────────────────────────────────── */
+      .resume-section {
+        animation: fadeUp .7s .28s ease both;
+        background: linear-gradient(135deg, rgba(67,97,238,.13), rgba(139,92,246,.09));
+        border: 1px solid rgba(139,92,246,.22);
+        border-radius: 22px;
+        padding: 3rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .resume-section::before {
+        content: "";
+        position: absolute;
+        left: 50%; top: 0;
+        transform: translateX(-50%);
+        width: 300px; height: 150px;
+        background: radial-gradient(ellipse at top, rgba(139,92,246,.14), transparent 70%);
+        pointer-events: none;
+      }
+
+      .resume-section h2 {
+        font-size: 1.6rem;
+        font-weight: 800;
+        margin-bottom: .75rem;
         position: relative;
         z-index: 1;
+      }
+
+      .resume-section p {
+        color: var(--t2);
+        font-size: .95rem;
+        max-width: 440px;
+        margin: 0 auto 2rem;
+        line-height: 1.65;
+        position: relative;
+        z-index: 1;
+      }
+
+      .resume-section .btn-row {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* ── Footer ─────────────────────────────────────── */
+      footer {
+        background: #1a1d24;
+        border-top: 1px solid rgba(160,160,160,.15);
         padding: 2rem 8%;
-        border-top: 1px solid var(--glass-border);
-        background: rgba(10, 14, 26, 0.3);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
       }
 
       .footer-content {
@@ -550,535 +655,375 @@
         align-items: center;
         max-width: 1200px;
         margin: 0 auto;
-        flex-wrap: wrap;
-        gap: 1rem;
       }
 
-      .footer-text {
-        color: var(--text-tertiary);
-        font-size: 0.8125rem;
-        font-weight: 400;
+      .footer-text { color: #fff; font-size: .9rem; }
+
+      .footer-social-links { display: flex; gap: 1rem; }
+      .footer-social-link { color: #fff; font-size: 1.2rem; transition: color .3s; }
+      .footer-social-link:hover { color: #2196f3; }
+
+      /* ── Animation ──────────────────────────────────── */
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(22px); }
+        to   { opacity: 1; transform: translateY(0); }
       }
 
-      .footer-social-links {
-        display: flex;
-        gap: 0.75rem;
-      }
-
-      .footer-social-link {
-        color: var(--text-tertiary);
-        font-size: 1rem;
-        text-decoration: none;
-        transition: all 0.3s;
-        padding: 0.5rem;
-        border-radius: 6px;
-      }
-
-      .footer-social-link:hover {
-        color: var(--accent-blue-bright);
-        transform: translateY(-1px);
-      }
-
-      /* Responsive Design */
-      @media (max-width: 1024px) {
-        .skills-grid {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 1.5rem;
-        }
+      /* ── Responsive ─────────────────────────────────── */
+      @media (max-width: 900px) {
+        .hero { grid-template-columns: 1fr; gap: 2.5rem; }
+        .hero-avatar { max-width: 320px; margin: 0 auto; width: 100%; }
+        .skills-grid { grid-template-columns: repeat(2, 1fr); }
       }
 
       @media (max-width: 768px) {
-        .navbar {
-          padding: 1rem 5%;
-        }
-
-        .container {
-          padding: 3rem 5%;
-        }
-
-        .who-am-i-card {
-          padding: 2.5rem 2rem;
-        }
-
-        .skill-card {
-          padding: 1.75rem;
-        }
-
-        .experience-item,
-        .education-item {
-          padding: 1.75rem;
-        }
-
-        .mobile-menu-toggle {
-          display: flex;
-          flex-direction: column;
-          cursor: pointer;
-          padding: 0.5rem;
-          gap: 0.375rem;
-          z-index: 1000;
-        }
-
-        .mobile-menu-toggle span {
-          width: 24px;
-          height: 2px;
-          background: var(--text-secondary);
-          border-radius: 2px;
-          transition: all 0.3s;
-        }
-
-        .mobile-menu-toggle.active span:nth-child(1) {
-          transform: rotate(-45deg) translate(-6px, 6px);
-          background: var(--text-primary);
-        }
-
-        .mobile-menu-toggle.active span:nth-child(2) {
-          opacity: 0;
-        }
-
-        .mobile-menu-toggle.active span:nth-child(3) {
-          transform: rotate(45deg) translate(-6px, -6px);
-          background: var(--text-primary);
-        }
+        .mobile-menu-toggle { display: flex; }
 
         .nav-links {
-          flex-direction: column;
-          gap: 0;
           position: fixed;
-          top: 70px;
-          left: 0;
+          top: 64px; left: 0;
           width: 100%;
           max-height: 0;
           overflow: hidden;
-          background: rgba(10, 14, 26, 0.95);
-          backdrop-filter: blur(30px);
-          -webkit-backdrop-filter: blur(30px);
-          border-top: 1px solid var(--glass-border);
-          transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+          background: linear-gradient(135deg, rgba(26,29,36,.98), rgba(28,37,65,.98));
+          backdrop-filter: blur(20px);
+          flex-direction: column;
+          padding: 0; gap: 0;
+          transition: max-height .4s var(--ease);
+          border-top: 1px solid rgba(67,97,238,.2);
           z-index: 999;
         }
 
-        .nav-links.active {
-          max-height: 400px;
-          padding: 1.5rem;
-          gap: 0;
-        }
+        .nav-links.active { max-height: 400px; padding: 1.5rem; gap: .75rem; }
 
-        .nav-links li {
-          list-style: none;
-          border-bottom: 1px solid var(--glass-border);
-          width: 100%;
-        }
-
+        .nav-links li { list-style: none; }
         .nav-links a {
           display: block;
-          padding: 1rem 0;
+          padding: .85rem 1rem;
+          border-bottom: 1px solid rgba(67,97,238,.1);
           text-align: center;
-          position: relative;
-          font-weight: 500;
-          transition: all 0.3s;
-          color: var(--text-secondary);
+          font-weight: 600;
+          color: #fff;
         }
+        .nav-links li:last-child a { border-bottom: none; }
 
-        .nav-links a:hover,
-        .nav-links a.active {
-          color: var(--text-primary);
-        }
+        main { padding: 2.5rem 1rem 4rem; }
+        .skills-grid { grid-template-columns: 1fr; }
 
-        .nav-links li:last-child {
-          border-bottom: none;
-        }
-
-        .container {
-          padding: 2rem 5%;
-        }
-
-        .who-am-i-title {
-          font-size: 2rem;
-        }
-
-        .who-am-i-subtitle {
-          font-size: 1.1rem;
-        }
-
-        .skills-title,
-        .experience-title,
-        .education-title {
-          font-size: 2rem;
-        }
-
-        .skills-grid {
-          grid-template-columns: 1fr;
-          gap: 1.5rem;
-        }
-
-        .skill-card {
-          min-height: auto;
-        }
-
-        .experience-item,
-        .education-item {
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-          gap: 1rem;
-        }
-
-        .experience-content,
-        .education-content {
-          text-align: center;
-        }
+        .edu-card { flex-direction: column; }
+        .resume-section { padding: 2.5rem 1.25rem; }
+        .footer-content { flex-direction: column; gap: 1rem; }
       }
 
-      @media (max-width: 480px) {
-        .navbar {
-          padding: 0.875rem 4%;
-        }
-
-        .container {
-          padding: 2rem 4%;
-        }
-
-        .who-am-i-card {
-          padding: 2rem 1.5rem;
-        }
-
-        .skill-card,
-        .experience-item,
-        .education-item {
-          padding: 1.5rem;
-        }
-
-        .download-btn {
-          padding: 0.875rem 1.5rem;
-          font-size: 0.875rem;
-        }
-      }
-
-      /* Animation */
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .skill-card,
-      .experience-item,
-      .education-item {
-        animation: fadeInUp 0.6s ease forwards;
-        opacity: 0;
-      }
-
-      .skill-card:nth-child(1) {
-        animation-delay: 0.1s;
-      }
-      .skill-card:nth-child(2) {
-        animation-delay: 0.2s;
-      }
-      .skill-card:nth-child(3) {
-        animation-delay: 0.3s;
-      }
-      .skill-card:nth-child(4) {
-        animation-delay: 0.4s;
-      }
-      .skill-card:nth-child(5) {
-        animation-delay: 0.5s;
-      }
-      .skill-card:nth-child(6) {
-        animation-delay: 0.6s;
-      }
-      .skill-card:nth-child(7) {
-        animation-delay: 0.7s;
-      }
-      .skill-card:nth-child(8) {
-        animation-delay: 0.8s;
-      }
-      .skill-card:nth-child(9) {
-        animation-delay: 0.9s;
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
       }
     </style>
   </head>
   <body>
-    <nav class="navbar">
-      <div class="nav-content">
+
+    <!-- Navigation -->
+    <header>
+      <nav class="navbar">
         <a href="index.html" class="logo">
           <img src="images/JAA.jpg" alt="JAA" class="logo-img" />
         </a>
         <div class="mobile-menu-toggle" id="mobileMenuToggle">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </div>
         <ul class="nav-links" id="navLinks">
           <li><a href="about.html" class="active">About</a></li>
-          <li><a href="project.html">Project</a></li>
+          <li><a href="project.html">Projects</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-      </div>
-    </nav>
+      </nav>
+    </header>
 
-    <div class="container">
-      <!-- Who Am I Section -->
-      <div class="who-am-i-section">
-        <div class="who-am-i-card">
-          <h1 class="who-am-i-title">Who Am I?</h1>
-          <h2 class="who-am-i-subtitle">
-            Mobile & Web Developer | Cybersecurity Enthusiast
-          </h2>
+    <main>
 
-          <div class="who-am-i-content">
-            <div class="who-am-i-text">
-              <p>
-                I am a passionate Mobile App Developer with a unique background
-                in Cybersecurity, bringing a security-first approach to every
-                project. With over a year of experience in React Native and
-                Flutter development, I create cross-platform solutions that not
-                only meet user requirements but also implement robust security
-                measures to protect user data and maintain application
-                integrity.
-              </p>
-              <p>
-                My expertise lies in developing high-performance mobile apps
-                that offer seamless user experiences while maintaining the
-                highest security standards. I specialize in identifying
-                potential vulnerabilities during development and implementing
-                proactive security measures that protect both users and
-                businesses.
-              </p>
+      <!-- ── Hero / Bio ─────────────────────────────── -->
+      <div class="hero">
+        <div class="hero-text">
+          <div class="eyebrow"><i class="fas fa-user"></i> About Me</div>
+          <h1>Joshua Ayotope<br />Temisan</h1>
+          <div class="role">Mobile &amp; Web Developer · Cybersecurity Background</div>
+
+          <p>
+            I'm a developer who cares deeply about <strong style="color:var(--t1);">how software actually feels</strong>
+            to use. With 2+ years of experience building cross-platform apps and
+            web platforms, I combine a cybersecurity mindset with clean,
+            product-focused engineering.
+          </p>
+          <p>
+            My background in Cybersecurity isn't just a credential — it shapes how
+            I write code. Security considerations, data integrity, and user trust
+            are built into everything I ship from day one.
+          </p>
+
+          <div class="hero-actions">
+            <a
+              href="https://docs.google.com/document/d/1p4zIgpajVdsabAXjgDuQAcA-MPllbzO8nHvjcPOrp5k/edit?tab=t.0"
+              target="_blank"
+              class="btn-primary"
+            >
+              <i class="fas fa-download"></i> Download Resume
+            </a>
+            <a href="contact.html" class="btn-secondary">
+              <i class="fas fa-paper-plane"></i> Get in Touch
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-avatar">
+          <div class="avatar-card">
+            <img src="images/JAA.jpg" alt="Joshua Ayotope" class="avatar-img" />
+            <div class="avatar-name">Joshua Ayotope Temisan</div>
+            <div class="avatar-role-tag">Developer · Cybersecurity Graduate · Nigeria</div>
+            <div class="avatar-stats">
+              <div class="avatar-stat">
+                <div class="num">7+</div>
+                <div class="lbl">Projects</div>
+              </div>
+              <div class="avatar-stat">
+                <div class="num">2+</div>
+                <div class="lbl">Years</div>
+              </div>
+              <div class="avatar-stat">
+                <div class="num">iOS &amp; <br/>Android</div>
+                <div class="lbl">Platforms</div>
+              </div>
+              <div class="avatar-stat">
+                <div class="num">0</div>
+                <div class="lbl">Missed<br/>Deadlines</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Skills & Technologies Section -->
+      <!-- ── Skills ─────────────────────────────────── -->
       <div class="skills-section">
-        <h2 class="skills-title">Skills & Technologies</h2>
-        <div class="skills-grid">
-          <!-- Frontend -->
-          <div class="skill-card">
-            <div class="skill-icon">
-              <i class="fas fa-code"></i>
-            </div>
-            <h3 class="skill-title">Frontend</h3>
-            <ul class="skill-list">
-              <li>React</li>
-              <li>Typescript</li>
-              <li>HTML</li>
-              <li>CSS</li>
-              <li>Tailwind CSS</li>
-              <li>JavaScript</li>
-            </ul>
-          </div>
+        <div class="skills-header">
+          <p class="label">Technical Skills</p>
+          <h2 class="section-title">What I work with</h2>
+        </div>
 
-          <!-- Mobile -->
+        <div class="skills-grid">
+
           <div class="skill-card">
-            <div class="skill-icon">
+            <div class="skill-icon-wrap icon-blue">
               <i class="fas fa-mobile-alt"></i>
             </div>
-            <h3 class="skill-title">Mobile</h3>
-            <ul class="skill-list">
-              <li>React Native</li>
-              <li>Flutter</li>
-            </ul>
+            <h3>Mobile Development</h3>
+            <div class="pill-list">
+              <span class="pill">React Native</span>
+              <span class="pill">Flutter</span>
+              <span class="pill">Expo</span>
+              <span class="pill">Dart</span>
+              <span class="pill">iOS</span>
+              <span class="pill">Android</span>
+            </div>
           </div>
 
-          <!-- Cybersecurity -->
           <div class="skill-card">
-            <div class="skill-icon">
+            <div class="skill-icon-wrap icon-purple">
+              <i class="fas fa-layer-group"></i>
+            </div>
+            <h3>Web Development</h3>
+            <div class="pill-list">
+              <span class="pill">HTML / CSS</span>
+              <span class="pill">JavaScript</span>
+              <span class="pill">TypeScript</span>
+              <span class="pill">React</span>
+              <span class="pill">Node.js</span>
+              <span class="pill">Tailwind CSS</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon-wrap icon-teal">
               <i class="fas fa-shield-alt"></i>
             </div>
-            <h3 class="skill-title">Cybersecurity</h3>
-            <ul class="skill-list">
-              <li>Network Security</li>
-              <li>Penetration Testing</li>
-              <li>Vulnerability Assessment</li>
-            </ul>
+            <h3>Cybersecurity</h3>
+            <div class="pill-list">
+              <span class="pill">Network Security</span>
+              <span class="pill">Penetration Testing</span>
+              <span class="pill">Vulnerability Assessment</span>
+              <span class="pill">Secure Coding</span>
+            </div>
           </div>
+
         </div>
       </div>
 
-      <!-- Experience Section -->
-      <div class="experience-section">
-        <h2 class="experience-title">Experience</h2>
-        <div class="experience-list">
-          <div class="experience-item">
-            <div class="experience-icon">
-              <i class="fas fa-briefcase"></i>
-            </div>
-            <div class="experience-content">
-              <h3>Mobile App Developer & Web Developer</h3>
-              <div class="company">TEACcH</div>
-              <div class="date">Nov 2024 - Present</div>
-              <div class="description">
-               Spearhead development of native and cross-platform mobile applications for iOS and Android using Flutter and React Native. Design and deploy responsive web applications utilizing modern technologies including HTML, CSS, JavaScript, and TypeScript. Partner with cross-functional teams to deliver user-focused features across mobile and web ecosystems. Drive technical excellence through code reviews, best practices implementation, and continuous team mentorship.
+      <!-- ── Experience ─────────────────────────────── -->
+      <div class="timeline-section">
+        <p class="label">Work History</p>
+        <h2 class="section-title">Experience</h2>
+
+        <div class="timeline">
+
+          <div class="tl-item">
+            <div class="tl-dot"><i class="fas fa-briefcase"></i></div>
+            <div class="tl-card">
+              <div class="tl-top">
+                <h3>Mobile App Developer &amp; Web Developer</h3>
+                <span class="tl-date">Nov 2024 – Present</span>
               </div>
+              <div class="tl-org">TEACcH</div>
+              <p class="tl-desc">
+                Spearhead development of native and cross-platform mobile applications
+                for iOS and Android using Flutter and React Native. Design and deploy
+                responsive web applications using HTML, CSS, JavaScript, and TypeScript.
+                Partner with cross-functional teams to deliver user-focused features and
+                drive technical excellence through code reviews and best practices.
+              </p>
             </div>
           </div>
 
-          <div class="experience-item">
-            <div class="experience-icon">
-              <i class="fas fa-briefcase"></i>
-            </div>
-            <div class="experience-content">
-              <h3>Web Developer- CTO & Tech Lead</h3>
-              <div class="company">SWIP- Sustainable World Impact Program</div>
-              <div class="date">Oct 2025 - Present</div>
-              <div class="description">
-               Manage the organization’s website and tech infrastructure, ensuring seamless operations.
+          <div class="tl-item">
+            <div class="tl-dot"><i class="fas fa-briefcase"></i></div>
+            <div class="tl-card">
+              <div class="tl-top">
+                <h3>Web Developer – CTO &amp; Tech Lead</h3>
+                <span class="tl-date">Oct 2025 – Present</span>
               </div>
+              <div class="tl-org">SWIP – Sustainable World Impact Program</div>
+              <p class="tl-desc">
+                Manage the organization's website and full tech infrastructure,
+                ensuring seamless operations, uptime, and digital visibility for
+                a youth-led sustainability NGO operating with global reach.
+              </p>
             </div>
           </div>
 
-          <div class="experience-item">
-            <div class="experience-icon">
-              <i class="fas fa-briefcase"></i>
-            </div>
-            <div class="experience-content">
-              <h3>Intern - Network and Hardware Technician</h3>
-              <div class="company">Nigerian Ports Authority</div>
-              <div class="date">May 2023 - Nov 2023</div>
-              <div class="description">
-                Assisted in the configuration and maintenance of network
-                infrastructure. Supported the network and hardware team in
-                troubleshooting and resolving technical issues. Gained hands-on
-                experience in both hardware and software troubleshooting.
+          <div class="tl-item">
+            <div class="tl-dot"><i class="fas fa-network-wired"></i></div>
+            <div class="tl-card">
+              <div class="tl-top">
+                <h3>Intern – Network &amp; Hardware Technician</h3>
+                <span class="tl-date">May 2023 – Nov 2023</span>
               </div>
+              <div class="tl-org">Nigerian Ports Authority</div>
+              <p class="tl-desc">
+                Assisted in the configuration and maintenance of enterprise network
+                infrastructure. Supported the hardware team with troubleshooting
+                and issue resolution. Gained hands-on exposure to both hardware
+                and software diagnostics in a high-stakes environment.
+              </p>
             </div>
           </div>
+
         </div>
       </div>
 
-      <!-- Education Section -->
+      <!-- ── Education ──────────────────────────────── -->
       <div class="education-section">
-        <h2 class="education-title">Education</h2>
-        <div class="education-list">
-          <div class="education-item">
-            <div class="education-icon">
-              <i class="fas fa-graduation-cap"></i>
-            </div>
-            <div class="education-content">
-              <h3>Bachelor of Science in Cyber Security</h3>
-              <div class="university">Caleb University, Nigeria</div>
-              <div class="year">2024</div>
-              <div class="description">
-                Specialized in network security, penetration testing, and secure
-                software development practices. Completed projects on
-                vulnerability assessment and security implementation.
-              </div>
-            </div>
+        <p class="label">Academic Background</p>
+        <h2 class="section-title">Education</h2>
+
+        <div class="edu-card">
+          <div class="edu-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <div class="edu-content">
+            <h3>Bachelor of Science in Cyber Security</h3>
+            <div class="edu-uni">Caleb University, Nigeria</div>
+            <div class="edu-year">Graduated 2024</div>
+            <p class="edu-desc">
+              Specialized in network security, penetration testing, and secure
+              software development practices. Completed major projects in
+              vulnerability assessment and enterprise security implementation —
+              a foundation that shapes my approach to every line of code I write.
+            </p>
           </div>
         </div>
       </div>
 
-      <!-- Download Resume Button -->
-      <div class="download-section">
-        <a
-          href="https://docs.google.com/document/d/1p4zIgpajVdsabAXjgDuQAcA-MPllbzO8nHvjcPOrp5k/edit?tab=t.0"
-          class="download-btn"
-          download
-        >
-          <i class="fas fa-download"></i>
-          Download Resume
-        </a>
-      </div>
-    </div>
-
-    <footer class="footer">
-      <div class="footer-content">
-        <div class="footer-text">
-          © 2024 Joshua Ayotope. All rights reserved.
+      <!-- ── Resume CTA ─────────────────────────────── -->
+      <div class="resume-section">
+        <h2>Want the full picture?</h2>
+        <p>
+          My resume goes deeper — certifications, tools, and the details
+          behind every role. Download it or reach out directly.
+        </p>
+        <div class="btn-row">
+          <a
+            href="https://docs.google.com/document/d/1p4zIgpajVdsabAXjgDuQAcA-MPllbzO8nHvjcPOrp5k/edit?tab=t.0"
+            target="_blank"
+            class="btn-primary"
+          >
+            <i class="fas fa-download"></i> Download Resume
+          </a>
+          <a href="project.html" class="btn-secondary">
+            <i class="fas fa-folder-open"></i> View My Projects
+          </a>
         </div>
+      </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-text">© 2024 Joshua Ayotope. All rights reserved.</div>
         <div class="footer-social-links">
-          <a
-            href="https://github.com/ayopium07"
-            class="footer-social-link"
-            title="GitHub"
-          >
-            <i class="fab fa-github"></i>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/Ayotope Joshua"
-            class="footer-social-link"
-            title="LinkedIn"
-          >
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-          <a
-            href="https://twitter.com/Thatuglyboy_7"
-            class="footer-social-link"
-            title="Twitter"
-          >
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a
-            href="https://www.instagram.com/temisann7?igsh=ZTI3aGZ0enE1ZGFs"
-            class="footer-social-link"
-            title="Instagram"
-          >
-            <i class="fab fa-instagram"></i>
-          </a>
+          <a href="https://github.com/ayopium07" class="footer-social-link" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/Ayotope Joshua" class="footer-social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://twitter.com/Thatuglyboy_7" class="footer-social-link" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/temisann7?igsh=ZTI3aGZ0enE1ZGFs" class="footer-social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
     </footer>
 
     <script>
-      // Smooth scroll animation
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
-          }
-        });
-      }, observerOptions);
-
-      document
-        .querySelectorAll(".skill-card, .experience-item, .education-item")
-        .forEach((element) => {
-          element.style.opacity = "0";
-          element.style.transform = "translateY(30px)";
-          element.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-          observer.observe(element);
-        });
-
-      // Mobile menu toggle functionality
-      const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+      /* ── Mobile Menu ─────────────────────────────── */
+      const toggle   = document.getElementById("mobileMenuToggle");
       const navLinks = document.getElementById("navLinks");
 
-      mobileMenuToggle.addEventListener("click", function () {
-        mobileMenuToggle.classList.toggle("active");
+      toggle.addEventListener("click", () => {
+        toggle.classList.toggle("active");
         navLinks.classList.toggle("active");
       });
 
-      // Close mobile menu when clicking on a link
-      const navLinksItems = navLinks.querySelectorAll("a");
-      navLinksItems.forEach((link) => {
-        link.addEventListener("click", function () {
-          mobileMenuToggle.classList.remove("active");
+      navLinks.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", () => {
+          toggle.classList.remove("active");
           navLinks.classList.remove("active");
         });
       });
 
-      // Close mobile menu when clicking outside
-      document.addEventListener("click", function (event) {
-        if (
-          !mobileMenuToggle.contains(event.target) &&
-          !navLinks.contains(event.target)
-        ) {
-          mobileMenuToggle.classList.remove("active");
+      document.addEventListener("click", e => {
+        if (!toggle.contains(e.target) && !navLinks.contains(e.target)) {
+          toggle.classList.remove("active");
           navLinks.classList.remove("active");
         }
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 768) {
+          toggle.classList.remove("active");
+          navLinks.classList.remove("active");
+        }
+      });
+
+      /* ── Scroll-triggered fade-in for timeline cards ── */
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+
+      document.querySelectorAll(".tl-card, .skill-card, .edu-card").forEach((el, i) => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(20px)";
+        el.style.transition = `opacity .55s ease ${i * 0.07}s, transform .55s ease ${i * 0.07}s`;
+        io.observe(el);
       });
     </script>
   </body>
