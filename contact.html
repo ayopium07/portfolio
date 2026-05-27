@@ -112,6 +112,8 @@
       .nav-links a:hover, .nav-links a.active { color: var(--t1); }
       .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
 
+      .nav-links a i { display: none; }
+
       .mobile-menu-toggle {
         display: none;
         flex-direction: column;
@@ -602,34 +604,53 @@
 
       /* Mobile — hamburger nav + compact layout */
       @media (max-width: 768px) {
-        .mobile-menu-toggle { display: flex; }
+        .mobile-menu-toggle { display: none !important; }
 
         .nav-links {
           position: fixed;
-          top: 64px; left: 0;
-          width: 100%;
-          max-height: 0;
-          overflow: hidden;
-          background: linear-gradient(135deg, rgba(26,29,36,.98), rgba(28,37,65,.98));
+          bottom: 1.5rem; left: 50%;
+          transform: translateX(-50%);
+          width: 90%; max-width: 400px;
+          background: rgba(10, 14, 26, 0.85);
           backdrop-filter: blur(20px);
-          flex-direction: column;
-          padding: 0; gap: 0;
-          transition: max-height .4s var(--ease);
-          border-top: 1px solid rgba(67,97,238,.2);
-          z-index: 999;
+          -webkit-backdrop-filter: blur(20px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 100px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: center;
+          padding: 0.5rem 1rem;
+          z-index: 1000;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+          gap: 0;
         }
 
-        .nav-links.active { max-height: 400px; padding: 1.5rem; gap: .75rem; }
         .nav-links li { list-style: none; }
+        
         .nav-links a {
-          display: block;
-          padding: .85rem 1rem;
-          border-bottom: 1px solid rgba(67,97,238,.1);
-          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 0.5rem;
+          font-size: 0.65rem;
           font-weight: 600;
-          color: #fff;
+          color: rgba(255, 255, 255, 0.6);
+          gap: 0.3rem;
+          border-bottom: none;
         }
-        .nav-links li:last-child a { border-bottom: none; }
+
+        .nav-links a::after { display: none; }
+        
+        .nav-links a i {
+          display: block;
+          font-size: 1.1rem;
+          margin-bottom: 0.1rem;
+        }
+
+        .nav-links a.active, .nav-links a:hover {
+          color: #7db3e8;
+        }
 
         main { padding: 3rem 1rem 4rem; }
 
@@ -672,10 +693,10 @@
           <span></span><span></span><span></span>
         </div>
         <ul class="nav-links" id="navLinks">
-          <li><a href="about.html">About</a></li>
-          <li><a href="project.html">Projects</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="contact.html" class="active">Contact</a></li>
+          <li><a href="about.html"><i class="fas fa-user"></i><span>About</span></a></li>
+          <li><a href="project.html"><i class="fas fa-folder-open"></i><span>Projects</span></a></li>
+          <li><a href="services.html"><i class="fas fa-layer-group"></i><span>Services</span></a></li>
+          <li><a href="contact.html" class="active"><i class="fas fa-paper-plane"></i><span>Contact</span></a></li>
         </ul>
       </nav>
     </header>
