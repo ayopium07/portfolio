@@ -679,52 +679,53 @@
       }
 
       @media (max-width: 768px) {
-        .mobile-menu-toggle { display: none !important; }
+        .mobile-menu-toggle { display: flex !important; }
 
         .nav-links {
           position: fixed;
-          bottom: 1.5rem; left: 50%;
-          transform: translateX(-50%);
-          width: 90%; max-width: 400px;
-          background: rgba(10, 14, 26, 0.85);
+          top: 68px; left: 0; right: 0;
+          background: rgba(10, 14, 26, 0.95);
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 100px;
+          flex-direction: column;
+          padding: 2rem;
+          gap: 1.5rem;
+          border-bottom: 1px solid var(--border);
+          transform: translateY(-150%);
+          transition: transform 0.4s var(--ease);
+          text-align: center;
+          width: 100%;
+          max-width: none;
+          bottom: auto;
+          left: auto;
+          border-radius: 0;
+          box-shadow: none;
           display: flex;
-          flex-direction: row;
-          justify-content: space-around;
-          align-items: center;
-          padding: 0.5rem 1rem;
-          z-index: 1000;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-          gap: 0;
+        }
+
+        .nav-links.active {
+          transform: translateY(0);
         }
 
         .nav-links li { list-style: none; }
         
         .nav-links a {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
+          display: block;
           padding: 0.5rem;
-          font-size: 0.65rem;
-          font-weight: 600;
-          color: rgba(255, 255, 255, 0.6);
-          gap: 0.3rem;
+          font-size: 1rem;
+          font-weight: 500;
+          color: var(--t2);
           border-bottom: none;
         }
 
         .nav-links a::after { display: none; }
         
         .nav-links a i {
-          display: block;
-          font-size: 1.1rem;
-          margin-bottom: 0.1rem;
+          display: none;
         }
 
         .nav-links a.active, .nav-links a:hover {
-          color: #7db3e8;
+          color: var(--blue-hi);
         }
 
         main { padding: 2.5rem 1rem 4rem; }
@@ -752,6 +753,7 @@
           <span></span><span></span><span></span>
         </div>
         <ul class="nav-links" id="navLinks">
+          <li><a href="index.html"><i class="fas fa-home"></i><span>Home</span></a></li>
           <li><a href="about.html" class="active"><i class="fas fa-user"></i><span>About</span></a></li>
           <li><a href="project.html"><i class="fas fa-folder-open"></i><span>Projects</span></a></li>
           <li><a href="services.html"><i class="fas fa-layer-group"></i><span>Services</span></a></li>

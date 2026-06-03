@@ -582,52 +582,53 @@
       }
 
       @media (max-width: 768px) {
-        .mobile-menu-toggle { display: none !important; }
+        .mobile-menu-toggle { display: flex !important; }
 
         .nav-links {
           position: fixed;
-          bottom: 1.5rem; left: 50%;
-          transform: translateX(-50%);
-          width: 90%; max-width: 400px;
-          background: rgba(10, 14, 26, 0.85);
+          top: 68px; left: 0; right: 0;
+          background: rgba(10, 14, 26, 0.95);
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 100px;
+          flex-direction: column;
+          padding: 2rem;
+          gap: 1.5rem;
+          border-bottom: 1px solid var(--border);
+          transform: translateY(-150%);
+          transition: transform 0.4s var(--ease);
+          text-align: center;
+          width: 100%;
+          max-width: none;
+          bottom: auto;
+          left: auto;
+          border-radius: 0;
+          box-shadow: none;
           display: flex;
-          flex-direction: row;
-          justify-content: space-around;
-          align-items: center;
-          padding: 0.5rem 1rem;
-          z-index: 1000;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-          gap: 0;
+        }
+
+        .nav-links.active {
+          transform: translateY(0);
         }
 
         .nav-links li { list-style: none; }
         
         .nav-links a {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
+          display: block;
           padding: 0.5rem;
-          font-size: 0.65rem;
-          font-weight: 600;
-          color: rgba(255, 255, 255, 0.6);
-          gap: 0.3rem;
+          font-size: 1rem;
+          font-weight: 500;
+          color: var(--t2);
           border-bottom: none;
         }
 
         .nav-links a::after { display: none; }
         
         .nav-links a i {
-          display: block;
-          font-size: 1.1rem;
-          margin-bottom: 0.1rem;
+          display: none;
         }
 
         .nav-links a.active, .nav-links a:hover {
-          color: #7db3e8;
+          color: var(--blue-hi);
         }
 
         .projects-grid { grid-template-columns: 1fr; }
@@ -653,6 +654,7 @@
           <span></span><span></span><span></span>
         </div>
         <ul class="nav-links" id="navLinks">
+          <li><a href="index.html"><i class="fas fa-home"></i><span>Home</span></a></li>
           <li><a href="about.html"><i class="fas fa-user"></i><span>About</span></a></li>
           <li><a href="project.html" class="active"><i class="fas fa-folder-open"></i><span>Projects</span></a></li>
           <li><a href="services.html"><i class="fas fa-layer-group"></i><span>Services</span></a></li>
@@ -691,7 +693,7 @@
 
       <!-- Count -->
       <div class="count-row">
-        <p class="count-text">Showing <strong id="visibleCount">7</strong> projects</p>
+        <p class="count-text">Showing <strong id="visibleCount">0</strong> projects</p>
       </div>
 
       <!-- Grid -->
@@ -842,8 +844,74 @@
           </div>
         </div>
 
+        <!-- AlphaCare -->
+        <div class="project-card" data-category="web" style="animation-delay:.3s">
+          <span class="card-badge badge-web">Web</span>
+          <div class="card-image-area">
+            <img src="images/apclogonob.svg" alt="AlphaCare" />
+            <div class="card-overlay">
+              <a href="https://alphacare.care" target="_blank" class="overlay-btn primary">
+                <i class="fas fa-external-link-alt"></i> Visit Site
+              </a>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">AlphaCare Rehabilitation</h3>
+            <p class="card-desc">
+              A safe, structured home where every individual finds belonging, respect, and the chance to rebuild.
+            </p>
+            <div class="card-link-row">
+              <div class="visit-thumb">
+                <img src="images/apclogonob.svg" alt="AlphaCare" />
+              </div>
+              <a href="https://alphacare.care" target="_blank" class="visit-btn">
+                <i class="fas fa-arrow-up-right-from-square"></i>
+                alphacare.care
+              </a>
+            </div>
+            <div class="card-tags">
+              <span class="tech-tag">HTML / CSS</span>
+              <span class="tech-tag">Web3Forms</span>
+              <span class="tech-tag">JavaScript</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- FutureSkills -->
+        <div class="project-card" data-category="web" style="animation-delay:.35s">
+          <span class="card-badge badge-web">Web</span>
+          <div class="card-image-area">
+            <img src="images/FSB.png" alt="FutureSkills" />
+            <div class="card-overlay">
+              <a href="https://futureskills-rust.vercel.app/" target="_blank" class="overlay-btn primary">
+                <i class="fas fa-external-link-alt"></i> Visit Site
+              </a>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">FutureSkills EdTech Platform</h3>
+            <p class="card-desc">
+              FutureSkills is an edtech company building the judgment infrastructure for how students, educators, and decision-makers think and act in AI-assisted environments. We co-design curricula with educators, translating what works into shippable artifacts while protecting the human capabilities that ultimately shape how technology is used.
+            </p>
+            <div class="card-link-row">
+              <div class="visit-thumb">
+                <img src="images/FSB.png" alt="FutureSkills" />
+              </div>
+              <a href="https://futureskills-rust.vercel.app/" target="_blank" class="visit-btn">
+                <i class="fas fa-arrow-up-right-from-square"></i>
+                futureskills-rust.vercel.app
+              </a>
+            </div>
+            <div class="card-tags">
+              <span class="tech-tag">HTML / CSS</span>
+              <span class="tech-tag">Supabase</span>
+              <span class="tech-tag">JavaScript</span>
+            </div>
+          </div>
+        </div>
+
         <!-- Shopmammy -->
-        <div class="project-card" data-category="mobile" style="animation-delay:.3s">
+        <div class="project-card" data-category="mobile" style="animation-delay:.4s">
           <span class="card-badge badge-mobile">Mobile</span>
           <div class="card-image-area">
             <img src="images/Shop_mammy logo.png" alt="Shopmammy" />
@@ -868,7 +936,7 @@
         </div>
 
         <!-- Shopmammy Rider -->
-        <div class="project-card" data-category="mobile" style="animation-delay:.35s">
+        <div class="project-card" data-category="mobile" style="animation-delay:.45s">
           <span class="card-badge badge-mobile">Mobile</span>
           <div class="card-image-area">
             <img src="images/SMR V2.png" alt="Shopmammy Rider" />
@@ -893,7 +961,7 @@
         </div>
 
         <!-- OasisBank -->
-        <div class="project-card" data-category="mobile security" style="animation-delay:.4s">
+        <div class="project-card" data-category="mobile security" style="animation-delay:.5s">
           <span class="card-badge badge-security">Security + Mobile</span>
           <div class="card-image-area">
             <img src="images/Oasis.png" alt="OasisBank" />
@@ -918,7 +986,7 @@
         </div>
 
         <!-- Focus AI -->
-        <div class="project-card" data-category="mobile" style="animation-delay:.45s">
+        <div class="project-card" data-category="mobile" style="animation-delay:.55s">
           <span class="card-badge badge-mobile">Mobile</span>
           <div class="card-image-area">
             <img src="images/f 5.png" alt="Focus AI Coach" />
@@ -943,7 +1011,7 @@
         </div>
 
         <!-- Shopmammy Vendor -->
-        <div class="project-card" data-category="mobile" style="animation-delay:.5s">
+        <div class="project-card" data-category="mobile" style="animation-delay:.6s">
           <span class="card-badge badge-mobile">Mobile</span>
           <div class="card-image-area">
             <img src="images/applogo.png" alt="Shopmammy Vendor" />
@@ -968,7 +1036,7 @@
         </div>
 
         <!-- Fitness Tracker -->
-        <div class="project-card" data-category="mobile" style="animation-delay:.55s">
+        <div class="project-card" data-category="mobile" style="animation-delay:.65s">
           <span class="card-badge badge-mobile">Mobile</span>
           <div class="card-image-area">
             <img src="images/mobile-app-icon.png" alt="Fitness Tracker" />
