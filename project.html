@@ -1,1166 +1,1380 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projects - Joshua Ayotope Temisan</title>
-    <meta name="description" content="Explore Joshua Ayotope Temisan's portfolio of mobile apps, web platforms, and security-focused projects." />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-    <style>
-      /* ── Reset & Base ──────────────────────────────── */
-      *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-      :root {
-        --bg:          #0a0e1a;
-        --bg-card:     rgba(255,255,255,0.025);
-        --border:      rgba(255,255,255,0.08);
-        --border-hi:   rgba(255,255,255,0.14);
-        --text-1:      rgba(255,255,255,0.95);
-        --text-2:      rgba(255,255,255,0.58);
-        --text-3:      rgba(255,255,255,0.35);
-        --blue:        #5b9dd9;
-        --blue-hi:     #7db3e8;
-        --purple:      #8b5cf6;
-        --teal:        #2dd4bf;
-        --amber:       #f59e0b;
-        --pink:        #ec4899;
-        --green:       #34d399;
-        --accent:      #4361ee;
-        --radius:      16px;
-        --ease:        cubic-bezier(0.4, 0, 0.2, 1);
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects - Joshua Ayotope Temisan</title>
+  <meta name="description"
+    content="Explore Joshua Ayotope Temisan's portfolio of mobile apps, web platforms, and security-focused projects." />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ──────────────────────────────── */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-      html { scroll-behavior: smooth; }
+    :root {
+      --bg:        #ffffff;
+      --bg-card:   rgba(0,0,0,0.025);
+      --border:    rgba(0,0,0,0.09);
+      --border-hi: rgba(0,0,0,0.16);
+      --text-1:    #0f172a;
+      --text-2:    #475569;
+      --text-3:    #94a3b8;
+      --blue:      #5b9dd9;
+      --blue-hi:   #4361ee;
+      --purple:    #8b5cf6;
+      --teal:      #2dd4bf;
+      --amber:     #f59e0b;
+      --pink:      #ec4899;
+      --green:     #34d399;
+      --accent:    #4361ee;
+      --radius:    16px;
+      --ease:      cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-      body {
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-        background: var(--bg);
-        background-image:
-          radial-gradient(at 15% 25%, rgba(30,60,100,0.18) 0px, transparent 55%),
-          radial-gradient(at 85% 75%, rgba(67,97,238,0.1) 0px, transparent 55%);
-        color: var(--text-1);
-        line-height: 1.6;
-        overflow-x: hidden;
-        -webkit-font-smoothing: antialiased;
-        min-height: 100vh;
-      }
+    html {
+      scroll-behavior: smooth;
+    }
 
-      a { text-decoration: none; color: inherit; }
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(160deg, #dbeafe 0%, #f0f7ff 22%, #ffffff 50%, #eff6ff 78%, #dbeafe 100%) fixed;
+      background-attachment: fixed;
+      color: var(--text-1);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
 
-      /* ── Ambient Orb ───────────────────────────────── */
-      body::before {
-        content: "";
-        position: fixed;
-        top: -40%; left: -40%;
-        width: 180%; height: 180%;
-        background: radial-gradient(circle, rgba(90,160,220,0.04) 0%, transparent 65%);
-        animation: orb 18s ease-in-out infinite;
-        pointer-events: none;
-        z-index: 0;
-      }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-      @keyframes orb {
-        0%,100% { transform: translate(0,0);    opacity: .5; }
-        50%      { transform: translate(4%,4%); opacity: .9; }
-      }
+    /* ── Ambient Orb ───────────────────────────────── */
+    body::before {
+      content: "";
+      position: fixed;
+      top: -40%;
+      left: -40%;
+      width: 180%;
+      height: 180%;
+      background: radial-gradient(circle, rgba(90, 160, 220, 0.04) 0%, transparent 65%);
+      animation: orb 18s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
 
-      /* ── Nav ───────────────────────────────────────── */
-      header {
-        background: rgba(10,14,26,.45);
-        backdrop-filter: blur(20px) saturate(180%);
-        -webkit-backdrop-filter: blur(20px) saturate(180%);
-        border-bottom: 1px solid var(--border);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-      }
+    @keyframes orb {
 
-      .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1.25rem 2rem;
-        max-width: 1300px;
-        margin: 0 auto;
-        width: 100%;
-      }
-
-      .logo { display: flex; align-items: center; }
-      .logo-img {
-        width: 40px; height: 40px;
-        border-radius: 10px;
-        object-fit: cover;
-        border: 1px solid var(--border);
-        transition: .3s;
-      }
-      .logo:hover .logo-img { border-color: var(--border-hi); transform: scale(1.05); }
-
-      .nav-links { display: flex; gap: 2rem; list-style: none; }
-      .nav-links a {
-        color: var(--text-2);
-        font-weight: 500;
-        font-size: .9375rem;
-        transition: color .3s;
-        position: relative;
-        padding: .5rem 0;
-      }
-      .nav-links a::after {
-        content: "";
-        position: absolute;
-        bottom: 0; left: 0;
-        width: 0; height: 1px;
-        background: var(--blue-hi);
-        transition: width .3s;
-      }
-      .nav-links a:hover, .nav-links a.active { color: var(--text-1); }
-      .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
-
-      .nav-links a i { display: none; }
-
-      .mobile-menu-toggle {
-        display: none;
-        flex-direction: column;
-        cursor: pointer;
-        padding: 5px;
-        z-index: 1000;
-        gap: 5px;
-      }
-      .mobile-menu-toggle span {
-        width: 25px; height: 2.5px;
-        background: var(--text-1);
-        border-radius: 3px;
-        transition: .3s;
-      }
-      .mobile-menu-toggle.active span:nth-child(1) { transform: rotate(-45deg) translate(-5px,6px); }
-      .mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
-      .mobile-menu-toggle.active span:nth-child(3) { transform: rotate(45deg) translate(-5px,-6px); }
-
-      /* ── Page Layout ───────────────────────────────── */
-      main {
-        max-width: 1300px;
-        margin: 0 auto;
-        padding: 4rem 2rem 6rem;
-        position: relative;
-        z-index: 1;
-      }
-
-      /* ── Hero ──────────────────────────────────────── */
-      .page-hero {
-        text-align: center;
-        margin-bottom: 3.5rem;
-        animation: fadeUp .7s ease both;
-      }
-
-      .eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: .5rem;
-        background: rgba(91,157,217,.1);
-        border: 1px solid rgba(91,157,217,.22);
-        color: var(--blue-hi);
-        font-size: .75rem;
-        font-weight: 700;
-        letter-spacing: 1.8px;
-        text-transform: uppercase;
-        padding: .4rem 1rem;
-        border-radius: 100px;
-        margin-bottom: 1.5rem;
-      }
-
-      .page-hero h1 {
-        font-size: clamp(2.2rem, 5vw, 3.4rem);
-        font-weight: 800;
-        line-height: 1.15;
-        margin-bottom: 1rem;
-        background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,.65) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      .page-hero h1 span {
-        background: linear-gradient(135deg, var(--blue) 0%, var(--purple) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      .page-hero p {
-        color: var(--text-2);
-        font-size: 1.05rem;
-        max-width: 580px;
-        margin: 0 auto;
-        line-height: 1.75;
-      }
-
-      /* ── Filter Bar ────────────────────────────────── */
-      .filter-bar {
-        display: flex;
-        justify-content: center;
-        gap: .6rem;
-        flex-wrap: wrap;
-        margin-bottom: 3rem;
-        animation: fadeUp .7s .1s ease both;
-      }
-
-      .filter-btn {
-        display: flex;
-        align-items: center;
-        gap: .4rem;
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        color: var(--text-2);
-        padding: .55rem 1.35rem;
-        border-radius: 100px;
-        cursor: pointer;
-        font-weight: 600;
-        font-size: .85rem;
-        font-family: inherit;
-        transition: all .25s var(--ease);
-        letter-spacing: .2px;
-      }
-
-      .filter-btn .dot {
-        width: 7px; height: 7px;
-        border-radius: 50%;
-        background: currentColor;
+      0%,
+      100% {
+        transform: translate(0, 0);
         opacity: .5;
-        transition: opacity .25s;
       }
 
-      .filter-btn:hover {
-        border-color: var(--border-hi);
-        color: var(--text-1);
-        background: rgba(255,255,255,.05);
+      50% {
+        transform: translate(4%, 4%);
+        opacity: .9;
       }
+    }
 
-      .filter-btn.active {
-        background: rgba(67,97,238,.18);
-        border-color: rgba(67,97,238,.4);
-        color: #91a8ff;
-      }
-      .filter-btn.active .dot { opacity: 1; background: #91a8ff; }
+    /* ── Nav Redesign ──────────────────────────────── */
+    header {
+      position: fixed;
+      top: 1rem;
+      left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 1.5rem;
+      background: transparent;
+      border-bottom: none;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
 
-      /* ── Count Badge ───────────────────────────────── */
-      .count-row {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 1.5rem;
-        animation: fadeUp .7s .15s ease both;
-      }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.6rem 1.5rem;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(67, 97, 238, 0.1);
+      border-radius: 100px;
+      box-shadow: 
+        0 10px 30px rgba(67, 97, 238, 0.05),
+        0 1px 3px rgba(0, 0, 0, 0.02),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      transition: all 0.3s var(--ease);
+    }
 
-      .count-text {
-        font-size: .83rem;
-        color: var(--text-3);
-        letter-spacing: .5px;
-      }
+    .logo {
+      display: flex;
+      align-items: center;
+    }
 
-      .count-text strong { color: var(--text-2); font-weight: 600; }
+    .logo-img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #fff;
+      box-shadow: 0 2px 10px rgba(67, 97, 238, 0.15);
+      transition: transform 0.3s;
+    }
 
-      /* ── Grid ──────────────────────────────────────── */
-      .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.5rem;
-      }
+    .logo:hover .logo-img {
+      transform: rotate(8deg) scale(1.05);
+      border-color: rgba(67, 97, 238, 0.2);
+    }
 
-      /* ── Card ──────────────────────────────────────── */
-      .project-card {
-        position: relative;
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        transition: transform .4s var(--ease), border-color .4s, box-shadow .4s;
-        animation: fadeUp .6s ease both;
-        cursor: default;
-      }
+    .nav-links {
+      display: flex;
+      gap: 0.4rem;
+      align-items: center;
+      list-style: none;
+    }
 
-      .project-card:hover {
-        transform: translateY(-6px);
-        border-color: var(--border-hi);
-        box-shadow: 0 20px 50px rgba(0,0,0,.3);
-      }
+    .nav-links li {
+      display: inline-block;
+    }
 
-      /* Top shimmer line */
-      .project-card::before {
-        content: "";
-        position: absolute;
-        top: 0; left: 0; right: 0;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,.1), transparent);
-      }
+    .nav-links a {
+      color: var(--text-2);
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.2px;
+      padding: 0.5rem 1.1rem;
+      border-radius: 100px;
+      transition: all 0.25s var(--ease);
+      position: relative;
+      display: block;
+    }
 
-      /* Category badge */
-      .card-badge {
-        position: absolute;
-        top: .9rem;
-        left: .9rem;
-        font-size: .68rem;
-        font-weight: 700;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        padding: .28rem .7rem;
-        border-radius: 100px;
-        z-index: 3;
-        backdrop-filter: blur(8px);
-      }
+    .nav-links a::after {
+      display: none !important;
+    }
 
-      .badge-web      { background: rgba(45,212,191,.12); color: var(--teal);   border: 1px solid rgba(45,212,191,.25); }
-      .badge-mobile   { background: rgba(91,157,217,.12); color: var(--blue-hi); border: 1px solid rgba(91,157,217,.25); }
-      .badge-security { background: rgba(245,158,11,.12); color: var(--amber);   border: 1px solid rgba(245,158,11,.25); }
-      .badge-multi    { background: rgba(139,92,246,.12); color: #c4b5fd;        border: 1px solid rgba(139,92,246,.25); }
+    .nav-links a:hover {
+      color: var(--blue-hi);
+      background: rgba(67, 97, 238, 0.04);
+    }
 
-      /* Image area */
-      .card-image-area {
-        width: 100%;
-        height: 200px;
-        background: rgba(0,0,0,.25);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        position: relative;
-      }
+    .nav-links a.active {
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent), var(--purple));
+      box-shadow: 0 4px 12px rgba(67, 97, 238, 0.25);
+    }
 
-      .card-image-area img {
-        max-width: 70%;
-        max-height: 70%;
-        object-fit: contain;
-        transition: transform .5s var(--ease);
-        filter: drop-shadow(0 4px 16px rgba(0,0,0,.4));
-      }
+    .nav-links a i {
+      display: none;
+    }
 
-      .project-card:hover .card-image-area img {
-        transform: scale(1.08);
-      }
+    .mobile-menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(67, 97, 238, 0.05);
+      border: 1px solid rgba(67, 97, 238, 0.1);
+      cursor: pointer;
+      z-index: 1001;
+      transition: all 0.3s;
+      padding: 0;
+      gap: 4px;
+    }
 
-      /* hover overlay */
-      .card-overlay {
-        position: absolute;
-        inset: 0;
-        background: rgba(10,14,26,.82);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: .75rem;
+    .mobile-menu-toggle:hover {
+      background: rgba(67, 97, 238, 0.1);
+      border-color: rgba(67, 97, 238, 0.2);
+    }
+
+    .mobile-menu-toggle span {
+      width: 16px;
+      height: 2px;
+      background: var(--text-1);
+      border-radius: 2px;
+      transition: all 0.3s var(--ease);
+    }
+
+    .mobile-menu-toggle.active span:nth-child(1) {
+      transform: rotate(-45deg) translate(-4px, 4px);
+    }
+
+    .mobile-menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(3) {
+      transform: rotate(45deg) translate(-4px, -4px);
+    }
+
+    /* ── Page Layout ───────────────────────────────── */
+    main {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Hero ──────────────────────────────────────── */
+    .page-hero {
+      text-align: center;
+      margin-bottom: 3.5rem;
+      animation: fadeUp .7s ease both;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(67, 97, 238, 0.15);
+      color: #4361ee;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      padding: 0.5rem 1.25rem;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+      box-shadow: 
+        0 4px 15px rgba(67, 97, 238, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      transition: all 0.3s var(--ease);
+      cursor: default;
+    }
+
+    .eyebrow i {
+      font-size: 0.85rem;
+      color: #4361ee;
+    }
+
+    .eyebrow:hover {
+      transform: translateY(-1px);
+      border-color: rgba(67, 97, 238, 0.3);
+      box-shadow: 
+        0 6px 20px rgba(67, 97, 238, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      color: #0f172a;
+    }
+
+    .page-hero h1 span {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--purple) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .page-hero p {
+      color: var(--text-2);
+      font-size: 1.05rem;
+      max-width: 580px;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+
+    /* ── Filter Bar ────────────────────────────────── */
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: .6rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+      animation: fadeUp .7s .1s ease both;
+    }
+
+    .filter-btn {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-2);
+      padding: .55rem 1.35rem;
+      border-radius: 100px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: .85rem;
+      font-family: inherit;
+      transition: all .25s var(--ease);
+      letter-spacing: .2px;
+    }
+
+    .filter-btn .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: currentColor;
+      opacity: .5;
+      transition: opacity .25s;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--border-hi);
+      color: var(--text-1);
+      background: rgba(0, 0, 0, .04);
+    }
+
+    .filter-btn.active {
+      background: rgba(67, 97, 238, .18);
+      border-color: rgba(67, 97, 238, .4);
+      color: #91a8ff;
+    }
+
+    .filter-btn.active .dot {
+      opacity: 1;
+      background: #91a8ff;
+    }
+
+    /* ── Count Badge ───────────────────────────────── */
+    .count-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      animation: fadeUp .7s .15s ease both;
+    }
+
+    .count-text {
+      font-size: .83rem;
+      color: var(--text-3);
+      letter-spacing: .5px;
+    }
+
+    .count-text strong {
+      color: var(--text-2);
+      font-weight: 600;
+    }
+
+    /* ── Grid ──────────────────────────────────────── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    /* ── Card ──────────────────────────────────────── */
+    .project-card {
+      position: relative;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform .4s var(--ease), border-color .4s, box-shadow .4s;
+      animation: fadeUp .6s ease both;
+      cursor: default;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-hi);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, .1);
+    }
+
+    /* Top shimmer line */
+    .project-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0, 0, 0, .06), transparent);
+    }
+
+    /* Category badge */
+    .card-badge {
+      position: absolute;
+      top: .9rem;
+      left: .9rem;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: .28rem .7rem;
+      border-radius: 100px;
+      z-index: 3;
+      backdrop-filter: blur(8px);
+    }
+
+    .badge-web {
+      background: rgba(45, 212, 191, .12);
+      color: var(--teal);
+      border: 1px solid rgba(45, 212, 191, .25);
+    }
+
+    .badge-mobile {
+      background: rgba(91, 157, 217, .12);
+      color: var(--blue-hi);
+      border: 1px solid rgba(91, 157, 217, .25);
+    }
+
+    .badge-security {
+      background: rgba(245, 158, 11, .12);
+      color: var(--amber);
+      border: 1px solid rgba(245, 158, 11, .25);
+    }
+
+    .badge-multi {
+      background: rgba(139, 92, 246, .12);
+      color: #c4b5fd;
+      border: 1px solid rgba(139, 92, 246, .25);
+    }
+
+    /* Image area */
+    .card-image-area {
+      width: 100%;
+      height: 200px;
+      background: #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card-image-area img {
+      max-width: 70%;
+      max-height: 70%;
+      object-fit: contain;
+      transition: transform .5s var(--ease);
+      filter: drop-shadow(0 4px 16px rgba(0, 0, 0, .15));
+    }
+
+    .project-card:hover .card-image-area img {
+      transform: scale(1.08);
+    }
+
+    /* hover overlay */
+    .card-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 14, 26, .82);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .75rem;
+      opacity: 0;
+      transition: opacity .3s var(--ease);
+      z-index: 4;
+    }
+
+    .project-card:hover .card-overlay {
+      opacity: 1;
+    }
+
+    .overlay-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .8rem;
+      font-weight: 700;
+      padding: .6rem 1.1rem;
+      border-radius: 10px;
+      transition: transform .2s, box-shadow .2s;
+      letter-spacing: .3px;
+    }
+
+    .overlay-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .overlay-btn.primary {
+      background: linear-gradient(135deg, var(--accent), var(--purple));
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(67, 97, 238, .35);
+    }
+
+    .overlay-btn.secondary {
+      background: rgba(255, 255, 255, .18);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #fff;
+    }
+
+    /* Card body */
+    .card-body {
+      padding: 1.4rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-1);
+      line-height: 1.35;
+    }
+
+    .card-desc {
+      font-size: .875rem;
+      color: var(--text-2);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    /* Tech tags */
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+      margin-top: .6rem;
+    }
+
+    .tech-tag {
+      font-size: .72rem;
+      font-weight: 600;
+      padding: .22rem .65rem;
+      border-radius: 6px;
+      background: rgba(0, 0, 0, .04);
+      border: 1px solid var(--border);
+      color: var(--text-3);
+    }
+
+    /* Web link row (only for web projects) */
+    .card-link-row {
+      display: flex;
+      gap: .6rem;
+      margin-top: .9rem;
+      padding-top: .9rem;
+      border-top: 1px solid var(--border);
+      align-items: center;
+    }
+
+    .visit-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .4rem;
+      padding: .55rem;
+      background: linear-gradient(135deg, rgba(67, 97, 238, .25), rgba(139, 92, 246, .2));
+      border: 1px solid rgba(67, 97, 238, .3);
+      border-radius: 10px;
+      color: #91a8ff;
+      font-size: .83rem;
+      font-weight: 700;
+      transition: all .25s;
+    }
+
+    .visit-btn:hover {
+      background: linear-gradient(135deg, rgba(67, 97, 238, .4), rgba(139, 92, 246, .35));
+      transform: translateY(-1px);
+    }
+
+    .visit-thumb {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .visit-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ── CTA Banner ────────────────────────────────── */
+    .cta-banner {
+      margin-top: 5rem;
+      background: linear-gradient(135deg, rgba(67, 97, 238, .14), rgba(139, 92, 246, .09));
+      border: 1px solid rgba(139, 92, 246, .22);
+      border-radius: 22px;
+      padding: 3.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      animation: fadeUp .7s .3s ease both;
+    }
+
+    .cta-banner::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      width: 350px;
+      height: 180px;
+      background: radial-gradient(ellipse at top, rgba(139, 92, 246, .15), transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-banner h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 800;
+      margin-bottom: .9rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-banner p {
+      color: var(--text-2);
+      font-size: .98rem;
+      max-width: 500px;
+      margin: 0 auto 2rem;
+      line-height: 1.65;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      background: linear-gradient(135deg, #4361ee, #7b5ea7);
+      color: #fff;
+      font-weight: 700;
+      font-size: .9rem;
+      padding: .8rem 1.6rem;
+      border-radius: 12px;
+      transition: all .3s;
+      box-shadow: 0 4px 18px rgba(67, 97, 238, .3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 26px rgba(67, 97, 238, .45);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      background: rgba(0, 0, 0, .04);
+      border: 1px solid var(--border);
+      color: var(--text-1);
+      font-weight: 700;
+      font-size: .9rem;
+      padding: .8rem 1.6rem;
+      border-radius: 12px;
+      transition: all .3s;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(0, 0, 0, .08);
+      transform: translateY(-2px);
+    }
+
+    /* ── Footer ────────────────────────────────────── */
+    footer {
+      background: #f1f5f9;
+      border-top: 1px solid var(--border);
+      padding: 2rem 8%;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-text {
+      color: #1e293b;
+      font-size: .9rem;
+    }
+
+    .footer-social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer-social-link {
+      color: #64748b;
+      font-size: 1.2rem;
+      transition: color .3s;
+    }
+
+    .footer-social-link:hover {
+      color: #4361ee;
+    }
+
+    /* ── Animation ─────────────────────────────────── */
+    @keyframes fadeUp {
+      from {
         opacity: 0;
-        transition: opacity .3s var(--ease);
-        z-index: 4;
+        transform: translateY(22px);
       }
 
-      .project-card:hover .card-overlay { opacity: 1; }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-      .overlay-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: .4rem;
-        font-size: .8rem;
-        font-weight: 700;
-        padding: .6rem 1.1rem;
-        border-radius: 10px;
-        transition: transform .2s, box-shadow .2s;
-        letter-spacing: .3px;
+    /* ── Hidden ────────────────────────────────────── */
+    .project-card.hidden {
+      display: none;
+    }
+
+    /* ── Responsive ────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu-toggle {
+        display: flex !important;
       }
 
-      .overlay-btn:hover { transform: translateY(-2px); }
-
-      .overlay-btn.primary {
-        background: linear-gradient(135deg, var(--accent), var(--purple));
-        color: #fff;
-        box-shadow: 0 4px 16px rgba(67,97,238,.35);
-      }
-
-      .overlay-btn.secondary {
-        background: rgba(255,255,255,.08);
-        border: 1px solid var(--border-hi);
-        color: var(--text-1);
-      }
-
-      /* Card body */
-      .card-body {
-        padding: 1.4rem;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: .5rem;
-      }
-
-      .card-title {
-        font-size: 1.05rem;
-        font-weight: 700;
-        color: var(--text-1);
-        line-height: 1.35;
-      }
-
-      .card-desc {
-        font-size: .875rem;
-        color: var(--text-2);
-        line-height: 1.6;
-        flex: 1;
-      }
-
-      /* Tech tags */
-      .card-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: .4rem;
-        margin-top: .6rem;
-      }
-
-      .tech-tag {
-        font-size: .72rem;
-        font-weight: 600;
-        padding: .22rem .65rem;
-        border-radius: 6px;
-        background: rgba(255,255,255,.05);
-        border: 1px solid var(--border);
-        color: var(--text-3);
-      }
-
-      /* Web link row (only for web projects) */
-      .card-link-row {
-        display: flex;
-        gap: .6rem;
-        margin-top: .9rem;
-        padding-top: .9rem;
-        border-top: 1px solid var(--border);
-        align-items: center;
-      }
-
-      .visit-btn {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: .4rem;
-        padding: .55rem;
-        background: linear-gradient(135deg, rgba(67,97,238,.25), rgba(139,92,246,.2));
-        border: 1px solid rgba(67,97,238,.3);
-        border-radius: 10px;
-        color: #91a8ff;
-        font-size: .83rem;
-        font-weight: 700;
-        transition: all .25s;
-      }
-
-      .visit-btn:hover {
-        background: linear-gradient(135deg, rgba(67,97,238,.4), rgba(139,92,246,.35));
-        transform: translateY(-1px);
-      }
-
-      .visit-thumb {
-        width: 34px; height: 34px;
-        border-radius: 8px;
-        overflow: hidden;
-        border: 1px solid var(--border);
-        flex-shrink: 0;
-      }
-      .visit-thumb img { width: 100%; height: 100%; object-fit: cover; }
-
-      /* ── CTA Banner ────────────────────────────────── */
-      .cta-banner {
-        margin-top: 5rem;
-        background: linear-gradient(135deg, rgba(67,97,238,.14), rgba(139,92,246,.09));
-        border: 1px solid rgba(139,92,246,.22);
-        border-radius: 22px;
-        padding: 3.5rem;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-        animation: fadeUp .7s .3s ease both;
-      }
-
-      .cta-banner::before {
-        content: "";
+      .nav-links {
         position: absolute;
-        left: 50%; top: 0;
-        transform: translateX(-50%);
-        width: 350px; height: 180px;
-        background: radial-gradient(ellipse at top, rgba(139,92,246,.15), transparent 70%);
+        top: calc(100% + 0.5rem);
+        left: 1.5rem;
+        right: 1.5rem;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(67, 97, 238, 0.1);
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(67, 97, 238, 0.1);
+        flex-direction: column;
+        padding: 1.25rem;
+        gap: 0.5rem;
+        transform: translateY(-10px);
+        opacity: 0;
         pointer-events: none;
-      }
-
-      .cta-banner h2 {
-        font-size: clamp(1.5rem, 3vw, 2rem);
-        font-weight: 800;
-        margin-bottom: .9rem;
-        position: relative;
-        z-index: 1;
-      }
-
-      .cta-banner p {
-        color: var(--text-2);
-        font-size: .98rem;
-        max-width: 500px;
-        margin: 0 auto 2rem;
-        line-height: 1.65;
-        position: relative;
-        z-index: 1;
-      }
-
-      .btn-row {
+        transition: all 0.3s var(--ease);
         display: flex;
-        gap: 1rem;
-        justify-content: center;
-        flex-wrap: wrap;
-        position: relative;
-        z-index: 1;
+        z-index: 1000;
       }
 
-      .btn-primary {
-        display: inline-flex;
-        align-items: center;
-        gap: .45rem;
-        background: linear-gradient(135deg, #4361ee, #7b5ea7);
+      .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .nav-links li {
+        list-style: none;
+        width: 100%;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-align: center;
+        border-radius: 100px;
+        color: var(--text-2);
+      }
+
+      .nav-links a::after {
+        display: none;
+      }
+
+      .nav-links a i {
+        display: none;
+      }
+
+      .nav-links a.active,
+      .nav-links a:hover {
         color: #fff;
-        font-weight: 700;
-        font-size: .9rem;
-        padding: .8rem 1.6rem;
-        border-radius: 12px;
-        transition: all .3s;
-        box-shadow: 0 4px 18px rgba(67,97,238,.3);
+        background: linear-gradient(135deg, var(--accent), var(--purple));
       }
-      .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 26px rgba(67,97,238,.45); }
 
-      .btn-secondary {
-        display: inline-flex;
-        align-items: center;
-        gap: .45rem;
-        background: rgba(255,255,255,.05);
-        border: 1px solid var(--border);
-        color: var(--text-1);
-        font-weight: 700;
-        font-size: .9rem;
-        padding: .8rem 1.6rem;
-        border-radius: 12px;
-        transition: all .3s;
+      .projects-grid {
+        grid-template-columns: 1fr;
       }
-      .btn-secondary:hover { background: rgba(255,255,255,.09); transform: translateY(-2px); }
 
-      /* ── Footer ────────────────────────────────────── */
-      footer {
-        background: #1a1d24;
-        border-top: 1px solid rgba(160,160,160,.15);
-        padding: 2rem 8%;
+      main {
+        padding: 2.5rem 1rem 4rem;
+      }
+
+      .cta-banner {
+        padding: 2.5rem 1.25rem;
       }
 
       .footer-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 1200px;
-        margin: 0 auto;
+        flex-direction: column;
+        gap: 1rem;
       }
+    }
 
-      .footer-text { color: #fff; font-size: .9rem; }
+    @media (prefers-reduced-motion: reduce) {
 
-      .footer-social-links { display: flex; gap: 1rem; }
-      .footer-social-link { color: #fff; font-size: 1.2rem; transition: color .3s; }
-      .footer-social-link:hover { color: #2196f3; }
-
-      /* ── Animation ─────────────────────────────────── */
-      @keyframes fadeUp {
-        from { opacity: 0; transform: translateY(22px); }
-        to   { opacity: 1; transform: translateY(0);    }
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
       }
+    }
+  </style>
+</head>
 
-      /* ── Hidden ────────────────────────────────────── */
-      .project-card.hidden {
-        display: none;
-      }
+<body>
 
-      /* ── Responsive ────────────────────────────────── */
-      @media (max-width: 1024px) {
-        .projects-grid { grid-template-columns: repeat(2, 1fr); }
-      }
+  <!-- Navigation -->
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        <img src="images/JAA.jpg" alt="JAA" class="logo-img" />
+      </a>
+      <div class="mobile-menu-toggle" id="mobileMenuToggle">
+        <span></span><span></span><span></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html"><i class="fas fa-home"></i><span>Home</span></a></li>
+        <li><a href="about.html"><i class="fas fa-user"></i><span>About</span></a></li>
+        <li><a href="project.html" class="active"><i class="fas fa-folder-open"></i><span>Projects</span></a></li>
+        <li><a href="services.html"><i class="fas fa-layer-group"></i><span>Services</span></a></li>
+        <li><a href="contact.html"><i class="fas fa-paper-plane"></i><span>Contact</span></a></li>
+      </ul>
+    </nav>
+  </header>
 
-      @media (max-width: 768px) {
-        .mobile-menu-toggle { display: flex !important; }
+  <main>
 
-        .nav-links {
-          position: fixed;
-          top: 68px; left: 0; right: 0;
-          background: rgba(10, 14, 26, 0.95);
-          backdrop-filter: blur(20px);
-          -webkit-backdrop-filter: blur(20px);
-          flex-direction: column;
-          padding: 2rem;
-          gap: 1.5rem;
-          border-bottom: 1px solid var(--border);
-          transform: translateY(-150%);
-          transition: transform 0.4s var(--ease);
-          text-align: center;
-          width: 100%;
-          max-width: none;
-          bottom: auto;
-          left: auto;
-          border-radius: 0;
-          box-shadow: none;
-          display: flex;
-        }
+    <!-- Hero -->
+    <div class="page-hero">
+      <div class="eyebrow"><i class="fas fa-folder-open"></i> Selected Work</div>
+      <h1>Projects I've <span>built & shipped</span></h1>
+      <p>
+        A curated look at what I've delivered — mobile apps, web platforms,
+        and tools that solve real problems for real users.
+      </p>
+    </div>
 
-        .nav-links.active {
-          transform: translateY(0);
-        }
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">
+        <span class="dot"></span> All Projects
+      </button>
+      <button class="filter-btn" data-filter="web">
+        <span class="dot"></span> Web
+      </button>
+      <button class="filter-btn" data-filter="mobile">
+        <span class="dot"></span> Mobile
+      </button>
+      <button class="filter-btn" data-filter="security">
+        <span class="dot"></span> Security
+      </button>
+    </div>
 
-        .nav-links li { list-style: none; }
-        
-        .nav-links a {
-          display: block;
-          padding: 0.5rem;
-          font-size: 1rem;
-          font-weight: 500;
-          color: var(--t2);
-          border-bottom: none;
-        }
+    <!-- Count -->
+    <div class="count-row">
+      <p class="count-text">Showing <strong id="visibleCount">0</strong> projects</p>
+    </div>
 
-        .nav-links a::after { display: none; }
-        
-        .nav-links a i {
-          display: none;
-        }
+    <!-- Grid -->
+    <div class="projects-grid" id="projectsGrid">
 
-        .nav-links a.active, .nav-links a:hover {
-          color: var(--blue-hi);
-        }
+      <!-- Festival Of Change 25 -->
+      <div class="project-card" data-category="web" style="animation-delay:.05s">
+        <span class="card-badge badge-web">Web</span>
+        <div class="card-image-area">
+          <img src="images/FOC25.jpg" alt="Festival Of Change 25" />
+          <div class="card-overlay">
+            <a href="https://www.festivalofchange.org/" target="_blank" class="overlay-btn primary">
+              <i class="fas fa-external-link-alt"></i> Visit Site
+            </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Festival of Change 25</h3>
+          <p class="card-desc">
+            Global event platform bringing together educators, technologists,
+            and innovators. Designed for scale and discoverability.
+          </p>
+          <div class="card-link-row">
+            <div class="visit-thumb">
+              <img src="images/FOC25.jpg" alt="FOC25" />
+            </div>
+            <a href="https://www.festivalofchange.org/" target="_blank" class="visit-btn">
+              <i class="fas fa-arrow-up-right-from-square"></i>
+              festivalofchange.org
+            </a>
+          </div>
+        </div>
+      </div>
 
-        .projects-grid { grid-template-columns: 1fr; }
-        main { padding: 2.5rem 1rem 4rem; }
-        .cta-banner { padding: 2.5rem 1.25rem; }
-        .footer-content { flex-direction: column; gap: 1rem; }
-      }
+      <!-- SWIP -->
+      <div class="project-card" data-category="web" style="animation-delay:.1s">
+        <span class="card-badge badge-web">Web</span>
+        <div class="card-image-area">
+          <img src="images/swiplo.jpg" alt="SWIP" />
+          <div class="card-overlay">
+            <a href="https://www.theswip.org/" target="_blank" class="overlay-btn primary">
+              <i class="fas fa-external-link-alt"></i> Visit Site
+            </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Sustainable World Impact Program</h3>
+          <p class="card-desc">
+            Youth-led sustainability organization from Nigeria placing SDG 17
+            at the center of their operational model.
+          </p>
+          <div class="card-link-row">
+            <div class="visit-thumb">
+              <img src="images/swiplo.jpg" alt="SWIP" />
+            </div>
+            <a href="https://www.theswip.org/" target="_blank" class="visit-btn">
+              <i class="fas fa-arrow-up-right-from-square"></i>
+              theswip.org
+            </a>
+          </div>
+        </div>
+      </div>
 
-      @media (prefers-reduced-motion: reduce) {
-        *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
-      }
-    </style>
-  </head>
-  <body>
+      <!-- TEACcH -->
+      <div class="project-card" data-category="web" style="animation-delay:.15s">
+        <span class="card-badge badge-web">Web</span>
+        <div class="card-image-area">
+          <img src="images/TEACcHlo.png" alt="TEACcH" />
+          <div class="card-overlay">
+            <a href="https://www.teacch.co/" target="_blank" class="overlay-btn primary">
+              <i class="fas fa-external-link-alt"></i> Visit Site
+            </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">TEACcH</h3>
+          <p class="card-desc">
+            A Social Innovation Hub built to empower communities and foster
+            a better tomorrow through education and technology.
+          </p>
+          <div class="card-link-row">
+            <div class="visit-thumb">
+              <img src="images/TEACcHlo.png" alt="TEACcH" />
+            </div>
+            <a href="https://www.teacch.co/" target="_blank" class="visit-btn">
+              <i class="fas fa-arrow-up-right-from-square"></i>
+              teacch.co
+            </a>
+          </div>
+        </div>
+      </div>
 
-    <!-- Navigation -->
-    <header>
-      <nav class="navbar">
-        <a href="index.html" class="logo">
-          <img src="images/JAA.jpg" alt="JAA" class="logo-img" />
+      <!-- Rekora -->
+      <div class="project-card" data-category="web" style="animation-delay:.2s">
+        <span class="card-badge badge-web">Web</span>
+        <div class="card-image-area">
+          <img src="images/rekoralo.jpg" alt="Rekora" />
+          <div class="card-overlay">
+            <a href="https://www.rekora.org/" target="_blank" class="overlay-btn primary">
+              <i class="fas fa-external-link-alt"></i> Visit Site
+            </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Rekora Initiatives</h3>
+          <p class="card-desc">
+            STEM program site focused on empowering students through
+            hands-on technology education and mentorship.
+          </p>
+          <div class="card-link-row">
+            <div class="visit-thumb">
+              <img src="images/rekoralo.jpg" alt="Rekora" />
+            </div>
+            <a href="https://www.rekora.org/" target="_blank" class="visit-btn">
+              <i class="fas fa-arrow-up-right-from-square"></i>
+              rekora.org
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- The OAK -->
+      <div class="project-card" data-category="web" style="animation-delay:.25s">
+        <span class="card-badge badge-web">Web</span>
+        <div class="card-image-area">
+          <img src="images/loname.png" alt="The OAK" />
+          <div class="card-overlay">
+            <a href="https://www.theoaking.com/" target="_blank" class="overlay-btn primary">
+              <i class="fas fa-external-link-alt"></i> Visit Site
+            </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">The OAK</h3>
+          <p class="card-desc">
+            A sex educators platform delivering accurate, inclusive, and
+            science-backed health information to young people.
+          </p>
+          <div class="card-link-row">
+            <div class="visit-thumb">
+              <img src="images/loname.png" alt="The OAK" />
+            </div>
+            <a href="https://www.theoaking.com/" target="_blank" class="visit-btn">
+              <i class="fas fa-arrow-up-right-from-square"></i>
+              theoaking.com
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- AlphaCare -->
+      <div class="project-card" data-category="web" style="animation-delay:.3s">
+        <span class="card-badge badge-web">Web</span>
+        <div class="card-image-area">
+          <img src="images/apclogonob.svg" alt="AlphaCare" />
+          <div class="card-overlay">
+            <a href="https://alphacare.care" target="_blank" class="overlay-btn primary">
+              <i class="fas fa-external-link-alt"></i> Visit Site
+            </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">AlphaCare Rehabilitation</h3>
+          <p class="card-desc">
+            A safe, structured home where every individual finds belonging, respect, and the chance to rebuild.
+          </p>
+          <div class="card-link-row">
+            <div class="visit-thumb">
+              <img src="images/apclogonob.svg" alt="AlphaCare" />
+            </div>
+            <a href="https://alphacare.care" target="_blank" class="visit-btn">
+              <i class="fas fa-arrow-up-right-from-square"></i>
+              alphacare.care
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- FutureSkills -->
+      <div class="project-card" data-category="web" style="animation-delay:.35s">
+        <span class="card-badge badge-web">Web</span>
+        <div class="card-image-area">
+          <img src="images/FSB.png" alt="FutureSkills" />
+          <div class="card-overlay">
+            <a href="https://futureskills-rust.vercel.app/" target="_blank" class="overlay-btn primary">
+              <i class="fas fa-external-link-alt"></i> Visit Site
+            </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">FutureSkills EdTech Platform</h3>
+          <p class="card-desc">
+            FutureSkills is an edtech company building the judgment infrastructure for how students, educators, and
+            decision-makers think and act in AI-assisted environments. We co-design curricula with educators,
+            translating what works into shippable artifacts while protecting the human capabilities that ultimately
+            shape how technology is used.
+          </p>
+          <div class="card-link-row">
+            <div class="visit-thumb">
+              <img src="images/FSB.png" alt="FutureSkills" />
+            </div>
+            <a href="https://futureskills-rust.vercel.app/" target="_blank" class="visit-btn">
+              <i class="fas fa-arrow-up-right-from-square"></i>
+              futureskills-rust.vercel.app
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- The Brooks Ministry -->
+      <div class="project-card" data-category="web" style="animation-delay:.38s">
+        <span class="card-badge badge-web">Web</span>
+        <div class="card-image-area">
+          <img src="images/Asset 5mom.png" alt="The Brooks Ministry" />
+          <div class="card-overlay">
+            <a href="https://thebrooks.vercel.app/" target="_blank" class="overlay-btn primary">
+              <i class="fas fa-external-link-alt"></i> Visit Site
+            </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">The Brooks Ministry</h3>
+          <p class="card-desc">
+            A non-denominational Christian ministry with a singular focus:
+            raising frontliners and pioneers for the kingdom of God.
+          </p>
+          <div class="card-link-row">
+            <div class="visit-thumb">
+              <img src="images/TBMlogo.png" alt="The Brooks Ministry" />
+            </div>
+            <a href="https://thebrooks.vercel.app/" target="_blank" class="visit-btn">
+              <i class="fas fa-arrow-up-right-from-square"></i>
+              thebrooks.vercel.app
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shopmammy -->
+      <div class="project-card" data-category="mobile" style="animation-delay:.4s">
+        <span class="card-badge badge-mobile">Mobile</span>
+        <div class="card-image-area">
+          <img src="images/Shop_mammy logo.png" alt="Shopmammy" />
+          <div class="card-overlay">
+            <span class="overlay-btn secondary" style="cursor:default;">
+              <i class="fas fa-lock"></i> Private Repo
+            </span>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Shopmammy E-commerce App</h3>
+          <p class="card-desc">
+            Full-featured e-commerce platform for seamless shopping and
+            order management, including a unique community cart-sharing model.
+          </p>
+
+        </div>
+      </div>
+
+      <!-- Shopmammy Rider -->
+      <div class="project-card" data-category="mobile" style="animation-delay:.45s">
+        <span class="card-badge badge-mobile">Mobile</span>
+        <div class="card-image-area">
+          <img src="images/SMR V2.png" alt="Shopmammy Rider" />
+          <div class="card-overlay">
+            <span class="overlay-btn secondary" style="cursor:default;">
+              <i class="fas fa-lock"></i> Private Repo
+            </span>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Shopmammy Rider App</h3>
+          <p class="card-desc">
+            Delivery management app for riders with real-time GPS tracking,
+            secure payment processing, and location-aware security features.
+          </p>
+
+        </div>
+      </div>
+
+      <!-- OasisBank -->
+      <div class="project-card" data-category="mobile security" style="animation-delay:.5s">
+        <span class="card-badge badge-security">Security + Mobile</span>
+        <div class="card-image-area">
+          <img src="images/Oasis.png" alt="OasisBank" />
+          <div class="card-overlay">
+            <span class="overlay-btn secondary" style="cursor:default;">
+              <i class="fas fa-lock"></i> Private Repo
+            </span>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">OasisBank Mobile App</h3>
+          <p class="card-desc">
+            Modern banking app with enterprise-grade encryption, secure
+            transactions, and advanced fraud detection capabilities.
+          </p>
+
+        </div>
+      </div>
+
+      <!-- Focus AI -->
+      <div class="project-card" data-category="mobile" style="animation-delay:.55s">
+        <span class="card-badge badge-mobile">Mobile</span>
+        <div class="card-image-area">
+          <img src="images/f 5.png" alt="Focus AI Coach" />
+          <div class="card-overlay">
+            <span class="overlay-btn secondary" style="cursor:default;">
+              <i class="fas fa-lock"></i> Private Repo
+            </span>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Focus AI Coach</h3>
+          <p class="card-desc">
+            AI-powered productivity app that helps users improve focus with
+            personalized coaching, privacy-first data handling, and smart insights.
+          </p>
+
+        </div>
+      </div>
+
+      <!-- Shopmammy Vendor -->
+      <div class="project-card" data-category="mobile" style="animation-delay:.6s">
+        <span class="card-badge badge-mobile">Mobile</span>
+        <div class="card-image-area">
+          <img src="images/applogo.png" alt="Shopmammy Vendor" />
+          <div class="card-overlay">
+            <span class="overlay-btn secondary" style="cursor:default;">
+              <i class="fas fa-lock"></i> Private Repo
+            </span>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Shopmammy Vendor App</h3>
+          <p class="card-desc">
+            Vendor-focused management app for products, orders, and sales
+            analytics, with secure data transmission and role-based access controls.
+          </p>
+
+        </div>
+      </div>
+
+      <!-- Fitness Tracker -->
+      <div class="project-card" data-category="mobile" style="animation-delay:.65s">
+        <span class="card-badge badge-mobile">Mobile</span>
+        <div class="card-image-area">
+          <img src="images/mobile-app-icon.png" alt="Fitness Tracker" />
+          <div class="card-overlay">
+            <span class="overlay-btn secondary" style="cursor:default;">
+              <i class="fas fa-lock"></i> Private Repo
+            </span>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Fitness Tracking App</h3>
+          <p class="card-desc">
+            Personalized workout planning and progress tracking app built with
+            a strong emphasis on user privacy and secure health data storage.
+          </p>
+
+        </div>
+      </div>
+
+    </div><!-- /grid -->
+
+    <!-- CTA Banner -->
+    <div class="cta-banner">
+      <h2>Have a project in mind?</h2>
+      <p>
+        Whether it's a mobile app, a web platform, or something in between —
+        let's talk about how I can help bring it to life.
+      </p>
+      <div class="btn-row">
+        <a href="contact.html" class="btn-primary">
+          <i class="fas fa-paper-plane"></i> Get in Touch
         </a>
-        <div class="mobile-menu-toggle" id="mobileMenuToggle">
-          <span></span><span></span><span></span>
-        </div>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="index.html"><i class="fas fa-home"></i><span>Home</span></a></li>
-          <li><a href="about.html"><i class="fas fa-user"></i><span>About</span></a></li>
-          <li><a href="project.html" class="active"><i class="fas fa-folder-open"></i><span>Projects</span></a></li>
-          <li><a href="services.html"><i class="fas fa-layer-group"></i><span>Services</span></a></li>
-          <li><a href="contact.html"><i class="fas fa-paper-plane"></i><span>Contact</span></a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <main>
-
-      <!-- Hero -->
-      <div class="page-hero">
-        <div class="eyebrow"><i class="fas fa-folder-open"></i> Selected Work</div>
-        <h1>Projects I've <span>built & shipped</span></h1>
-        <p>
-          A curated look at what I've delivered — mobile apps, web platforms,
-          and tools that solve real problems for real users.
-        </p>
+        <a href="services.html" class="btn-secondary">
+          <i class="fas fa-star"></i> What I Bring
+        </a>
       </div>
+    </div>
 
-      <!-- Filter Bar -->
-      <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">
-          <span class="dot"></span> All Projects
-        </button>
-        <button class="filter-btn" data-filter="web">
-          <span class="dot"></span> Web
-        </button>
-        <button class="filter-btn" data-filter="mobile">
-          <span class="dot"></span> Mobile
-        </button>
-        <button class="filter-btn" data-filter="security">
-          <span class="dot"></span> Security
-        </button>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-text">© 2024 Joshua Ayotope. All rights reserved.</div>
+      <div class="footer-social-links">
+        <a href="https://github.com/ayopium07" class="footer-social-link" title="GitHub"><i
+            class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/Ayotope Joshua" class="footer-social-link" title="LinkedIn"><i
+            class="fab fa-linkedin-in"></i></a>
+        <a href="https://twitter.com/Thatuglyboy_7" class="footer-social-link" title="Twitter"><i
+            class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/temisann7?igsh=ZTI3aGZ0enE1ZGFs" class="footer-social-link"
+          title="Instagram"><i class="fab fa-instagram"></i></a>
       </div>
+    </div>
+  </footer>
 
-      <!-- Count -->
-      <div class="count-row">
-        <p class="count-text">Showing <strong id="visibleCount">0</strong> projects</p>
-      </div>
+  <script>
+    /* ── Mobile Menu ──────────────────────────────── */
+    const toggle = document.getElementById("mobileMenuToggle");
+    const navLinks = document.getElementById("navLinks");
 
-      <!-- Grid -->
-      <div class="projects-grid" id="projectsGrid">
+    toggle.addEventListener("click", () => {
+      toggle.classList.toggle("active");
+      navLinks.classList.toggle("active");
+    });
 
-        <!-- Festival Of Change 25 -->
-        <div class="project-card" data-category="web" style="animation-delay:.05s">
-          <span class="card-badge badge-web">Web</span>
-          <div class="card-image-area">
-            <img src="images/FOC25.jpg" alt="Festival Of Change 25" />
-            <div class="card-overlay">
-              <a href="https://www.festivalofchange.org/" target="_blank" class="overlay-btn primary">
-                <i class="fas fa-external-link-alt"></i> Visit Site
-              </a>
-            </div>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Festival of Change 25</h3>
-            <p class="card-desc">
-              Global event platform bringing together educators, technologists,
-              and innovators. Designed for scale and discoverability.
-            </p>
-            <div class="card-link-row">
-              <div class="visit-thumb">
-                <img src="images/FOC25.jpg" alt="FOC25" />
-              </div>
-              <a href="https://www.festivalofchange.org/" target="_blank" class="visit-btn">
-                <i class="fas fa-arrow-up-right-from-square"></i>
-                festivalofchange.org
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- SWIP -->
-        <div class="project-card" data-category="web" style="animation-delay:.1s">
-          <span class="card-badge badge-web">Web</span>
-          <div class="card-image-area">
-            <img src="images/swiplo.jpg" alt="SWIP" />
-            <div class="card-overlay">
-              <a href="https://www.theswip.org/" target="_blank" class="overlay-btn primary">
-                <i class="fas fa-external-link-alt"></i> Visit Site
-              </a>
-            </div>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Sustainable World Impact Program</h3>
-            <p class="card-desc">
-              Youth-led sustainability organization from Nigeria placing SDG 17
-              at the center of their operational model.
-            </p>
-            <div class="card-link-row">
-              <div class="visit-thumb">
-                <img src="images/swiplo.jpg" alt="SWIP" />
-              </div>
-              <a href="https://www.theswip.org/" target="_blank" class="visit-btn">
-                <i class="fas fa-arrow-up-right-from-square"></i>
-                theswip.org
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- TEACcH -->
-        <div class="project-card" data-category="web" style="animation-delay:.15s">
-          <span class="card-badge badge-web">Web</span>
-          <div class="card-image-area">
-            <img src="images/TEACcHlo.png" alt="TEACcH" />
-            <div class="card-overlay">
-              <a href="https://www.teacch.co/" target="_blank" class="overlay-btn primary">
-                <i class="fas fa-external-link-alt"></i> Visit Site
-              </a>
-            </div>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">TEACcH</h3>
-            <p class="card-desc">
-              A Social Innovation Hub built to empower communities and foster
-              a better tomorrow through education and technology.
-            </p>
-            <div class="card-link-row">
-              <div class="visit-thumb">
-                <img src="images/TEACcHlo.png" alt="TEACcH" />
-              </div>
-              <a href="https://www.teacch.co/" target="_blank" class="visit-btn">
-                <i class="fas fa-arrow-up-right-from-square"></i>
-                teacch.co
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Rekora -->
-        <div class="project-card" data-category="web" style="animation-delay:.2s">
-          <span class="card-badge badge-web">Web</span>
-          <div class="card-image-area">
-            <img src="images/rekoralo.jpg" alt="Rekora" />
-            <div class="card-overlay">
-              <a href="https://www.rekora.org/" target="_blank" class="overlay-btn primary">
-                <i class="fas fa-external-link-alt"></i> Visit Site
-              </a>
-            </div>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Rekora Initiatives</h3>
-            <p class="card-desc">
-              STEM program site focused on empowering students through
-              hands-on technology education and mentorship.
-            </p>
-            <div class="card-link-row">
-              <div class="visit-thumb">
-                <img src="images/rekoralo.jpg" alt="Rekora" />
-              </div>
-              <a href="https://www.rekora.org/" target="_blank" class="visit-btn">
-                <i class="fas fa-arrow-up-right-from-square"></i>
-                rekora.org
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- The OAK -->
-        <div class="project-card" data-category="web" style="animation-delay:.25s">
-          <span class="card-badge badge-web">Web</span>
-          <div class="card-image-area">
-            <img src="images/loname.png" alt="The OAK" />
-            <div class="card-overlay">
-              <a href="https://www.theoaking.com/" target="_blank" class="overlay-btn primary">
-                <i class="fas fa-external-link-alt"></i> Visit Site
-              </a>
-            </div>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">The OAK</h3>
-            <p class="card-desc">
-              A sex educators platform delivering accurate, inclusive, and
-              science-backed health information to young people.
-            </p>
-            <div class="card-link-row">
-              <div class="visit-thumb">
-                <img src="images/loname.png" alt="The OAK" />
-              </div>
-              <a href="https://www.theoaking.com/" target="_blank" class="visit-btn">
-                <i class="fas fa-arrow-up-right-from-square"></i>
-                theoaking.com
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- AlphaCare -->
-        <div class="project-card" data-category="web" style="animation-delay:.3s">
-          <span class="card-badge badge-web">Web</span>
-          <div class="card-image-area">
-            <img src="images/apclogonob.svg" alt="AlphaCare" />
-            <div class="card-overlay">
-              <a href="https://alphacare.care" target="_blank" class="overlay-btn primary">
-                <i class="fas fa-external-link-alt"></i> Visit Site
-              </a>
-            </div>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">AlphaCare Rehabilitation</h3>
-            <p class="card-desc">
-              A safe, structured home where every individual finds belonging, respect, and the chance to rebuild.
-            </p>
-            <div class="card-link-row">
-              <div class="visit-thumb">
-                <img src="images/apclogonob.svg" alt="AlphaCare" />
-              </div>
-              <a href="https://alphacare.care" target="_blank" class="visit-btn">
-                <i class="fas fa-arrow-up-right-from-square"></i>
-                alphacare.care
-              </a>
-            </div>
-            <div class="card-tags">
-              <span class="tech-tag">HTML / CSS</span>
-              <span class="tech-tag">Web3Forms</span>
-              <span class="tech-tag">JavaScript</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- FutureSkills -->
-        <div class="project-card" data-category="web" style="animation-delay:.35s">
-          <span class="card-badge badge-web">Web</span>
-          <div class="card-image-area">
-            <img src="images/FSB.png" alt="FutureSkills" />
-            <div class="card-overlay">
-              <a href="https://futureskills-rust.vercel.app/" target="_blank" class="overlay-btn primary">
-                <i class="fas fa-external-link-alt"></i> Visit Site
-              </a>
-            </div>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">FutureSkills EdTech Platform</h3>
-            <p class="card-desc">
-              FutureSkills is an edtech company building the judgment infrastructure for how students, educators, and decision-makers think and act in AI-assisted environments. We co-design curricula with educators, translating what works into shippable artifacts while protecting the human capabilities that ultimately shape how technology is used.
-            </p>
-            <div class="card-link-row">
-              <div class="visit-thumb">
-                <img src="images/FSB.png" alt="FutureSkills" />
-              </div>
-              <a href="https://futureskills-rust.vercel.app/" target="_blank" class="visit-btn">
-                <i class="fas fa-arrow-up-right-from-square"></i>
-                futureskills-rust.vercel.app
-              </a>
-            </div>
-            <div class="card-tags">
-              <span class="tech-tag">HTML / CSS</span>
-              <span class="tech-tag">Supabase</span>
-              <span class="tech-tag">JavaScript</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Shopmammy -->
-        <div class="project-card" data-category="mobile" style="animation-delay:.4s">
-          <span class="card-badge badge-mobile">Mobile</span>
-          <div class="card-image-area">
-            <img src="images/Shop_mammy logo.png" alt="Shopmammy" />
-            <div class="card-overlay">
-              <span class="overlay-btn secondary" style="cursor:default;">
-                <i class="fas fa-lock"></i> Private Repo
-              </span>
-            </div>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Shopmammy E-commerce App</h3>
-            <p class="card-desc">
-              Full-featured e-commerce platform for seamless shopping and
-              order management, including a unique community cart-sharing model.
-            </p>
-            <div class="card-tags">
-              <span class="tech-tag">React Native</span>
-              <span class="tech-tag">Firebase</span>
-              <span class="tech-tag">Node.js</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Shopmammy Rider -->
-        <div class="project-card" data-category="mobile" style="animation-delay:.45s">
-          <span class="card-badge badge-mobile">Mobile</span>
-          <div class="card-image-area">
-            <img src="images/SMR V2.png" alt="Shopmammy Rider" />
-            <div class="card-overlay">
-              <span class="overlay-btn secondary" style="cursor:default;">
-                <i class="fas fa-lock"></i> Private Repo
-              </span>
-            </div>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Shopmammy Rider App</h3>
-            <p class="card-desc">
-              Delivery management app for riders with real-time GPS tracking,
-              secure payment processing, and location-aware security features.
-            </p>
-            <div class="card-tags">
-              <span class="tech-tag">React Native</span>
-              <span class="tech-tag">GPS</span>
-              <span class="tech-tag">Real-time</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- OasisBank -->
-        <div class="project-card" data-category="mobile security" style="animation-delay:.5s">
-          <span class="card-badge badge-security">Security + Mobile</span>
-          <div class="card-image-area">
-            <img src="images/Oasis.png" alt="OasisBank" />
-            <div class="card-overlay">
-              <span class="overlay-btn secondary" style="cursor:default;">
-                <i class="fas fa-lock"></i> Private Repo
-              </span>
-            </div>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">OasisBank Mobile App</h3>
-            <p class="card-desc">
-              Modern banking app with enterprise-grade encryption, secure
-              transactions, and advanced fraud detection capabilities.
-            </p>
-            <div class="card-tags">
-              <span class="tech-tag">Flutter</span>
-              <span class="tech-tag">Encryption</span>
-              <span class="tech-tag">Fraud Detection</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Focus AI -->
-        <div class="project-card" data-category="mobile" style="animation-delay:.55s">
-          <span class="card-badge badge-mobile">Mobile</span>
-          <div class="card-image-area">
-            <img src="images/f 5.png" alt="Focus AI Coach" />
-            <div class="card-overlay">
-              <span class="overlay-btn secondary" style="cursor:default;">
-                <i class="fas fa-lock"></i> Private Repo
-              </span>
-            </div>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Focus AI Coach</h3>
-            <p class="card-desc">
-              AI-powered productivity app that helps users improve focus with
-              personalized coaching, privacy-first data handling, and smart insights.
-            </p>
-            <div class="card-tags">
-              <span class="tech-tag">React Native</span>
-              <span class="tech-tag">AI / ML</span>
-              <span class="tech-tag">Expo</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Shopmammy Vendor -->
-        <div class="project-card" data-category="mobile" style="animation-delay:.6s">
-          <span class="card-badge badge-mobile">Mobile</span>
-          <div class="card-image-area">
-            <img src="images/applogo.png" alt="Shopmammy Vendor" />
-            <div class="card-overlay">
-              <span class="overlay-btn secondary" style="cursor:default;">
-                <i class="fas fa-lock"></i> Private Repo
-              </span>
-            </div>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Shopmammy Vendor App</h3>
-            <p class="card-desc">
-              Vendor-focused management app for products, orders, and sales
-              analytics, with secure data transmission and role-based access controls.
-            </p>
-            <div class="card-tags">
-              <span class="tech-tag">React Native</span>
-              <span class="tech-tag">Analytics</span>
-              <span class="tech-tag">Auth</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Fitness Tracker -->
-        <div class="project-card" data-category="mobile" style="animation-delay:.65s">
-          <span class="card-badge badge-mobile">Mobile</span>
-          <div class="card-image-area">
-            <img src="images/mobile-app-icon.png" alt="Fitness Tracker" />
-            <div class="card-overlay">
-              <span class="overlay-btn secondary" style="cursor:default;">
-                <i class="fas fa-lock"></i> Private Repo
-              </span>
-            </div>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Fitness Tracking App</h3>
-            <p class="card-desc">
-              Personalized workout planning and progress tracking app built with
-              a strong emphasis on user privacy and secure health data storage.
-            </p>
-            <div class="card-tags">
-              <span class="tech-tag">Flutter</span>
-              <span class="tech-tag">HealthKit</span>
-              <span class="tech-tag">Analytics</span>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /grid -->
-
-      <!-- CTA Banner -->
-      <div class="cta-banner">
-        <h2>Have a project in mind?</h2>
-        <p>
-          Whether it's a mobile app, a web platform, or something in between —
-          let's talk about how I can help bring it to life.
-        </p>
-        <div class="btn-row">
-          <a href="contact.html" class="btn-primary">
-            <i class="fas fa-paper-plane"></i> Get in Touch
-          </a>
-          <a href="services.html" class="btn-secondary">
-            <i class="fas fa-star"></i> What I Bring
-          </a>
-        </div>
-      </div>
-
-    </main>
-
-    <!-- Footer -->
-    <footer>
-      <div class="footer-content">
-        <div class="footer-text">© 2024 Joshua Ayotope. All rights reserved.</div>
-        <div class="footer-social-links">
-          <a href="https://github.com/ayopium07" class="footer-social-link" title="GitHub"><i class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/Ayotope Joshua" class="footer-social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://twitter.com/Thatuglyboy_7" class="footer-social-link" title="Twitter"><i class="fab fa-twitter"></i></a>
-          <a href="https://www.instagram.com/temisann7?igsh=ZTI3aGZ0enE1ZGFs" class="footer-social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
-        </div>
-      </div>
-    </footer>
-
-    <script>
-      /* ── Mobile Menu ──────────────────────────────── */
-      const toggle   = document.getElementById("mobileMenuToggle");
-      const navLinks = document.getElementById("navLinks");
-
-      toggle.addEventListener("click", () => {
-        toggle.classList.toggle("active");
-        navLinks.classList.toggle("active");
+    navLinks.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", () => {
+        toggle.classList.remove("active");
+        navLinks.classList.remove("active");
       });
+    });
 
-      navLinks.querySelectorAll("a").forEach(a => {
-        a.addEventListener("click", () => {
-          toggle.classList.remove("active");
-          navLinks.classList.remove("active");
-        });
-      });
-
-      document.addEventListener("click", e => {
-        if (!toggle.contains(e.target) && !navLinks.contains(e.target)) {
-          toggle.classList.remove("active");
-          navLinks.classList.remove("active");
-        }
-      });
-
-      window.addEventListener("resize", () => {
-        if (window.innerWidth > 768) {
-          toggle.classList.remove("active");
-          navLinks.classList.remove("active");
-        }
-      });
-
-      /* ── Filter ───────────────────────────────────── */
-      const filterBtns  = document.querySelectorAll(".filter-btn");
-      const cards       = document.querySelectorAll(".project-card");
-      const countEl     = document.getElementById("visibleCount");
-
-      function updateCount() {
-        const visible = [...cards].filter(c => !c.classList.contains("hidden")).length;
-        countEl.textContent = visible;
+    document.addEventListener("click", e => {
+      if (!toggle.contains(e.target) && !navLinks.contains(e.target)) {
+        toggle.classList.remove("active");
+        navLinks.classList.remove("active");
       }
+    });
 
-      filterBtns.forEach(btn => {
-        btn.addEventListener("click", () => {
-          filterBtns.forEach(b => b.classList.remove("active"));
-          btn.classList.add("active");
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 768) {
+        toggle.classList.remove("active");
+        navLinks.classList.remove("active");
+      }
+    });
 
-          const filter = btn.dataset.filter;
+    /* ── Filter ───────────────────────────────────── */
+    const filterBtns = document.querySelectorAll(".filter-btn");
+    const cards = document.querySelectorAll(".project-card");
+    const countEl = document.getElementById("visibleCount");
 
-          cards.forEach((card, i) => {
-            const cats = card.dataset.category || "";
-            const show = filter === "all" || cats.split(" ").includes(filter);
-            if (show) {
-              card.classList.remove("hidden");
-              card.style.animationDelay = `${i * 0.06}s`;
-              card.style.animation = "none";
-              card.offsetHeight; // reflow
-              card.style.animation = `fadeUp .55s ease both`;
-            } else {
-              card.classList.add("hidden");
-            }
-          });
+    function updateCount() {
+      const visible = [...cards].filter(c => !c.classList.contains("hidden")).length;
+      countEl.textContent = visible;
+    }
 
-          updateCount();
+    filterBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        filterBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        const filter = btn.dataset.filter;
+
+        cards.forEach((card, i) => {
+          const cats = card.dataset.category || "";
+          const show = filter === "all" || cats.split(" ").includes(filter);
+          if (show) {
+            card.classList.remove("hidden");
+            card.style.animationDelay = `${i * 0.06}s`;
+            card.style.animation = "none";
+            card.offsetHeight; // reflow
+            card.style.animation = `fadeUp .55s ease both`;
+          } else {
+            card.classList.add("hidden");
+          }
         });
-      });
 
-      updateCount();
-    </script>
-  </body>
+        updateCount();
+      });
+    });
+
+    updateCount();
+  </script>
+</body>
+
 </html>
