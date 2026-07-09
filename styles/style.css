@@ -41,9 +41,6 @@ img, .profile-pic, .logo-img, .portfolio-img {
 
 .main-content {
     padding: var(--spacing-lg);
-    border-radius: 10px;
-    background: var(--card-bg);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
 /* Responsive grid for services/portfolio */
