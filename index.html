@@ -1,108 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joshua Ayotope Temisan - Developer Portfolio</title>
-    <meta name="description" content="Portfolio of Joshua Ayotope Temisan, a Mobile & Web Developer specializing in cross-platform apps and modern web experiences.">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles/main.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joshua Ayotope Adeyefa - Developer Portfolio</title>
+  <meta name="description"
+    content="Portfolio of Joshua Ayotope Adeyefa, a Web & Mobile Developer specializing in cross-platform apps and modern web experiences.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
 
-    <!-- Navigation -->
+  <!-- Navigation -->
+  <header>
     <nav class="navbar">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <img src="images/JAA.jpg" alt="Joshua Ayotope Temisan">
-            </a>
-            
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About & Skills</a></li>
-                <li><a href="project.html">Projects</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
+      <a href="index.html" class="logo">
+        <span class="logo-text"><em class="logo-j">J</em>AA</span>
+      </a>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active"><i class="fas fa-home"></i><span>Home</span></a></li>
+        <li><a href="about.html"><i class="fas fa-user"></i><span>About</span></a></li>
+        <li><a href="project.html"><i class="fas fa-folder-open"></i><span>Projects</span></a></li>
+        <li><a href="services.html"><i class="fas fa-layer-group"></i><span>Services</span></a></li>
+        <li><a href="contact.html"><i class="fas fa-paper-plane"></i><span>Contact</span></a></li>
+      </ul>
     </nav>
+  </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container hero-grid">
-            <div class="hero-content reveal">
-                <div class="eyebrow"><i class="fas fa-user"></i> Joshua Ayotope Adeyefa</div>
-                <h1>Crafting <span class="gradient-text">digital excellence</span> for modern brands.</h1>
-                <p>I specialize in building intuitive mobile apps and responsive websites. My focus is on creating seamless user experiences that solve real-world problems and drive engagement.</p>
-                <div class="hero-actions">
-                    <a href="project.html" class="btn btn-primary">View My Work <i class="fas fa-arrow-right"></i></a>
-                    <a href="contact.html" class="btn btn-secondary">Get in Touch</a>
-                </div>
-            </div>
-            <div class="hero-visual reveal">
-                <img src="images/Temisayo.png" alt="Joshua Ayotope Temisan" style="width: 100%; max-width: 450px; display: block; margin: 0 auto; filter: drop-shadow(0px 15px 35px rgba(0,0,0,0.4)); object-fit: contain;">
-            </div>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content reveal">
+        <div class="eyebrow"><i class="fas fa-user"></i> Joshua Ayotope Adeyefa</div>
+        <h1>Crafting <span class="accent-text">digital excellence</span> for modern brands.</h1>
+        <p>I specialize in building responsive websites and intuitive mobile apps. My focus is on creating seamless user experiences that solve real-world problems and drive engagement.</p>
+        <div class="hero-actions">
+          <a href="project.html" class="btn btn-primary">View My Work <i class="fas fa-arrow-right"></i></a>
+          <a href="about.html" class="btn btn-secondary">Explore</a>
         </div>
-    </section>
+      </div>
+      <div class="hero-visual reveal">
+        <img src="images/Temisayo.png" alt="Joshua Ayotope Adeyefa" class="hero-image">
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="social-row" style="margin-bottom: 1.5rem;">
-                <a href="https://github.com/ayopium07" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/Ayotope Joshua" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://twitter.com/Thatuglyboy_7" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.instagram.com/temisann7?igsh=ZTI3aGZ0enE1ZGFs" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-            </div>
-            <p>&copy; 2024 Joshua Ayotope Temisan. All rights reserved.</p>
-        </div>
-    </footer>
+  <!-- Skills Marquee Section -->
+  <section class="marquee-section">
+    <div class="marquee-container">
+      <div class="marquee-content">
+        <!-- Original set -->
+        <span class="marquee-item"><i class="fab fa-react"></i> React Native</span>
+        <span class="marquee-item"><i class="fas fa-code"></i> Next.js</span>
+        <span class="marquee-item"><i class="fab fa-node-js"></i> Node.js</span>
+        <span class="marquee-item"><i class="fas fa-file-code"></i> TypeScript</span>
+        <span class="marquee-item"><i class="fab fa-html5"></i> HTML</span>
+        <span class="marquee-item"><i class="fab fa-css3-alt"></i> CSS</span>
+        <span class="marquee-item"><i class="fab fa-js"></i> JavaScript</span>
+        <span class="marquee-item"><i class="fab fa-react"></i> React</span>
+        <span class="marquee-item"><i class="fas fa-mobile-alt"></i> Flutter</span>
+        <span class="marquee-item"><i class="fas fa-terminal"></i> Dart</span>
+        <span class="marquee-item"><i class="fas fa-shield-alt"></i> Cybersecurity</span>
+        <!-- Duplicate set for infinite loop -->
+        <span class="marquee-item"><i class="fab fa-react"></i> React Native</span>
+        <span class="marquee-item"><i class="fas fa-code"></i> Next.js</span>
+        <span class="marquee-item"><i class="fab fa-node-js"></i> Node.js</span>
+        <span class="marquee-item"><i class="fas fa-file-code"></i> TypeScript</span>
+        <span class="marquee-item"><i class="fab fa-html5"></i> HTML</span>
+        <span class="marquee-item"><i class="fab fa-css3-alt"></i> CSS</span>
+        <span class="marquee-item"><i class="fab fa-js"></i> JavaScript</span>
+        <span class="marquee-item"><i class="fab fa-react"></i> React</span>
+        <span class="marquee-item"><i class="fas fa-mobile-alt"></i> Flutter</span>
+        <span class="marquee-item"><i class="fas fa-terminal"></i> Dart</span>
+        <span class="marquee-item"><i class="fas fa-shield-alt"></i> Cybersecurity</span>
+      </div>
+    </div>
+  </section>
 
-    <!-- Interactive Scripts -->
-    <script>
-        // Mobile Menu Toggle
-        const menuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
+  <!-- Featured Projects Section -->
+  <section id="featured-projects">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="eyebrow"><i class="fas fa-star"></i> Featured</div>
+        <h2 class="section-title">Selected Projects</h2>
+      </div>
+      <div class="projects-grid">
         
-        menuBtn.addEventListener('click', () => {
-            menuBtn.classList.toggle('active');
-            navLinks.classList.toggle('active');
+        <!-- Festival Of Change 25 -->
+        <div class="project-card reveal">
+          <div class="project-img-wrapper">
+            <img src="images/FOC25.jpg" alt="Festival Of Change 25" style="width:100%; height:100%; object-fit:cover;">
+            <div class="project-overlay">
+              <a href="https://www.festivalofchange.org/" target="_blank" class="btn btn-primary">Visit Site</a>
+            </div>
+            <span class="project-badge" style="color:#fff;">Web</span>
+          </div>
+          <div class="project-content">
+            <h3>Festival of Change 25</h3>
+            <p>Global event platform bringing together educators, technologists, and innovators. Designed for scale and discoverability.</p>
+          </div>
+        </div>
+
+        <!-- SWIP -->
+        <div class="project-card reveal">
+          <div class="project-img-wrapper">
+            <img src="images/swiplo.jpg" alt="SWIP" style="width:100%; height:100%; object-fit:cover;">
+            <div class="project-overlay">
+              <a href="https://www.theswip.org/" target="_blank" class="btn btn-primary">Visit Site</a>
+            </div>
+            <span class="project-badge" style="color:#fff;">Web</span>
+          </div>
+          <div class="project-content">
+            <h3>SWIP</h3>
+            <p>Empowering marginalized women and adolescent girls through technology and advocacy. A digital hub for sustainable impact.</p>
+          </div>
+        </div>
+
+        <!-- The OAK -->
+        <div class="project-card reveal">
+          <div class="project-img-wrapper">
+            <img src="images/loname.png" alt="The OAK" style="width:100%; height:100%; object-fit:cover;">
+            <div class="project-overlay">
+              <a href="https://www.theoaking.com/" target="_blank" class="btn btn-primary">Visit Site</a>
+            </div>
+            <span class="project-badge" style="color:#fff;">Web</span>
+          </div>
+          <div class="project-content">
+            <h3>The OAK</h3>
+            <p>Real estate and investment platform designed to offer clear insights, streamlined property browsing, and trust-building visuals.</p>
+          </div>
+        </div>
+
+      </div>
+      <div style="text-align:center; margin-top:3rem;" class="reveal">
+        <a href="project.html" class="btn btn-secondary">View All Projects</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Overview Section -->
+  <section id="services-overview" style="background: var(--bg-base);">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="eyebrow"><i class="fas fa-layer-group"></i> What I Do</div>
+        <h2 class="section-title">My Services</h2>
+      </div>
+      <div class="services-grid">
+        
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <h3>Web Development</h3>
+          <p>I build fast, responsive, and scalable web platforms using modern frameworks like React and Next.js.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3>Mobile Apps</h3>
+          <p>Creating intuitive and seamless cross-platform mobile experiences using Flutter, Dart, and React Native.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Cybersecurity</h3>
+          <p>Implementing security best practices to protect your applications and user data from modern threats.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section reveal" style="padding: 6rem 2rem; text-align: center;">
+    <div class="container" style="background: rgba(67, 97, 238, 0.05); padding: 4rem 2rem; border-radius: var(--radius-lg); border: 1px solid rgba(67, 97, 238, 0.1);">
+      <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Let's build something amazing together.</h2>
+      <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem; font-size: 1.1rem;">Whether you need a full-scale platform or a mobile app, I'm ready to bring your vision to life.</p>
+      <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="social-row" style="margin-bottom: 1.5rem;">
+        <a href="https://github.com/ayopium07" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/Ayotope Joshua" target="_blank" class="social-icon"><i
+            class="fab fa-linkedin-in"></i></a>
+        <a href="https://twitter.com/Thatuglyboy_7" target="_blank" class="social-icon"><i
+            class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/temisann7?igsh=ZTI3aGZ0enE1ZGFs" target="_blank" class="social-icon"><i
+            class="fab fa-instagram"></i></a>
+      </div>
+      <p>&copy; 2024 Joshua Ayotope Adeyefa. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Interactive Scripts -->
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    if (mobileMenuToggle && navLinks) {
+      mobileMenuToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        mobileMenuToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+      });
+
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenuToggle.classList.remove('active');
+          navLinks.classList.remove('active');
         });
+      });
 
-        // Close menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuBtn.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
-
-
-
-        // Scroll Reveal Animations
-        const reveals = document.querySelectorAll('.reveal');
-
-        function checkReveal() {
-            const windowHeight = window.innerHeight;
-            const elementVisible = 100;
-
-            reveals.forEach(reveal => {
-                const elementTop = reveal.getBoundingClientRect().top;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveal.classList.add('active');
-                }
-            });
+      document.addEventListener('click', (e) => {
+        if (!mobileMenuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+          mobileMenuToggle.classList.remove('active');
+          navLinks.classList.remove('active');
         }
+      });
+    }
 
-        window.addEventListener('scroll', checkReveal);
-        checkReveal(); // Trigger once on load
+    // Scroll Reveal Animations
+    const reveals = document.querySelectorAll('.reveal');
 
-    </script>
+    function checkReveal() {
+      const windowHeight = window.innerHeight;
+      const elementVisible = 100;
+
+      reveals.forEach(reveal => {
+        const elementTop = reveal.getBoundingClientRect().top;
+        if (elementTop < windowHeight - elementVisible) {
+          reveal.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', checkReveal);
+    checkReveal(); // Trigger once on load
+  </script>
 </body>
 </html>

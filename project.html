@@ -4,13 +4,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects - Joshua Ayotope Temisan</title>
+  <title>Projects - Joshua Ayotope Adeyefa</title>
   <meta name="description"
-    content="Explore Joshua Ayotope Temisan's portfolio of mobile apps, web platforms, and security-focused projects." />
+    content="Explore Joshua Ayotope Adeyefa's portfolio of web platforms, mobile apps, and security-focused projects." />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet" />
   <style>
     /* ── Reset & Base ──────────────────────────────── */
@@ -47,8 +47,8 @@
     }
 
     body {
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-      background: linear-gradient(160deg, #dbeafe 0%, #f0f7ff 22%, #ffffff 50%, #eff6ff 78%, #dbeafe 100%) fixed;
+      font-family: "Roboto Slab", "Inter", serif;
+      background: var(--bg-surface, #f8fafc);
       background-attachment: fixed;
       color: var(--text-1);
       line-height: 1.6;
@@ -70,7 +70,7 @@
       left: -40%;
       width: 180%;
       height: 180%;
-      background: radial-gradient(circle, rgba(90, 160, 220, 0.04) 0%, transparent 65%);
+      background: transparent;
       animation: orb 18s ease-in-out infinite;
       pointer-events: none;
       z-index: 0;
@@ -126,22 +126,30 @@
     .logo {
       display: flex;
       align-items: center;
+      text-decoration: none;
     }
 
-    .logo-img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid #fff;
-      box-shadow: 0 2px 10px rgba(67, 97, 238, 0.15);
-      transition: transform 0.3s;
+    .logo-text {
+      font-family: 'Roboto Slab', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      font-style: italic;
+      color: #0f172a;
+      letter-spacing: -1px;
+      display: inline-block;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      user-select: none;
     }
 
-    .logo:hover .logo-img {
-      transform: rotate(8deg) scale(1.05);
-      border-color: rgba(67, 97, 238, 0.2);
+    .logo-j {
+      font-style: italic;
+      color: #4361ee;
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-right: -1px;
     }
+
+    .logo:hover .logo-text { transform: skewX(-4deg); opacity: 0.85; }
 
     .nav-links {
       display: flex;
@@ -177,7 +185,7 @@
 
     .nav-links a.active {
       color: #fff;
-      background: linear-gradient(135deg, var(--accent), var(--purple));
+      background: var(--accent);
       box-shadow: 0 4px 12px rgba(67, 97, 238, 0.25);
     }
 
@@ -288,10 +296,7 @@
     }
 
     .page-hero h1 span {
-      background: linear-gradient(135deg, var(--blue) 0%, var(--purple) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: var(--blue);
     }
 
     .page-hero p {
@@ -410,7 +415,7 @@
       left: 0;
       right: 0;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(0, 0, 0, .06), transparent);
+      background: rgba(0,0,0,0.05);
     }
 
     /* Category badge */
@@ -511,7 +516,7 @@
     }
 
     .overlay-btn.primary {
-      background: linear-gradient(135deg, var(--accent), var(--purple));
+      background: var(--accent);
       color: #fff;
       box-shadow: 0 4px 16px rgba(67, 97, 238, .35);
     }
@@ -580,7 +585,7 @@
       justify-content: center;
       gap: .4rem;
       padding: .55rem;
-      background: linear-gradient(135deg, rgba(67, 97, 238, .25), rgba(139, 92, 246, .2));
+      background: rgba(67, 97, 238, 0.1);
       border: 1px solid rgba(67, 97, 238, .3);
       border-radius: 10px;
       color: #91a8ff;
@@ -590,7 +595,7 @@
     }
 
     .visit-btn:hover {
-      background: linear-gradient(135deg, rgba(67, 97, 238, .4), rgba(139, 92, 246, .35));
+      background: rgba(67, 97, 238, 0.1);
       transform: translateY(-1px);
     }
 
@@ -610,16 +615,18 @@
     }
 
     /* ── CTA Banner ────────────────────────────────── */
+    /* ---- CTA Banner Premium Redesign ---- */
     .cta-banner {
-      margin-top: 5rem;
-      background: linear-gradient(135deg, rgba(67, 97, 238, .14), rgba(139, 92, 246, .09));
-      border: 1px solid rgba(139, 92, 246, .22);
-      border-radius: 22px;
-      padding: 3.5rem;
+      background: #f8fafc;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      border-radius: 2rem;
+      padding: 6rem 3rem;
       text-align: center;
+      margin-top: 5rem;
+      margin-bottom: 2rem;
       position: relative;
       overflow: hidden;
-      animation: fadeUp .7s .3s ease both;
+      animation: fadeUp 0.8s 0.3s ease both;
     }
 
     .cta-banner::before {
@@ -630,7 +637,7 @@
       transform: translateX(-50%);
       width: 350px;
       height: 180px;
-      background: radial-gradient(ellipse at top, rgba(139, 92, 246, .15), transparent 70%);
+      background: transparent;
       pointer-events: none;
     }
 
@@ -665,7 +672,7 @@
       display: inline-flex;
       align-items: center;
       gap: .45rem;
-      background: linear-gradient(135deg, #4361ee, #7b5ea7);
+      background: #4361ee;
       color: #fff;
       font-weight: 700;
       font-size: .9rem;
@@ -766,29 +773,31 @@
 
       .nav-links {
         position: absolute;
-        top: calc(100% + 0.5rem);
-        left: 1.5rem;
-        right: 1.5rem;
+        top: calc(100% + 0.75rem);
+        left: 0;
+        right: 0;
         background: rgba(255, 255, 255, 0.96);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(67, 97, 238, 0.1);
-        border-radius: 20px;
-        box-shadow: 0 15px 35px rgba(67, 97, 238, 0.1);
+        backdrop-filter: blur(25px) saturate(200%);
+        -webkit-backdrop-filter: blur(25px) saturate(200%);
+        border: 1px solid rgba(67, 97, 238, 0.15);
+        border-radius: 24px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(67, 97, 238, 0.08);
         flex-direction: column;
-        padding: 1.25rem;
+        padding: 1.25rem 1rem;
         gap: 0.5rem;
-        transform: translateY(-10px);
+        transform: translateY(-10px) scale(0.98);
         opacity: 0;
+        visibility: hidden;
         pointer-events: none;
-        transition: all 0.3s var(--ease);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         display: flex;
         z-index: 1000;
       }
 
       .nav-links.active {
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
         opacity: 1;
+        visibility: visible;
         pointer-events: auto;
       }
 
@@ -798,13 +807,17 @@
       }
 
       .nav-links a {
-        display: block;
-        padding: 0.6rem 1rem;
-        font-size: 0.85rem;
+        width: 100%;
+        text-align: left;
+        padding: 0.75rem 1.25rem;
+        border-radius: 14px;
+        font-size: 0.95rem;
         font-weight: 600;
-        text-align: center;
-        border-radius: 100px;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
         color: var(--text-2);
+        transition: all 0.25s var(--ease);
       }
 
       .nav-links a::after {
@@ -812,13 +825,22 @@
       }
 
       .nav-links a i {
-        display: none;
+        display: inline-block;
+        font-size: 1.1rem;
+        width: 22px;
+        text-align: center;
+        color: #4361ee;
       }
 
       .nav-links a.active,
       .nav-links a:hover {
         color: #fff;
-        background: linear-gradient(135deg, var(--accent), var(--purple));
+        background: var(--accent);
+      }
+
+      .nav-links a.active i,
+      .nav-links a:hover i {
+        color: #fff;
       }
 
       .projects-grid {
@@ -857,11 +879,13 @@
   <header>
     <nav class="navbar">
       <a href="index.html" class="logo">
-        <img src="images/JAA.jpg" alt="JAA" class="logo-img" />
+        <span class="logo-text"><em class="logo-j">J</em>AA</span>
       </a>
-      <div class="mobile-menu-toggle" id="mobileMenuToggle">
-        <span></span><span></span><span></span>
-      </div>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html"><i class="fas fa-home"></i><span>Home</span></a></li>
         <li><a href="about.html"><i class="fas fa-user"></i><span>About</span></a></li>
@@ -879,7 +903,7 @@
       <div class="eyebrow"><i class="fas fa-folder-open"></i> Selected Work</div>
       <h1>Projects I've <span>built & shipped</span></h1>
       <p>
-        A curated look at what I've delivered — mobile apps, web platforms,
+        A curated look at what I've delivered — web platforms, mobile apps,
         and tools that solve real problems for real users.
       </p>
     </div>
@@ -1275,7 +1299,7 @@
     <div class="cta-banner">
       <h2>Have a project in mind?</h2>
       <p>
-        Whether it's a mobile app, a web platform, or something in between —
+        Whether it's a web platform, a mobile app, or something in between —
         let's talk about how I can help bring it to life.
       </p>
       <div class="btn-row">
@@ -1293,7 +1317,7 @@
   <!-- Footer -->
   <footer>
     <div class="footer-content">
-      <div class="footer-text">© 2024 Joshua Ayotope. All rights reserved.</div>
+      <div class="footer-text">© 2024 Joshua Ayotope Adeyefa. All rights reserved.</div>
       <div class="footer-social-links">
         <a href="https://github.com/ayopium07" class="footer-social-link" title="GitHub"><i
             class="fab fa-github"></i></a>
@@ -1309,27 +1333,30 @@
 
   <script>
     /* ── Mobile Menu ──────────────────────────────── */
-    const toggle = document.getElementById("mobileMenuToggle");
+    const mobileMenuToggle = document.getElementById("mobileMenuToggle");
     const navLinks = document.getElementById("navLinks");
 
-    toggle.addEventListener("click", () => {
-      toggle.classList.toggle("active");
-      navLinks.classList.toggle("active");
-    });
-
-    navLinks.querySelectorAll("a").forEach(a => {
-      a.addEventListener("click", () => {
-        toggle.classList.remove("active");
-        navLinks.classList.remove("active");
+    if (mobileMenuToggle && navLinks) {
+      mobileMenuToggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        mobileMenuToggle.classList.toggle("active");
+        navLinks.classList.toggle("active");
       });
-    });
 
-    document.addEventListener("click", e => {
-      if (!toggle.contains(e.target) && !navLinks.contains(e.target)) {
-        toggle.classList.remove("active");
-        navLinks.classList.remove("active");
-      }
-    });
+      document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+          mobileMenuToggle.classList.remove("active");
+          navLinks.classList.remove("active");
+        });
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!mobileMenuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+          mobileMenuToggle.classList.remove("active");
+          navLinks.classList.remove("active");
+        }
+      });
+    }
 
     window.addEventListener("resize", () => {
       if (window.innerWidth > 768) {

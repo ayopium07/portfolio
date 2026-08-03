@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>What I Bring - Joshua Ayotope Temisan</title>
-    <meta name="description" content="Discover what Joshua Ayotope Temisan brings to every team and project — from clean, scalable code to seamless collaboration and product-focused thinking." />
+    <title>What I Bring - Joshua Ayotope Adeyefa</title>
+    <meta name="description" content="Discover what Joshua Ayotope Adeyefa brings to every team and project — from clean, scalable code to seamless collaboration and product-focused thinking." />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles/style.css" />
@@ -42,8 +42,8 @@
       }
 
       body {
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        background: linear-gradient(160deg, #dbeafe 0%, #f0f7ff 22%, #ffffff 50%, #eff6ff 78%, #dbeafe 100%);
+        font-family: "Roboto Slab", "Inter", serif;
+        background: var(--bg-surface, #f8fafc);
         background-attachment: fixed;
         color: var(--text-primary);
         line-height: 1.6;
@@ -59,7 +59,7 @@
         left: -50%;
         width: 200%;
         height: 200%;
-        background: radial-gradient(circle, rgba(90, 160, 220, 0.03) 0%, transparent 70%);
+        background: transparent;
         animation: ambientGlow 20s ease-in-out infinite;
         pointer-events: none;
         z-index: 0;
@@ -116,20 +116,27 @@
         text-decoration: none;
       }
 
-      .logo-img {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 2px solid #fff;
-        box-shadow: 0 2px 10px rgba(67, 97, 238, 0.15);
-        transition: transform 0.3s;
+      .logo-text {
+        font-family: 'Roboto Slab', serif;
+        font-size: 2rem;
+        font-weight: 700;
+        font-style: italic;
+        color: #0f172a;
+        letter-spacing: -1px;
+        display: inline-block;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        user-select: none;
       }
 
-      .logo:hover .logo-img {
-        border-color: rgba(67, 97, 238, 0.2);
-        transform: rotate(8deg) scale(1.05);
+      .logo-j {
+        font-style: italic;
+        color: #4361ee;
+        font-size: 2.2rem;
+        font-weight: 700;
+        margin-right: -1px;
       }
+
+      .logo:hover .logo-text { transform: skewX(-4deg); opacity: 0.85; }
 
       .nav-links {
         display: flex;
@@ -166,7 +173,7 @@
 
       .nav-links a.active {
         color: #fff;
-        background: linear-gradient(135deg, var(--accent-blue-bright), #8b5cf6);
+        background: var(--accent-blue-bright);
         box-shadow: 0 4px 12px rgba(67, 97, 238, 0.25);
       }
 
@@ -264,10 +271,7 @@
       }
 
       .page-hero h1 span {
-        background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        color: var(--accent-blue);
       }
 
       .page-hero p {
@@ -289,7 +293,7 @@
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
-        background: linear-gradient(135deg, #4361ee, #7b5ea7);
+        background: #4361ee;
         color: #fff;
         font-weight: 600;
         font-size: 0.95rem;
@@ -326,41 +330,58 @@
         transform: translateY(-2px);
       }
 
-      /* ---- Stat Strip ---- */
+      /* ---- Stat Strip Redesign (Compact & Flat) ---- */
       .stat-strip {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1px;
-        background: var(--glass-border);
-        border: 1px solid var(--glass-border);
-        border-radius: 16px;
-        overflow: hidden;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        background: transparent;
+        border-top: 1px solid rgba(0,0,0,0.08);
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+        padding: 2.5rem 0;
         margin-bottom: 5rem;
         animation: fadeUp 0.8s 0.15s ease both;
       }
 
       .stat-item {
-        background: rgba(0,0,0,0.02);
-        padding: 2rem 1.5rem;
         text-align: center;
-        transition: background 0.3s;
+        flex: 1;
+        padding: 0 1rem;
       }
 
-      .stat-item:hover { background: rgba(0,0,0,0.04); }
+      .stat-item:not(:last-child) {
+        border-right: 1px solid rgba(0,0,0,0.08);
+      }
 
       .stat-number {
-        font-size: 2rem;
-        font-weight: 800;
-        color: var(--text-primary);
-        line-height: 1;
+        font-size: 2.5rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: var(--blue, #2563eb);
+        line-height: 1.2;
         margin-bottom: 0.4rem;
       }
 
       .stat-label {
-        font-size: 0.8rem;
-        color: var(--text-tertiary);
+        font-size: 0.85rem;
+        color: var(--text-secondary, #64748b);
+        font-weight: 600;
+        letter-spacing: 0.05em;
         text-transform: uppercase;
-        letter-spacing: 1px;
+      }
+      
+      @media (max-width: 768px) {
+        .stat-strip {
+          flex-direction: column;
+          gap: 2rem;
+          border: none;
+        }
+        .stat-item:not(:last-child) {
+          border-right: none;
+          border-bottom: 1px solid rgba(0,0,0,0.08);
+          padding-bottom: 2rem;
+        }
       }
 
       /* ---- Value Props Section ---- */
@@ -412,14 +433,14 @@
         position: absolute;
         top: 0; left: 0; right: 0;
         height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+        background: rgba(0,0,0,0.05);
       }
 
       .value-card::after {
         content: "";
         position: absolute;
         inset: 0;
-        background: radial-gradient(circle at 50% 0%, var(--card-glow, rgba(91,157,217,0.06)), transparent 70%);
+        background: transparent;
         opacity: 0;
         transition: opacity 0.4s;
       }
@@ -452,12 +473,12 @@
         z-index: 1;
       }
 
-      .icon-blue   { background: linear-gradient(135deg, rgba(91,157,217,0.2), rgba(91,157,217,0.05)); color: var(--accent-blue-bright); border: 1px solid rgba(91,157,217,0.2); }
-      .icon-purple { background: linear-gradient(135deg, rgba(139,92,246,0.2), rgba(139,92,246,0.05)); color: #a78bfa; border: 1px solid rgba(139,92,246,0.2); }
-      .icon-teal   { background: linear-gradient(135deg, rgba(45,212,191,0.2), rgba(45,212,191,0.05)); color: var(--accent-teal); border: 1px solid rgba(45,212,191,0.2); }
-      .icon-amber  { background: linear-gradient(135deg, rgba(245,158,11,0.2), rgba(245,158,11,0.05)); color: var(--accent-amber); border: 1px solid rgba(245,158,11,0.2); }
-      .icon-pink   { background: linear-gradient(135deg, rgba(236,72,153,0.2), rgba(236,72,153,0.05)); color: #f472b6; border: 1px solid rgba(236,72,153,0.2); }
-      .icon-green  { background: linear-gradient(135deg, rgba(52,211,153,0.2), rgba(52,211,153,0.05)); color: #34d399; border: 1px solid rgba(52,211,153,0.2); }
+      .icon-blue   { background: rgba(91,157,217, 0.1); color: var(--accent-blue-bright); border: 1px solid rgba(91,157,217,0.2); }
+      .icon-purple { background: rgba(139,92,246, 0.1); color: #a78bfa; border: 1px solid rgba(139,92,246,0.2); }
+      .icon-teal   { background: rgba(45,212,191, 0.1); color: var(--accent-teal); border: 1px solid rgba(45,212,191,0.2); }
+      .icon-amber  { background: rgba(245,158,11, 0.1); color: var(--accent-amber); border: 1px solid rgba(245,158,11,0.2); }
+      .icon-pink   { background: rgba(236,72,153, 0.1); color: #f472b6; border: 1px solid rgba(236,72,153,0.2); }
+      .icon-green  { background: rgba(52,211,153, 0.1); color: #34d399; border: 1px solid rgba(52,211,153,0.2); }
 
       .value-card h3 {
         font-size: 1.05rem;
@@ -490,12 +511,31 @@
         font-weight: 600;
         padding: 0.25rem 0.65rem;
         border-radius: 100px;
-        letter-spacing: 0.3px;
+        /* Premium Tags specific for the services section */
       }
-
-      .tag-blue   { background: rgba(91,157,217,0.12); color: var(--accent-blue-bright); border: 1px solid rgba(91,157,217,0.2); }
-      .tag-purple { background: rgba(139,92,246,0.12); color: #a78bfa; border: 1px solid rgba(139,92,246,0.2); }
-      .tag-teal   { background: rgba(45,212,191,0.12); color: var(--accent-teal); border: 1px solid rgba(45,212,191,0.2); }
+      .value-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-top: 1.5rem;
+      }
+      .value-tags .tag {
+        font-size: 0.85rem;
+        padding: 0.5rem 1.2rem;
+        border-radius: 8px;
+        background: #f8fafc;
+        border: 1px solid rgba(0,0,0,0.06);
+        color: var(--text-secondary, #475569);
+        font-weight: 600;
+        transition: all 0.2s ease;
+      }
+      .value-tags .tag:hover {
+        background: var(--blue, #2563eb);
+        color: #ffffff;
+        border-color: var(--blue, #2563eb);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+      }
       .tag-amber  { background: rgba(245,158,11,0.12); color: var(--accent-amber); border: 1px solid rgba(245,158,11,0.2); }
       .tag-pink   { background: rgba(236,72,153,0.12); color: #f472b6; border: 1px solid rgba(236,72,153,0.2); }
       .tag-green  { background: rgba(52,211,153,0.12); color: #34d399; border: 1px solid rgba(52,211,153,0.2); }
@@ -555,7 +595,7 @@
 
       /* Right panel — visual highlight card */
       .highlight-card {
-        background: linear-gradient(145deg, rgba(67,97,238,0.12), rgba(139,92,246,0.08));
+        background: rgba(67, 97, 238, 0.1);
         border: 1px solid rgba(139,92,246,0.2);
         border-radius: 24px;
         padding: 2.5rem;
@@ -569,7 +609,7 @@
         top: -60px; right: -60px;
         width: 200px; height: 200px;
         border-radius: 50%;
-        background: radial-gradient(circle, rgba(139,92,246,0.15), transparent 70%);
+        background: transparent;
         pointer-events: none;
       }
 
@@ -625,7 +665,7 @@
       .skill-bar-fill {
         height: 100%;
         border-radius: 10px;
-        background: linear-gradient(90deg, #4361ee, #8b5cf6);
+        background: #4361ee;
         animation: barFill 1.2s ease both;
         transform-origin: left;
       }
@@ -643,13 +683,14 @@
       }
 
       /* ---- CTA Banner ---- */
+      /* ---- CTA Banner Premium Redesign ---- */
       .cta-banner {
-        background: linear-gradient(135deg, rgba(67,97,238,0.15), rgba(139,92,246,0.1));
-        border: 1px solid rgba(139,92,246,0.25);
-        border-radius: 24px;
-        padding: 3.5rem;
+        background: #f8fafc;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        border-radius: 2rem;
+        padding: 6rem 3rem;
         text-align: center;
-        margin-bottom: 3rem;
+        margin-bottom: 4rem;
         position: relative;
         overflow: hidden;
         animation: fadeUp 0.8s 0.3s ease both;
@@ -658,32 +699,82 @@
       .cta-banner::before {
         content: "";
         position: absolute;
-        left: 50%; top: 0;
+        top: -100px;
+        left: 50%;
         transform: translateX(-50%);
-        width: 400px; height: 200px;
-        background: radial-gradient(ellipse at top, rgba(139,92,246,0.15), transparent 70%);
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
         pointer-events: none;
       }
 
       .cta-banner h2 {
-        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        font-size: clamp(2.2rem, 4.5vw, 3.5rem);
         font-weight: 800;
-        margin-bottom: 1rem;
+        letter-spacing: -0.03em;
+        margin-bottom: 1.2rem;
+        color: var(--text-primary, #0f172a);
         position: relative;
         z-index: 1;
       }
 
       .cta-banner p {
-        color: var(--text-secondary);
-        font-size: 1rem;
-        max-width: 520px;
-        margin: 0 auto 2rem;
-        line-height: 1.65;
+        color: var(--text-secondary, #475569);
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin: 0 auto 3rem;
+        line-height: 1.6;
         position: relative;
         z-index: 1;
       }
 
-      .cta-banner .cta-row { position: relative; z-index: 1; }
+      .cta-banner .cta-row { 
+        position: relative; 
+        z-index: 1; 
+        display: flex;
+        justify-content: center;
+        gap: 1.2rem;
+      }
+      
+      .cta-banner .btn-primary {
+        background: var(--blue, #2563eb);
+        color: #ffffff;
+        border: none;
+        padding: 1.2rem 2.5rem;
+        border-radius: 14px;
+        font-weight: 600;
+        font-size: 1.05rem;
+        transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s;
+        box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+      }
+      .cta-banner .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px rgba(37, 99, 235, 0.35);
+      }
+      
+      .cta-banner .btn-secondary {
+        background: #ffffff;
+        color: var(--text-primary, #0f172a);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 1.2rem 2.5rem;
+        border-radius: 14px;
+        font-weight: 600;
+        font-size: 1.05rem;
+        transition: all 0.2s ease;
+      }
+      .cta-banner .btn-secondary:hover {
+        background: #f1f5f9;
+        border-color: rgba(0,0,0,0.15);
+      }
+      
+      @media (max-width: 768px) {
+        .cta-banner .cta-row {
+           flex-direction: column;
+        }
+        .cta-banner .btn-primary, .cta-banner .btn-secondary {
+           width: 100%;
+        }
+      }
 
       /* ---- Footer ---- */
       .footer {
@@ -726,29 +817,31 @@
 
         .nav-links {
           position: absolute;
-          top: calc(100% + 0.5rem);
-          left: 1.5rem;
-          right: 1.5rem;
+          top: calc(100% + 0.75rem);
+          left: 0;
+          right: 0;
           background: rgba(255, 255, 255, 0.96);
-          backdrop-filter: blur(20px);
-          -webkit-backdrop-filter: blur(20px);
-          border: 1px solid rgba(67, 97, 238, 0.1);
-          border-radius: 20px;
-          box-shadow: 0 15px 35px rgba(67, 97, 238, 0.1);
+          backdrop-filter: blur(25px) saturate(200%);
+          -webkit-backdrop-filter: blur(25px) saturate(200%);
+          border: 1px solid rgba(67, 97, 238, 0.15);
+          border-radius: 24px;
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(67, 97, 238, 0.08);
           flex-direction: column;
-          padding: 1.25rem;
+          padding: 1.25rem 1rem;
           gap: 0.5rem;
-          transform: translateY(-10px);
+          transform: translateY(-10px) scale(0.98);
           opacity: 0;
+          visibility: hidden;
           pointer-events: none;
-          transition: all 0.3s var(--ease);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           display: flex;
           z-index: 1000;
         }
 
         .nav-links.active {
-          transform: translateY(0);
+          transform: translateY(0) scale(1);
           opacity: 1;
+          visibility: visible;
           pointer-events: auto;
         }
 
@@ -758,24 +851,36 @@
         }
         
         .nav-links a {
-          display: block;
-          padding: 0.6rem 1rem;
-          font-size: 0.85rem;
+          width: 100%;
+          text-align: left;
+          padding: 0.75rem 1.25rem;
+          border-radius: 14px;
+          font-size: 0.95rem;
           font-weight: 600;
-          text-align: center;
-          border-radius: 100px;
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
           color: var(--text-secondary);
+          transition: all 0.25s var(--ease);
         }
 
         .nav-links a::after { display: none; }
         
         .nav-links a i {
-          display: none;
+          display: inline-block;
+          font-size: 1.1rem;
+          width: 22px;
+          text-align: center;
+          color: #4361ee;
         }
 
         .nav-links a.active, .nav-links a:hover {
           color: #fff;
-          background: linear-gradient(135deg, var(--accent-blue-bright), #8b5cf6);
+          background: var(--accent-blue-bright);
+        }
+
+        .nav-links a.active i, .nav-links a:hover i {
+          color: #fff;
         }
 
         .stat-strip { grid-template-columns: repeat(2, 1fr); }
@@ -805,307 +910,6 @@
         * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
       }
 
-      /* ---- Rate Card Section ---- */
-      .rate-section {
-        margin-bottom: 5rem;
-        animation: fadeUp 0.8s 0.28s ease both;
-      }
-
-      .rate-header {
-        margin-bottom: 2.5rem;
-      }
-
-      /* Category Tabs */
-      .rate-tabs {
-        display: flex;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-        margin-bottom: 2rem;
-      }
-
-      .rate-tab {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4rem;
-        padding: 0.55rem 1.2rem;
-        border-radius: 100px;
-        font-size: 0.82rem;
-        font-weight: 600;
-        border: 1px solid var(--glass-border);
-        background: var(--glass-bg);
-        color: var(--text-secondary);
-        cursor: pointer;
-        transition: all 0.25s;
-        font-family: inherit;
-      }
-
-      .rate-tab:hover {
-        border-color: rgba(67,97,238,0.3);
-        color: var(--text-primary);
-      }
-
-      .rate-tab.active {
-        background: linear-gradient(135deg, #4361ee, #8b5cf6);
-        border-color: transparent;
-        color: #fff;
-        box-shadow: 0 4px 14px rgba(67,97,238,0.3);
-      }
-
-      /* Panel */
-      .rate-panel { display: none; }
-      .rate-panel.active { display: block; }
-
-      /* Pricing Grids & Cards */
-      .rate-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.5rem;
-        margin-top: 1rem;
-      }
-
-      .rate-card {
-        background: rgba(255, 255, 255, 0.7);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(67, 97, 238, 0.08);
-        border-radius: 24px;
-        padding: 2.25rem 1.75rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        position: relative;
-        overflow: hidden;
-        transition: all 0.4s var(--ease);
-        box-shadow: 
-          0 10px 30px rgba(67, 97, 238, 0.03),
-          inset 0 1px 0 rgba(255, 255, 255, 0.8);
-      }
-
-      .rate-card:hover {
-        transform: translateY(-6px);
-        border-color: rgba(67, 97, 238, 0.2);
-        box-shadow: 
-          0 20px 40px rgba(67, 97, 238, 0.08),
-          inset 0 1px 0 rgba(255, 255, 255, 0.9);
-      }
-
-      .rate-card.featured {
-        border-color: rgba(67, 97, 238, 0.25);
-        background: rgba(255, 255, 255, 0.9);
-        box-shadow: 
-          0 15px 35px rgba(67, 97, 238, 0.08),
-          inset 0 1px 0 rgba(255, 255, 255, 0.9);
-      }
-
-      .rate-card.featured::before {
-        content: "POPULAR";
-        position: absolute;
-        top: 1rem; right: -2.5rem;
-        background: linear-gradient(135deg, #4361ee, #8b5cf6);
-        color: #fff;
-        font-size: 0.62rem;
-        font-weight: 800;
-        padding: 0.3rem 2.5rem;
-        transform: rotate(45deg);
-        letter-spacing: 1px;
-        box-shadow: 0 2px 10px rgba(67, 97, 238, 0.15);
-      }
-
-      .card-header {
-        margin-bottom: 1.5rem;
-      }
-
-      .card-title {
-        font-size: 1.15rem;
-        font-weight: 800;
-        color: #0f172a;
-        margin-bottom: 0.5rem;
-      }
-
-      .card-meta {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-        margin-bottom: 1rem;
-      }
-
-      .scope-badge {
-        font-size: 0.72rem;
-        font-weight: 700;
-        color: var(--text-secondary);
-        background: rgba(0, 0, 0, 0.04);
-        padding: 0.2rem 0.65rem;
-        border-radius: 100px;
-      }
-
-      .complexity-badge {
-        display: inline-block;
-        font-size: 0.7rem;
-        font-weight: 700;
-        padding: 0.2rem 0.65rem;
-        border-radius: 100px;
-        letter-spacing: 0.3px;
-      }
-
-      .cb-basic    { background: rgba(52,211,153,0.12); color: #059669; border: 1px solid rgba(52,211,153,0.25); }
-      .cb-medium   { background: rgba(245,158,11,0.12); color: #d97706; border: 1px solid rgba(245,158,11,0.25); }
-      .cb-high     { background: rgba(239,68,68,0.12);  color: #dc2626; border: 1px solid rgba(239,68,68,0.25); }
-      .cb-veryhigh { background: rgba(139,92,246,0.12); color: #7c3aed; border: 1px solid rgba(139,92,246,0.25); }
-      .cb-medhigh  { background: rgba(249,115,22,0.12); color: #ea580c; border: 1px solid rgba(249,115,22,0.25); }
-
-      .card-pricing {
-        margin-bottom: 1.75rem;
-        padding-bottom: 1.25rem;
-        border-bottom: 1px solid rgba(67, 97, 238, 0.08);
-      }
-
-      .card-price-naira {
-        font-size: 1.8rem;
-        font-weight: 800;
-        color: #4361ee;
-        line-height: 1;
-      }
-
-      .card-price-usd {
-        font-size: 0.85rem;
-        color: var(--text-tertiary);
-        margin-top: 0.35rem;
-        font-weight: 600;
-      }
-
-      .card-features {
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 0.6rem;
-        margin-bottom: 2rem;
-      }
-
-      .card-features li {
-        font-size: 0.85rem;
-        color: var(--text-secondary);
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-
-      .card-features li i {
-        color: #10b981;
-        font-size: 0.82rem;
-      }
-
-      .card-cta {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        padding: 0.75rem;
-        border-radius: 100px;
-        font-size: 0.85rem;
-        font-weight: 700;
-        text-decoration: none;
-        transition: all 0.3s;
-        background: rgba(67, 97, 238, 0.05);
-        border: 1px solid rgba(67, 97, 238, 0.15);
-        color: #4361ee;
-      }
-
-      .card-cta:hover {
-        background: linear-gradient(135deg, #4361ee, #8b5cf6);
-        color: #fff;
-        border-color: transparent;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(67, 97, 238, 0.2);
-      }
-
-      .rate-card.featured .card-cta {
-        background: linear-gradient(135deg, #4361ee, #8b5cf6);
-        color: #fff;
-        border: none;
-      }
-
-      .rate-card.featured .card-cta:hover {
-        background: linear-gradient(135deg, #304ffe, #7c3aed);
-        box-shadow: 0 6px 20px rgba(67, 97, 238, 0.3);
-      }
-
-      /* Addons Grid */
-      .addons-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
-        margin-top: 1.5rem;
-      }
-
-      .addon-item {
-        background: rgba(255, 255, 255, 0.7);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(67, 97, 238, 0.08);
-        border-radius: 18px;
-        padding: 1.25rem 1.5rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.4rem;
-        transition: all 0.3s var(--ease);
-        box-shadow: 
-          0 8px 24px rgba(67, 97, 238, 0.03),
-          inset 0 1px 0 rgba(255, 255, 255, 0.8);
-      }
-
-      .addon-item:hover {
-        border-color: rgba(67, 97, 238, 0.2);
-        box-shadow: 
-          0 12px 30px rgba(67, 97, 238, 0.06),
-          inset 0 1px 0 rgba(255, 255, 255, 0.9);
-        transform: translateY(-3px);
-      }
-
-      .addon-name {
-        font-size: 0.92rem;
-        font-weight: 700;
-        color: #0f172a;
-        display: flex;
-        align-items: center;
-        gap: 0.4rem;
-      }
-
-      .addon-price {
-        font-size: 0.88rem;
-        color: #4361ee;
-        font-weight: 700;
-      }
-
-      .addon-usd {
-        font-size: 0.78rem;
-        color: var(--text-tertiary);
-        font-weight: 600;
-      }
-
-      .rate-note {
-        margin-top: 1.25rem;
-        padding: 1rem 1.25rem;
-        background: rgba(67,97,238,0.05);
-        border: 1px solid rgba(67,97,238,0.15);
-        border-radius: 12px;
-        font-size: 0.82rem;
-        color: var(--text-secondary);
-        line-height: 1.6;
-      }
-
-      .rate-note i { color: #4361ee; margin-right: 0.4rem; }
-
-      @media (max-width: 768px) {
-        .rate-tabs { gap: 0.4rem; }
-        .rate-tab { font-size: 0.75rem; padding: 0.45rem 0.9rem; }
-        .addons-grid { grid-template-columns: repeat(2, 1fr); }
-      }
-
-      @media (max-width: 480px) {
-        .addons-grid { grid-template-columns: 1fr; }
-        .rate-table th:nth-child(3), .rate-table td:nth-child(3) { display: none; }
-      }
     </style>
   </head>
   <body>
@@ -1114,13 +918,13 @@
       <header>
         <nav class="navbar">
           <a href="index.html" class="logo">
-            <img src="images/JAA.jpg" alt="JAA" class="logo-img" />
+            <span class="logo-text"><em class="logo-j">J</em>AA</span>
           </a>
-          <div class="mobile-menu-toggle" id="mobileMenuToggle">
+          <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
             <span></span>
             <span></span>
             <span></span>
-          </div>
+          </button>
           <ul class="nav-links" id="navLinks">
             <li><a href="index.html"><i class="fas fa-home"></i><span>Home</span></a></li>
             <li><a href="about.html"><i class="fas fa-user"></i><span>About</span></a></li>
@@ -1179,96 +983,61 @@
           </div>
         </div>
 
-        <!-- Value Cards -->
+        <!-- Core Services -->
         <div style="margin-bottom: 2.5rem;">
-          <p class="section-label">Core Value Proposition</p>
-          <h2 class="section-heading">What you actually get when you hire me</h2>
+          <p class="section-label">Core Services</p>
+          <h2 class="section-heading">What I Do</h2>
         </div>
 
-        <div class="value-grid">
+        <div class="value-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-bottom: 5rem;">
 
           <div class="value-card blue">
             <div class="value-icon icon-blue">
-              <i class="fas fa-mobile-alt"></i>
+              <i class="fas fa-laptop-code"></i>
             </div>
-            <h3>Cross-Platform Mobile Development</h3>
+            <h3>Web Development</h3>
             <p>
-              I build production-grade mobile apps for iOS and Android using
-              React Native — one codebase, two polished platforms, shipped faster
-              and cheaper without cutting corners on performance.
+              I build fast, responsive, and scalable web platforms using modern tools like React, Next.js, TypeScript, and TailwindCSS. Focus on accessible, pixel-perfect user interfaces and solid backend integration with Node.js.
             </p>
             <div class="value-tags">
-              <span class="tag tag-blue">React Native</span>
-              <span class="tag tag-blue">Expo</span>
-              <span class="tag tag-blue">iOS &amp; Android</span>
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">React</span>
+              <span class="tag">Next.js</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">TailwindCSS</span>
             </div>
           </div>
 
           <div class="value-card purple">
             <div class="value-icon icon-purple">
-              <i class="fas fa-layer-group"></i>
+              <i class="fas fa-mobile-alt"></i>
             </div>
-            <h3>Full-Stack Web Development</h3>
+            <h3>Mobile Apps</h3>
             <p>
-              From responsive front-ends to RESTful APIs, I handle the full stack.
-              You get a developer who understands the whole picture — not just
-              their isolated slice of it.
+              Creating intuitive and seamless cross-platform mobile experiences using Flutter, Dart, and React Native. One codebase delivering native performance on both iOS and Android.
             </p>
             <div class="value-tags">
-              <span class="tag tag-purple">HTML / CSS / JS</span>
-              <span class="tag tag-purple">Node.js</span>
-              <span class="tag tag-purple">React</span>
+              <span class="tag">React Native</span>
+              <span class="tag">Flutter</span>
+              <span class="tag">Dart</span>
             </div>
           </div>
 
           <div class="value-card teal">
             <div class="value-icon icon-teal">
-              <i class="fas fa-feather-alt"></i>
+              <i class="fas fa-shield-alt"></i>
             </div>
-            <h3>UI/UX-Aware Engineering</h3>
+            <h3>Cybersecurity</h3>
             <p>
-              I don't just make it work — I make it feel right. I implement
-              designs pixel-precisely and flag UX issues before they become bugs
-              in production.
+              Implementing security best practices to protect your applications and user data from modern threats. Ensuring secure authentication, data encryption, and robust application architectures.
             </p>
             <div class="value-tags">
-              <span class="tag tag-teal">Design Systems</span>
-              <span class="tag tag-teal">Figma Handoff</span>
-              <span class="tag tag-teal">Accessibility</span>
-            </div>
-          </div>
-          
-          <div class="value-card pink">
-            <div class="value-icon icon-pink">
-              <i class="fas fa-comments"></i>
-            </div>
-            <h3>Clear Communication &amp; Collaboration</h3>
-            <p>
-              I keep stakeholders informed, ask the right questions early, and
-              translate technical tradeoffs into plain language. No surprises —
-              just collaborative, transparent progress.
-            </p>
-            <div class="value-tags">
-              <span class="tag tag-pink">Async-Friendly</span>
-              <span class="tag tag-pink">Documentation</span>
-              <span class="tag tag-pink">Code Reviews</span>
-            </div>
-          </div>
-
-          <div class="value-card green">
-            <div class="value-icon icon-green">
-              <i class="fas fa-bolt"></i>
-            </div>
-            <h3>Reliable, On-Time Delivery</h3>
-            <p>
-              I scope realistically, flag blockers early, and ship what I commit
-              to — on time. If scope changes, you'll know before it impacts the
-              timeline, not after.
-            </p>
-            <div class="value-tags">
-              <span class="tag tag-green">Agile</span>
-              <span class="tag tag-green">Git &amp; Version Control</span>
-              <span class="tag tag-green">Estimation</span>
+              <span class="tag">App Security</span>
+              <span class="tag">Data Protection</span>
+              <span class="tag">Best Practices</span>
             </div>
           </div>
 
@@ -1363,594 +1132,6 @@
           </div>
         </div>
 
-        <!-- Rate Cards -->
-        <div class="rate-section">
-          <div class="rate-header">
-            <p class="section-label">Pricing</p>
-            <h2 class="section-heading">Rate Cards</h2>
-            <p class="section-sub">Transparent, project-based pricing across all service categories. All prices are starting rates — final quotes depend on scope, timeline, and integrations.</p>
-          </div>
-
-          <!-- Tabs -->
-          <div class="rate-tabs">
-            <button class="rate-tab active" data-tab="web"><i class="fas fa-globe"></i> Web Dev</button>
-            <button class="rate-tab" data-tab="webapp"><i class="fas fa-layer-group"></i> Web Apps</button>
-            <button class="rate-tab" data-tab="ecom"><i class="fas fa-shopping-cart"></i> E-Commerce</button>
-            <button class="rate-tab" data-tab="mobile"><i class="fas fa-mobile-alt"></i> Mobile Apps</button>
-            <button class="rate-tab" data-tab="ai"><i class="fas fa-robot"></i> AI</button>
-            <button class="rate-tab" data-tab="addons"><i class="fas fa-plus-circle"></i> Add-ons</button>
-          </div>
-
-          <!-- Website Development -->
-          <div class="rate-panel active" id="tab-web">
-            <div class="rate-grid">
-              
-              <!-- Card 1 -->
-              <div class="rate-card">
-                <div class="card-header">
-                  <div class="card-title">Landing Page</div>
-                  <div class="card-meta">
-                    <span class="scope-badge">1 Page</span>
-                    <span class="complexity-badge cb-basic">Basic</span>
-                  </div>
-                </div>
-                <div class="card-pricing">
-                  <div class="card-price-naira">₦250,000</div>
-                  <div class="card-price-usd">Starting at ~$160 USD</div>
-                </div>
-                <ul class="card-features">
-                  <li><i class="fas fa-check-circle"></i> Responsive mobile-first design</li>
-                  <li><i class="fas fa-check-circle"></i> Single-page layout navigation</li>
-                  <li><i class="fas fa-check-circle"></i> Contact form integration</li>
-                  <li><i class="fas fa-check-circle"></i> Basic SEO optimization</li>
-                  <li><i class="fas fa-check-circle"></i> 1 week delivery target</li>
-                </ul>
-                <a href="contact.html?plan=landing-page" class="card-cta">Choose Plan</a>
-              </div>
-
-              <!-- Card 2 -->
-              <div class="rate-card">
-                <div class="card-header">
-                  <div class="card-title">Simple Website</div>
-                  <div class="card-meta">
-                    <span class="scope-badge">3–5 Pages</span>
-                    <span class="complexity-badge cb-basic">Basic</span>
-                  </div>
-                </div>
-                <div class="card-pricing">
-                  <div class="card-price-naira">₦500,000</div>
-                  <div class="card-price-usd">Starting at ~$315 USD</div>
-                </div>
-                <ul class="card-features">
-                  <li><i class="fas fa-check-circle"></i> Up to 5 standard content pages</li>
-                  <li><i class="fas fa-check-circle"></i> Modern visual transitions</li>
-                  <li><i class="fas fa-check-circle"></i> Contact/Inquiry forms</li>
-                  <li><i class="fas fa-check-circle"></i> Performance optimization</li>
-                  <li><i class="fas fa-check-circle"></i> 2 weeks delivery target</li>
-                </ul>
-                <a href="contact.html?plan=simple-website" class="card-cta">Choose Plan</a>
-              </div>
-
-              <!-- Card 3 (Featured!) -->
-              <div class="rate-card featured">
-                <div class="card-header">
-                  <div class="card-title">Standard Business</div>
-                  <div class="card-meta">
-                    <span class="scope-badge">5–10 Pages</span>
-                    <span class="complexity-badge cb-medium">Medium</span>
-                  </div>
-                </div>
-                <div class="card-pricing">
-                  <div class="card-price-naira">₦900,000</div>
-                  <div class="card-price-usd">Starting at ~$565 USD</div>
-                </div>
-                <ul class="card-features">
-                  <li><i class="fas fa-check-circle"></i> Multi-page business structure</li>
-                  <li><i class="fas fa-check-circle"></i> CMS support for blog/news</li>
-                  <li><i class="fas fa-check-circle"></i> Custom iconography &amp; UI</li>
-                  <li><i class="fas fa-check-circle"></i> Complete SEO &amp; Sitemap setup</li>
-                  <li><i class="fas fa-check-circle"></i> 3–4 weeks delivery target</li>
-                </ul>
-                <a href="contact.html?plan=standard-business" class="card-cta">Choose Plan</a>
-              </div>
-
-              <!-- Card 4 -->
-              <div class="rate-card">
-                <div class="card-header">
-                  <div class="card-title">Corporate Website</div>
-                  <div class="card-meta">
-                    <span class="scope-badge">10–20 Pages</span>
-                    <span class="complexity-badge cb-medhigh">Medium-High</span>
-                  </div>
-                </div>
-                <div class="card-pricing">
-                  <div class="card-price-naira">₦1,800,000</div>
-                  <div class="card-price-usd">Starting at ~$1,125 USD</div>
-                </div>
-                <ul class="card-features">
-                  <li><i class="fas fa-check-circle"></i> Rich company information pages</li>
-                  <li><i class="fas fa-check-circle"></i> Custom CMS integration</li>
-                  <li><i class="fas fa-check-circle"></i> Analytics &amp; tracking dashboards</li>
-                  <li><i class="fas fa-check-circle"></i> Interactive components/filters</li>
-                  <li><i class="fas fa-check-circle"></i> Multi-stage revision cycles</li>
-                </ul>
-                <a href="contact.html?plan=corporate-website" class="card-cta">Choose Plan</a>
-              </div>
-
-              <!-- Card 5 -->
-              <div class="rate-card">
-                <div class="card-header">
-                  <div class="card-title">Premium Corporate</div>
-                  <div class="card-meta">
-                    <span class="scope-badge">20+ Pages</span>
-                    <span class="complexity-badge cb-high">High</span>
-                  </div>
-                </div>
-                <div class="card-pricing">
-                  <div class="card-price-naira">₦3,500,000+</div>
-                  <div class="card-price-usd">Starting at ~$2,190+ USD</div>
-                </div>
-                <ul class="card-features">
-                  <li><i class="fas fa-check-circle"></i> Unlimited custom designed pages</li>
-                  <li><i class="fas fa-check-circle"></i> Full internationalization (i18n)</li>
-                  <li><i class="fas fa-check-circle"></i> Dynamic data queries &amp; integrations</li>
-                  <li><i class="fas fa-check-circle"></i> Enterprise performance &amp; speed audits</li>
-                  <li><i class="fas fa-check-circle"></i> Dedicated testing support</li>
-                </ul>
-                <a href="contact.html?plan=premium-corporate" class="card-cta">Choose Plan</a>
-              </div>
-
-            </div>
-            <div class="rate-note"><i class="fas fa-info-circle"></i> Prices cover design, development, and basic deployment. Domain, hosting, and third-party integrations billed separately.</div>
-          </div>
-
-          <!-- Web Application Development -->
-          <div class="rate-panel" id="tab-webapp">
-            <div class="rate-grid">
-              
-              <!-- Card 1 -->
-              <div class="rate-card">
-                <div class="card-header">
-                  <div class="card-title">Basic Web App</div>
-                  <div class="card-meta">
-                    <span class="scope-badge">Dashboard, CRM Lite</span>
-                    <span class="complexity-badge cb-basic">Low</span>
-                  </div>
-                </div>
-                <div class="card-pricing">
-                  <div class="card-price-naira">₦1,500,000</div>
-                  <div class="card-price-usd">Starting at ~$940 USD</div>
-                </div>
-                <ul class="card-features">
-                  <li><i class="fas fa-check-circle"></i> Secure user registration &amp; auth</li>
-                  <li><i class="fas fa-check-circle"></i> Standard database CRUD operations</li>
-                  <li><i class="fas fa-check-circle"></i> Simple analytics charts</li>
-                  <li><i class="fas fa-check-circle"></i> Clean UI dashboard template</li>
-                </ul>
-                <a href="contact.html?plan=basic-webapp" class="card-cta">Choose Plan</a>
-              </div>
-
-              <!-- Card 2 (Featured!) -->
-              <div class="rate-card featured">
-                <div class="card-header">
-                  <div class="card-title">Standard Web App</div>
-                  <div class="card-meta">
-                    <span class="scope-badge">Booking, LMS, Portal</span>
-                    <span class="complexity-badge cb-medium">Medium</span>
-                  </div>
-                </div>
-                <div class="card-pricing">
-                  <div class="card-price-naira">₦3,500,000</div>
-                  <div class="card-price-usd">Starting at ~$2,190 USD</div>
-                </div>
-                <ul class="card-features">
-                  <li><i class="fas fa-check-circle"></i> Role-based access control (RBAC)</li>
-                  <li><i class="fas fa-check-circle"></i> Payment gateway integration</li>
-                  <li><i class="fas fa-check-circle"></i> Automated email triggers</li>
-                  <li><i class="fas fa-check-circle"></i> Custom relational DB schemas</li>
-                  <li><i class="fas fa-check-circle"></i> Third-party API connections</li>
-                </ul>
-                <a href="contact.html?plan=standard-webapp" class="card-cta">Choose Plan</a>
-              </div>
-
-              <!-- Card 3 -->
-              <div class="rate-card">
-                <div class="card-header">
-                  <div class="card-title">Advanced Web App</div>
-                  <div class="card-meta">
-                    <span class="scope-badge">SaaS, Marketplace</span>
-                    <span class="complexity-badge cb-high">High</span>
-                  </div>
-                </div>
-                <div class="card-pricing">
-                  <div class="card-price-naira">₦7,000,000</div>
-                  <div class="card-price-usd">Starting at ~$4,375 USD</div>
-                </div>
-                <ul class="card-features">
-                  <li><i class="fas fa-check-circle"></i> Subscription billing (recurring payments)</li>
-                  <li><i class="fas fa-check-circle"></i> Real-time sync &amp; WebSockets</li>
-                  <li><i class="fas fa-check-circle"></i> Advanced activity logging</li>
-                  <li><i class="fas fa-check-circle"></i> Analytics tracking &amp; reports</li>
-                  <li><i class="fas fa-check-circle"></i> Optimized REST or GraphQL APIs</li>
-                </ul>
-                <a href="contact.html?plan=advanced-webapp" class="card-cta">Choose Plan</a>
-              </div>
-
-              <!-- Card 4 -->
-              <div class="rate-card">
-                <div class="card-header">
-                  <div class="card-title">Enterprise Web App</div>
-                  <div class="card-meta">
-                    <span class="scope-badge">Banking, AI Platforms</span>
-                    <span class="complexity-badge cb-veryhigh">Very High</span>
-                  </div>
-                </div>
-                <div class="card-pricing">
-                  <div class="card-price-naira">₦15,000,000+</div>
-                  <div class="card-price-usd">Starting at ~$9,375+ USD</div>
-                </div>
-                <ul class="card-features">
-                  <li><i class="fas fa-check-circle"></i> Cybersecurity compliance &amp; audits</li>
-                  <li><i class="fas fa-check-circle"></i> Microservices architecture design</li>
-                  <li><i class="fas fa-check-circle"></i> Multi-region DB replication</li>
-                  <li><i class="fas fa-check-circle"></i> Custom AI/ML pipeline wires</li>
-                  <li><i class="fas fa-check-circle"></i> Enterprise scale SLA support</li>
-                </ul>
-                <a href="contact.html?plan=enterprise-webapp" class="card-cta">Choose Plan</a>
-              </div>
-
-            </div>
-            <div class="rate-note"><i class="fas fa-info-circle"></i> Includes frontend, backend API, database design, auth system, and admin panel setup. Quoted per project after discovery call.</div>
-          </div>
-
-          <!-- E-Commerce -->
-          <div class="rate-panel" id="tab-ecom">
-            <div class="rate-grid">
-              
-              <!-- Card 1 -->
-              <div class="rate-card">
-                <div class="card-header">
-                  <div class="card-title">Small Store</div>
-                  <div class="card-meta">
-                    <span class="scope-badge">Up to 50 Products</span>
-                    <span class="complexity-badge cb-basic">Basic</span>
-                  </div>
-                </div>
-                <div class="card-pricing">
-                  <div class="card-price-naira">₦800,000</div>
-                  <div class="card-price-usd">Starting at ~$500 USD</div>
-                </div>
-                <ul class="card-features">
-                  <li><i class="fas fa-check-circle"></i> Clean store inventory layout</li>
-                  <li><i class="fas fa-check-circle"></i> Shopping cart &amp; checkout screens</li>
-                  <li><i class="fas fa-check-circle"></i> Standard shipping calculator</li>
-                  <li><i class="fas fa-check-circle"></i> Order notification emails</li>
-                </ul>
-                <a href="contact.html?plan=small-store" class="card-cta">Choose Plan</a>
-              </div>
-
-              <!-- Card 2 (Featured!) -->
-              <div class="rate-card featured">
-                <div class="card-header">
-                  <div class="card-title">Business Store</div>
-                  <div class="card-meta">
-                    <span class="scope-badge">Up to 500 Products</span>
-                    <span class="complexity-badge cb-medium">Medium</span>
-                  </div>
-                </div>
-                <div class="card-pricing">
-                  <div class="card-price-naira">₦1,800,000</div>
-                  <div class="card-price-usd">Starting at ~$1,125 USD</div>
-                </div>
-                <ul class="card-features">
-                  <li><i class="fas fa-check-circle"></i> Custom filters &amp; product search</li>
-                  <li><i class="fas fa-check-circle"></i> Promo codes &amp; coupon engines</li>
-                  <li><i class="fas fa-check-circle"></i> Detailed inventory tracking</li>
-                  <li><i class="fas fa-check-circle"></i> Multi-gateway billing setup</li>
-                  <li><i class="fas fa-check-circle"></i> Sales report spreadsheets</li>
-                </ul>
-                <a href="contact.html?plan=business-store" class="card-cta">Choose Plan</a>
-              </div>
-
-              <!-- Card 3 -->
-              <div class="rate-card">
-                <div class="card-header">
-                  <div class="card-title">Advanced E-Commerce</div>
-                  <div class="card-meta">
-                    <span class="scope-badge">Unlimited Products</span>
-                    <span class="complexity-badge cb-high">High</span>
-                  </div>
-                </div>
-                <div class="card-pricing">
-                  <div class="card-price-naira">₦4,500,000</div>
-                  <div class="card-price-usd">Starting at ~$2,815 USD</div>
-                </div>
-                <ul class="card-features">
-                  <li><i class="fas fa-check-circle"></i> High-volume transaction routing</li>
-                  <li><i class="fas fa-check-circle"></i> Customer wishlist &amp; save-for-later</li>
-                  <li><i class="fas fa-check-circle"></i> Automated tax &amp; invoice exports</li>
-                  <li><i class="fas fa-check-circle"></i> Product variations &amp; swatches</li>
-                  <li><i class="fas fa-check-circle"></i> High performance speed tweaks</li>
-                </ul>
-                <a href="contact.html?plan=advanced-ecommerce" class="card-cta">Choose Plan</a>
-              </div>
-
-              <!-- Card 4 -->
-              <div class="rate-card">
-                <div class="card-header">
-                  <div class="card-title">Marketplace</div>
-                  <div class="card-meta">
-                    <span class="scope-badge">Multi-Vendor Products</span>
-                    <span class="complexity-badge cb-veryhigh">Very High</span>
-                  </div>
-                </div>
-                <div class="card-pricing">
-                  <div class="card-price-naira">₦8,000,000+</div>
-                  <div class="card-price-usd">Starting at ~$5,000+ USD</div>
-                </div>
-                <ul class="card-features">
-                  <li><i class="fas fa-check-circle"></i> Vendor management portals</li>
-                  <li><i class="fas fa-check-circle"></i> Multi-vendor payout routing</li>
-                  <li><i class="fas fa-check-circle"></i> Customized reviews &amp; ratings</li>
-                  <li><i class="fas fa-check-circle"></i> Marketplace-wide search queries</li>
-                  <li><i class="fas fa-check-circle"></i> Custom admin commissions setup</li>
-                </ul>
-                <a href="contact.html?plan=marketplace" class="card-cta">Choose Plan</a>
-              </div>
-
-            </div>
-            <div class="rate-note"><i class="fas fa-info-circle"></i> All e-commerce packages include product management, cart, checkout flow, and order tracking. Payment gateway is an add-on.</div>
-          </div>
-
-          <!-- Mobile App -->
-          <div class="rate-panel" id="tab-mobile">
-            <div class="rate-grid">
-              
-              <!-- Card 1 -->
-              <div class="rate-card">
-                <div class="card-header">
-                  <div class="card-title">MVP Mobile App</div>
-                  <div class="card-meta">
-                    <span class="scope-badge">5–10 Screens</span>
-                    <span class="complexity-badge cb-basic">Basic</span>
-                  </div>
-                </div>
-                <div class="card-pricing">
-                  <div class="card-price-naira">₦1,500,000</div>
-                  <div class="card-price-usd">Starting at ~$940 USD</div>
-                </div>
-                <ul class="card-features">
-                  <li><i class="fas fa-check-circle"></i> Single codebase (React Native)</li>
-                  <li><i class="fas fa-check-circle"></i> Core app flow validation</li>
-                  <li><i class="fas fa-check-circle"></i> Standard API integration</li>
-                  <li><i class="fas fa-check-circle"></i> Basic profile management</li>
-                </ul>
-                <a href="contact.html?plan=mvp-mobile" class="card-cta">Choose Plan</a>
-              </div>
-
-              <!-- Card 2 (Featured!) -->
-              <div class="rate-card featured">
-                <div class="card-header">
-                  <div class="card-title">Standard Mobile App</div>
-                  <div class="card-meta">
-                    <span class="scope-badge">10–20 Screens</span>
-                    <span class="complexity-badge cb-medium">Medium</span>
-                  </div>
-                </div>
-                <div class="card-pricing">
-                  <div class="card-price-naira">₦3,500,000</div>
-                  <div class="card-price-usd">Starting at ~$2,190 USD</div>
-                </div>
-                <ul class="card-features">
-                  <li><i class="fas fa-check-circle"></i> Android &amp; iOS deployment ready</li>
-                  <li><i class="fas fa-check-circle"></i> Push notification wiring</li>
-                  <li><i class="fas fa-check-circle"></i> Social authentication integration</li>
-                  <li><i class="fas fa-check-circle"></i> Maps &amp; location features</li>
-                  <li><i class="fas fa-check-circle"></i> In-app payment processing</li>
-                </ul>
-                <a href="contact.html?plan=standard-mobile" class="card-cta">Choose Plan</a>
-              </div>
-
-              <!-- Card 3 -->
-              <div class="rate-card">
-                <div class="card-header">
-                  <div class="card-title">Advanced Mobile App</div>
-                  <div class="card-meta">
-                    <span class="scope-badge">20–40 Screens</span>
-                    <span class="complexity-badge cb-high">High</span>
-                  </div>
-                </div>
-                <div class="card-pricing">
-                  <div class="card-price-naira">₦7,000,000</div>
-                  <div class="card-price-usd">Starting at ~$4,375 USD</div>
-                </div>
-                <ul class="card-features">
-                  <li><i class="fas fa-check-circle"></i> Offline-first data caching</li>
-                  <li><i class="fas fa-check-circle"></i> Custom camera/sensor controls</li>
-                  <li><i class="fas fa-check-circle"></i> Native modules implementation</li>
-                  <li><i class="fas fa-check-circle"></i> Detailed background processing</li>
-                  <li><i class="fas fa-check-circle"></i> Performance optimization</li>
-                </ul>
-                <a href="contact.html?plan=advanced-mobile" class="card-cta">Choose Plan</a>
-              </div>
-
-              <!-- Card 4 -->
-              <div class="rate-card">
-                <div class="card-header">
-                  <div class="card-title">Enterprise Mobile App</div>
-                  <div class="card-meta">
-                    <span class="scope-badge">40+ Screens</span>
-                    <span class="complexity-badge cb-veryhigh">Very High</span>
-                  </div>
-                </div>
-                <div class="card-pricing">
-                  <div class="card-price-naira">₦15,000,000+</div>
-                  <div class="card-price-usd">Starting at ~$9,375+ USD</div>
-                </div>
-                <ul class="card-features">
-                  <li><i class="fas fa-check-circle"></i> Full biometric authentication</li>
-                  <li><i class="fas fa-check-circle"></i> End-to-end database encryption</li>
-                  <li><i class="fas fa-check-circle"></i> Complex user workflows</li>
-                  <li><i class="fas fa-check-circle"></i> Automated test suite runs</li>
-                  <li><i class="fas fa-check-circle"></i> Dedicated publishing guidance</li>
-                </ul>
-                <a href="contact.html?plan=enterprise-mobile" class="card-cta">Choose Plan</a>
-              </div>
-
-            </div>
-            <div class="rate-note"><i class="fas fa-info-circle"></i> Built with React Native — ships to both iOS &amp; Android from a single codebase. Includes App Store / Play Store submission guidance.</div>
-          </div>
-
-          <!-- AI -->
-          <div class="rate-panel" id="tab-ai">
-            <div class="rate-grid">
-              
-              <!-- Card 1 -->
-              <div class="rate-card">
-                <div class="card-header">
-                  <div class="card-title">AI Chatbot</div>
-                  <div class="card-meta">
-                    <span class="scope-badge">Integration</span>
-                    <span class="complexity-badge cb-basic">Basic</span>
-                  </div>
-                </div>
-                <div class="card-pricing">
-                  <div class="card-price-naira">₦750,000</div>
-                  <div class="card-price-usd">Starting at ~$470 USD</div>
-                </div>
-                <ul class="card-features">
-                  <li><i class="fas fa-check-circle"></i> OpenAI / Gemini API wiring</li>
-                  <li><i class="fas fa-check-circle"></i> Prompt template definition</li>
-                  <li><i class="fas fa-check-circle"></i> Frontend chat widget overlay</li>
-                  <li><i class="fas fa-check-circle"></i> Basic user lead collection</li>
-                </ul>
-                <a href="contact.html?plan=ai-chatbot" class="card-cta">Choose Plan</a>
-              </div>
-
-              <!-- Card 2 (Featured!) -->
-              <div class="rate-card featured">
-                <div class="card-header">
-                  <div class="card-title">AI Assistant</div>
-                  <div class="card-meta">
-                    <span class="scope-badge">RAG Platform</span>
-                    <span class="complexity-badge cb-medium">Medium</span>
-                  </div>
-                </div>
-                <div class="card-pricing">
-                  <div class="card-price-naira">₦2,500,000</div>
-                  <div class="card-price-usd">Starting at ~$1,565 USD</div>
-                </div>
-                <ul class="card-features">
-                  <li><i class="fas fa-check-circle"></i> Vector search database (Pinecone)</li>
-                  <li><i class="fas fa-check-circle"></i> Custom knowledge base ingestion</li>
-                  <li><i class="fas fa-check-circle"></i> Custom RAG search pipelines</li>
-                  <li><i class="fas fa-check-circle"></i> Analytics dashboard for query logs</li>
-                </ul>
-                <a href="contact.html?plan=ai-assistant" class="card-cta">Choose Plan</a>
-              </div>
-
-              <!-- Card 3 -->
-              <div class="rate-card">
-                <div class="card-header">
-                  <div class="card-title">Custom AI Platform</div>
-                  <div class="card-meta">
-                    <span class="scope-badge">Full App Integration</span>
-                    <span class="complexity-badge cb-high">High</span>
-                  </div>
-                </div>
-                <div class="card-pricing">
-                  <div class="card-price-naira">₦8,000,000</div>
-                  <div class="card-price-usd">Starting at ~$5,000 USD</div>
-                </div>
-                <ul class="card-features">
-                  <li><i class="fas fa-check-circle"></i> Fine-tuning LLM pipelines</li>
-                  <li><i class="fas fa-check-circle"></i> Multi-model workflow orchestrations</li>
-                  <li><i class="fas fa-check-circle"></i> Dynamic content generations</li>
-                  <li><i class="fas fa-check-circle"></i> Custom agent tools connections</li>
-                </ul>
-                <a href="contact.html?plan=custom-ai" class="card-cta">Choose Plan</a>
-              </div>
-
-              <!-- Card 4 -->
-              <div class="rate-card">
-                <div class="card-header">
-                  <div class="card-title">Enterprise AI</div>
-                  <div class="card-meta">
-                    <span class="scope-badge">Full-Scale Solution</span>
-                    <span class="complexity-badge cb-veryhigh">Very High</span>
-                  </div>
-                </div>
-                <div class="card-pricing">
-                  <div class="card-price-naira">₦20,000,000+</div>
-                  <div class="card-price-usd">Starting at ~$12,500+ USD</div>
-                </div>
-                <ul class="card-features">
-                  <li><i class="fas fa-check-circle"></i> Local self-hosted LLM deployment</li>
-                  <li><i class="fas fa-check-circle"></i> High scalability throughput wires</li>
-                  <li><i class="fas fa-check-circle"></i> Full security &amp; privacy filters</li>
-                  <li><i class="fas fa-check-circle"></i> System-wide integration</li>
-                </ul>
-                <a href="contact.html?plan=enterprise-ai" class="card-cta">Choose Plan</a>
-              </div>
-
-            </div>
-            <div class="rate-note"><i class="fas fa-info-circle"></i> AI packages integrate with OpenAI, Gemini, or custom models depending on use case. Includes prompt engineering, fine-tuning guidance, and API wiring.</div>
-          </div>
-
-          <!-- Add-ons -->
-          <div class="rate-panel" id="tab-addons">
-            <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:1.25rem; line-height:1.7;">These services can be added to any package above or quoted as standalone engagements.</p>
-            <div class="addons-grid">
-              <div class="addon-item">
-                <div class="addon-name"><i class="fas fa-file" style="color:#4361ee;margin-right:.4rem;"></i>Additional Page</div>
-                <div class="addon-price">₦50,000 – ₦100,000</div>
-                <div class="addon-usd">~$30 – $65</div>
-              </div>
-              <div class="addon-item">
-                <div class="addon-name"><i class="fas fa-globe" style="color:#2dd4bf;margin-right:.4rem;"></i>Domain Setup</div>
-                <div class="addon-price">₦50,000</div>
-                <div class="addon-usd">~$30</div>
-              </div>
-              <div class="addon-item">
-                <div class="addon-name"><i class="fas fa-server" style="color:#8b5cf6;margin-right:.4rem;"></i>Hosting Setup</div>
-                <div class="addon-price">₦75,000</div>
-                <div class="addon-usd">~$50</div>
-              </div>
-              <div class="addon-item">
-                <div class="addon-name"><i class="fas fa-credit-card" style="color:#f59e0b;margin-right:.4rem;"></i>Payment Gateway</div>
-                <div class="addon-price">₦150,000</div>
-                <div class="addon-usd">~$95</div>
-              </div>
-              <div class="addon-item">
-                <div class="addon-name"><i class="fas fa-plug" style="color:#ec4899;margin-right:.4rem;"></i>API Integration</div>
-                <div class="addon-price">₦150,000 – ₦500,000</div>
-                <div class="addon-usd">~$95 – $315</div>
-              </div>
-              <div class="addon-item">
-                <div class="addon-name"><i class="fas fa-edit" style="color:#34d399;margin-right:.4rem;"></i>CMS Integration</div>
-                <div class="addon-price">₦200,000</div>
-                <div class="addon-usd">~$125</div>
-              </div>
-              <div class="addon-item">
-                <div class="addon-name"><i class="fas fa-tachometer-alt" style="color:#4361ee;margin-right:.4rem;"></i>Admin Dashboard</div>
-                <div class="addon-price">₦500,000+</div>
-                <div class="addon-usd">~$315+</div>
-              </div>
-              <div class="addon-item">
-                <div class="addon-name"><i class="fas fa-robot" style="color:#8b5cf6;margin-right:.4rem;"></i>AI Chat Integration</div>
-                <div class="addon-price">₦500,000+</div>
-                <div class="addon-usd">~$315+</div>
-              </div>
-              <div class="addon-item">
-                <div class="addon-name"><i class="fas fa-tools" style="color:#f59e0b;margin-right:.4rem;"></i>Maintenance (Monthly)</div>
-                <div class="addon-price">₦100,000 – ₦500,000</div>
-                <div class="addon-usd">~$65 – $315</div>
-              </div>
-            </div>
-            <div class="rate-note" style="margin-top:1.5rem;"><i class="fas fa-info-circle"></i>All add-ons are quoted per project. Contact me for a custom bundle price if you need multiple add-ons.</div>
-          </div>
-        </div>
-
         <!-- CTA Banner -->
         <div class="cta-banner">
           <h2>Ready to build something great together?</h2>
@@ -1976,7 +1157,7 @@
     <footer class="footer">
       <div class="footer-content">
         <div class="footer-text">
-          © 2024 Joshua Ayotope. All rights reserved.
+          © 2024 Joshua Ayotope Adeyefa. All rights reserved.
         </div>
         <div class="footer-social-links">
           <a href="https://github.com/ayopium07" class="footer-social-link" title="GitHub">
@@ -1999,24 +1180,27 @@
       const mobileMenuToggle = document.getElementById("mobileMenuToggle");
       const navLinks = document.getElementById("navLinks");
 
-      mobileMenuToggle.addEventListener("click", function () {
-        mobileMenuToggle.classList.toggle("active");
-        navLinks.classList.toggle("active");
-      });
-
-      navLinks.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", function () {
-          mobileMenuToggle.classList.remove("active");
-          navLinks.classList.remove("active");
+      if (mobileMenuToggle && navLinks) {
+        mobileMenuToggle.addEventListener("click", function (e) {
+          e.stopPropagation();
+          mobileMenuToggle.classList.toggle("active");
+          navLinks.classList.toggle("active");
         });
-      });
 
-      document.addEventListener("click", function (event) {
-        if (!mobileMenuToggle.contains(event.target) && !navLinks.contains(event.target)) {
-          mobileMenuToggle.classList.remove("active");
-          navLinks.classList.remove("active");
-        }
-      });
+        document.querySelectorAll(".nav-links a").forEach((link) => {
+          link.addEventListener("click", function () {
+            mobileMenuToggle.classList.remove("active");
+            navLinks.classList.remove("active");
+          });
+        });
+
+        document.addEventListener("click", function (event) {
+          if (!mobileMenuToggle.contains(event.target) && !navLinks.contains(event.target)) {
+            mobileMenuToggle.classList.remove("active");
+            navLinks.classList.remove("active");
+          }
+        });
+      }
 
       window.addEventListener("resize", function () {
         if (window.innerWidth > 768) {
@@ -2037,19 +1221,6 @@
       }, { threshold: 0.1 });
 
       cards.forEach((card) => cardObserver.observe(card));
-      // Rate card tab switching
-      const rateTabs = document.querySelectorAll('.rate-tab');
-      const ratePanels = document.querySelectorAll('.rate-panel');
-
-      rateTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          rateTabs.forEach(t => t.classList.remove('active'));
-          ratePanels.forEach(p => p.classList.remove('active'));
-          tab.classList.add('active');
-          const target = document.getElementById('tab-' + tab.dataset.tab);
-          if (target) target.classList.add('active');
-        });
-      });
     </script>
   </body>
 </html>
