@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Joshua Ayotope Adeyefa</title>
+<meta name="description" content="Get in touch with Joshua Ayotope Adeyefa for freelance projects, full-time roles and collaborations.">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/home.css">
+<link rel="stylesheet" href="styles/pages.css">
+</head>
+<body>
+<header>
+  <a href="index.html" class="logo"><i></i>Joshua Adeyefa</a>
+  <button class="burger" id="burger" aria-label="Menu"></button>
+</header>
+<div id="menu">
+  <nav>
+    <a href="index.html">Home <span>→</span></a>
+    <a href="about.html">About <span>→</span></a>
+    <a href="project.html">Projects <span>→</span></a>
+    <a href="services.html">Services <span>→</span></a>
+    <a href="contact.html" class="active">Contact <span>→</span></a>
+  </nav>
+  <aside>
+    <div><b>Get in touch</b><a href="mailto:maceyjoshua07@gmail.com">maceyjoshua07@gmail.com</a></div>
+    <div><b>Social</b>
+      <a href="https://github.com/ayopium07" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/Ayotope%20Joshua" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://twitter.com/Thatuglyboy_7" target="_blank" rel="noopener">X</a>
+      <a href="https://www.instagram.com/temisann7" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </aside>
+</div>
+
+<main>
+<section class="page-hero">
+  <div class="arc"></div>
+  <div class="label accent rv">Let's talk</div>
+  <h1 class="disp rv">Start a <em>conversation</em></h1>
+  <p class="rv">Whether you're hiring, building a product, or just want to explore what's possible — my inbox is always open.</p>
+</section>
+
+<section class="tint" style="padding-top:60px">
+  <div class="cgrid">
+    <div>
+      <div class="avail rv">Available · freelance, full-time &amp; collaboration</div>
+      <div class="intro rv">
+        <img src="images/JAA.jpg" alt="Joshua Ayotope Adeyefa">
+        <p><b>Hi, I'm Joshua 👋</b><br>A web &amp; mobile developer based in Lagos, Nigeria. I reply to every serious message within 24 hours.</p>
+      </div>
+      <div class="cinfo rv">
+        <a href="mailto:maceyjoshua07@gmail.com"><b>Email</b>maceyjoshua07@gmail.com</a>
+        <div><b>Location</b>Lagos, Nigeria</div>
+        <div><b>Response time</b>Under 24 hours</div>
+        <a href="https://drive.google.com/file/d/1ka-JcDgZp03tm4OOp38jiI8u-JSZ9V8A/view?usp=drive_link" target="_blank" rel="noopener"><b>Resume</b>Download ↓</a>
+      </div>
+      <div class="btns rv" style="margin-top:28px">
+        <a href="https://github.com/ayopium07" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/Ayotope%20Joshua" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://twitter.com/Thatuglyboy_7" target="_blank" rel="noopener">X</a>
+        <a href="https://www.instagram.com/temisann7" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+
+    <div class="form-card rv">
+      <div id="formWrap">
+        <h2 class="disp stitle sm" style="margin:0 0 8px">Send a message</h2>
+        <p style="color:var(--mute);font-size:14px">Tell me what you're working on and I'll get back to you with my thoughts.</p>
+        <div class="chips" id="subjectChips">
+          <span class="chip selected" data-value="Freelance Project">Freelance Project</span>
+          <span class="chip" data-value="Full-time Role">Full-time Role</span>
+          <span class="chip" data-value="Collaboration">Collaboration</span>
+          <span class="chip" data-value="General Enquiry">General Enquiry</span>
+        </div>
+        <form id="contactForm" novalidate>
+          <input type="hidden" id="subjectInput" name="subject" value="Freelance Project">
+          <div class="frow">
+            <div class="fg"><label for="firstName">First name</label><input type="text" id="firstName" name="firstName" placeholder="John" required></div>
+            <div class="fg"><label for="lastName">Last name</label><input type="text" id="lastName" name="lastName" placeholder="Doe" required></div>
+          </div>
+          <div class="fg"><label for="email">Email address</label><input type="email" id="email" name="email" placeholder="john@example.com" required></div>
+          <div class="fg"><label for="message">Message</label><textarea id="message" name="message" placeholder="Tell me about your project, timeline, or any questions you have…" required></textarea></div>
+          <button type="submit" class="send" id="submitBtn">Send message →</button>
+        </form>
+      </div>
+      <div class="ok" id="formSuccess"><h3 class="disp">Message sent!</h3><p>Thanks for reaching out. I'll reply within 24 hours.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><span>Web &amp; Mobile</span><span>© 2026 Joshua Ayotope Adeyefa</span><span>Lagos, Nigeria</span></footer>
+<div id="cur"></div>
+<script src="styles/site.js"></script>
+<script>
+const chips=document.querySelectorAll('.chip'),subject=document.getElementById('subjectInput');
+chips.forEach(c=>c.addEventListener('click',()=>{chips.forEach(x=>x.classList.remove('selected'));c.classList.add('selected');subject.value=c.dataset.value}));
+const form=document.getElementById('contactForm'),btn=document.getElementById('submitBtn');
+form.addEventListener('submit',e=>{
+  e.preventDefault();
+  const f=form.firstName.value.trim(),l=form.lastName.value.trim(),em=form.email.value.trim(),m=form.message.value.trim();
+  if(!f||!em||!m){form.reportValidity&&form.reportValidity();return}
+  btn.disabled=true;btn.textContent='Sending…';
+  // Opens the visitor's mail client with the message prefilled
+  const body=encodeURIComponent(`${m}\n\n— ${f} ${l} (${em})`);
+  location.href=`mailto:maceyjoshua07@gmail.com?subject=${encodeURIComponent(subject.value)}&body=${body}`;
+  setTimeout(()=>{document.getElementById('formWrap').style.display='none';document.getElementById('formSuccess').style.display='block'},700);
+});
+</script>
+</body>
+</html>
