@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 
 /**
- * The orange mascot with googly eyes. Pupils follow the pointer.
+ * The blue mascot with googly eyes. Pupils follow the pointer.
  */
 export default function Eyes({ className = '', style }) {
   const ref = useRef(null);
