@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" fill="none">
+  <rect width="360" height="360" rx="48" fill="#FD6925"/>
+  <!-- Number 9 and header -->
+  <text x="38" y="102" fill="#FFFFFF" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="900" font-size="82" letter-spacing="-2">9</text>
+  <text x="104" y="54" fill="#FFFFFF" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="800" font-size="19" letter-spacing="0.6">INDUSTRY, INNOVATION</text>
+  <text x="104" y="79" fill="#FFFFFF" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="800" font-size="19" letter-spacing="0.6">AND INFRASTRUCTURE</text>
+  <!-- SDG 9 Isometric Cubes -->
+  <g transform="translate(180, 224)" stroke="#FFFFFF" stroke-width="5.5" stroke-linejoin="round">
+    <!-- Top cube (filled top, outlined sides) -->
+    <polygon points="0,-96 44,-71 0,-46 -44,-71" fill="#FFFFFF" stroke="#FD6925" stroke-width="3"/>
+    <polygon points="-44,-71 0,-46 0,5 -44,-20" fill="#FD6925" stroke="#FFFFFF" stroke-width="5.5"/>
+    <polygon points="44,-71 0,-46 0,5 44,-20" fill="#FFFFFF" stroke="#FD6925" stroke-width="3"/>
+    <!-- Bottom-left cube -->
+    <polygon points="-44,-20 0,5 -44,30 -88,5" fill="#FFFFFF" stroke="#FD6925" stroke-width="3"/>
+    <polygon points="-88,5 -44,30 -44,81 -88,56" fill="#FD6925" stroke="#FFFFFF" stroke-width="5.5"/>
+    <polygon points="0,5 -44,30 -44,81 0,56" fill="#FD6925" stroke="#FFFFFF" stroke-width="5.5"/>
+    <!-- Bottom-right cube -->
+    <polygon points="44,-20 88,5 44,30 0,5" fill="#FD6925" stroke="#FFFFFF" stroke-width="5.5"/>
+    <polygon points="0,5 44,30 44,81 0,56" fill="#FFFFFF" stroke="#FD6925" stroke-width="3"/>
+    <polygon points="88,5 44,30 44,81 88,56" fill="#FD6925" stroke="#FFFFFF" stroke-width="5.5"/>
+  </g>
+</svg>

@@ -10,7 +10,7 @@ export default function ProjectCard({ p, delay = 0 }) {
         <img src={p.img} alt={p.title} loading="lazy" decoding="async" />
         <span className="project-tag">{tag}</span>
         <span className={`project-visit${p.href ? '' : ' private'}`}>
-          {p.href ? <>Visit site <span aria-hidden="true">↗</span></> : 'Private repo'}
+          {p.href ? <>{p.repo ? 'View repo' : 'Visit site'} <span aria-hidden="true">↗</span></> : 'Private repo'}
         </span>
       </div>
       <div className="project-info">
